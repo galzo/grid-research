@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import { Grid } from './components/Grid/Grid';
 
-function App() {
-  return (
-    <div className="App">
-      <span>{"hello world"}</span>
-    </div>
-  );
-}
+export const App = () => {
+	const [size, setSize] = useState(50);
 
-export default App;
+	return (
+		<div className="App">
+			<Grid rows={30} columns={10} size={size} />
+		</div>
+	);
+};
