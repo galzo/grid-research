@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Spotify from 'react-spotify-embed';
 import './App.css';
 import { Grid } from './components/Grid/Grid';
 

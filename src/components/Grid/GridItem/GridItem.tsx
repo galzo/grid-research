@@ -1,13 +1,13 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useRef } from 'react';
 import styled from 'styled-components';
 import randomColor from 'randomcolor';
-import { GridItemId } from '../../../common/types';
+import { GridItemId, GridItemPosition } from '../../../common/types';
 import { idToString } from '../../../utils/idHandler';
 
 export interface IGridItemProps {
 	id: GridItemId;
 	onHover: (id: GridItemId) => void;
-	onClick: (id: GridItemId) => void;
+	onClick: (id: GridItemId, position: GridItemPosition) => void;
 	isFocused: boolean;
 	isNeighbour: boolean;
 }
@@ -56,12 +56,21 @@ export const GridItem: FC<IGridItemProps> = ({
 	isNeighbour,
 	isFocused,
 }) => {
+	const ref = useRef<any>(null);
+
 	const handleHover = useCallback(() => {
 		onHover(id);
 	}, [id, onHover]);
 
 	const handleClick = useCallback(() => {
-		onClick(id);
+		const dimensions = ref.current.getBoundingClientRect();
+		const position: GridItemPosition = {
+			top: dimensions.top,
+			bottom: dimensions.bottom,
+			left: dimensions.left,
+			right: dimensions.right,
+		};
+		onClick(id, position);
 	}, [id, onClick]);
 
 	const className = useMemo(() => {
@@ -76,6 +85,7 @@ export const GridItem: FC<IGridItemProps> = ({
 
 	return (
 		<GridItemWrapper
+			ref={ref}
 			key={idToString(id)}
 			onMouseEnter={handleHover}
 			onClick={handleClick}

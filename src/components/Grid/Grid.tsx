@@ -2,8 +2,9 @@ import { FC, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { buildDimensionsMatrix, flattenArray } from '../../utils/arrayHandler';
 import { GridItem } from './GridItem/GridItem';
-import { GridItemId } from '../../common/types';
+import { GridItemId, GridItemPosition } from '../../common/types';
 import { areIdsEqual, idToString } from '../../utils/idHandler';
+import { SelectedItem } from './SelectedItem/SelectedItem';
 
 interface IGridProps {
 	rows: number;
@@ -40,15 +41,21 @@ const OverlayBackground = styled.div`
 export const Grid: FC<IGridProps> = ({ rows, columns, size }) => {
 	const [hoverId, setHoverId] = useState<GridItemId>();
 	const [selectedId, setSelectedId] = useState<GridItemId>();
+	const [selectedPosition, setSelectedPosition] =
+		useState<GridItemPosition>();
 
 	const handleHover = useCallback((id: GridItemId) => {
 		setHoverId(id);
 	}, []);
 
-	const handleClick = useCallback((id: GridItemId) => {
-		setHoverId(undefined);
-		setSelectedId(id);
-	}, []);
+	const handleClick = useCallback(
+		(id: GridItemId, position: GridItemPosition) => {
+			setHoverId(undefined);
+			setSelectedId(id);
+			setSelectedPosition(position);
+		},
+		[],
+	);
 
 	const Matrix = useMemo(() => {
 		const dimensions = buildDimensionsMatrix(rows, columns);
@@ -93,8 +100,14 @@ export const Grid: FC<IGridProps> = ({ rows, columns, size }) => {
 		return selectedId ? <OverlayBackground /> : null;
 	}, [selectedId]);
 
+	const SelectedItemComponent = useMemo(() => {
+		if (!selectedId || !selectedPosition) return null;
+		return <SelectedItem itemId={selectedId} position={selectedPosition} />;
+	}, [selectedId, selectedPosition]);
+
 	return (
 		<GridWrapper size={size}>
+			{SelectedItemComponent}
 			{Overlay}
 			{Matrix}
 		</GridWrapper>
