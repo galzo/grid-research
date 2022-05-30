@@ -7,6 +7,15 @@ interface ISelectedItemProps {
 	position: { right: number; left: number; top: number; bottom: number };
 }
 
+const SelectedItemFixed = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+`;
+
 const SelectedItemWrapper = styled.div<{ position: GridItemPosition }>`
 	position: absolute;
 	top: ${({ position }) => `${position.top}px`};
@@ -16,10 +25,11 @@ const SelectedItemWrapper = styled.div<{ position: GridItemPosition }>`
 	z-index: 9999;
 	width: 125px;
 	height: 125px;
-	background-color: white;
 	transition: all 800ms;
 	transition-timing-function: ease;
 	transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+	background-image: url('https://live.staticflickr.com/65535/52091066476_070e538de7_o.jpg');
+	background-size: contain;
 
 	&.enlarge {
 		width: 586px;
@@ -39,11 +49,13 @@ export const SelectedItem: FC<ISelectedItemProps> = ({ position }) => {
 	}, [position]);
 
 	return (
-		<SelectedItemWrapper
-			position={position}
-			className={isTriggered ? 'enlarge' : ''}
-		>
-			{'hello world'}
-		</SelectedItemWrapper>
+		<SelectedItemFixed>
+			<SelectedItemWrapper
+				position={position}
+				className={isTriggered ? 'enlarge' : ''}
+			>
+				{'hello world'}
+			</SelectedItemWrapper>
+		</SelectedItemFixed>
 	);
 };

@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.0.5",
     "randomcolor": "^0.6.2",
     "react": "^18.1.0",
+    "react-3d-rotation-box": "^1.0.1",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "react-spotify-embed": "^0.2.3",
@@ -49,7 +50,8 @@
       "arrow-body-style": 0,
       "import/no-unresolved": 0,
       "import/extensions": 0,
-      "import/no-useless-path-segments": 0
+      "import/no-useless-path-segments": 0,
+      "typescript-eslint/no-var-requires": 0
     }
   },
   "browserslist": {
