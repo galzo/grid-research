@@ -1,3 +1,5 @@
+export type AlbumImageFetchTask = () => Promise<void>;
+
 export type AlbumId = string;
 
 export interface RawAlbumData {

@@ -6,6 +6,7 @@ import { IAlbumsGridProps } from './AlbumsGrid.types';
 import { DEFAULT_GRID_TILE_SIZE } from '../../common/consts';
 import { resolveFocusDetails } from '../../utils/albumFocusHandler';
 import { GridWrapper } from './AlbumsGrid.styles';
+import { useImagePrefetch } from '../../hooks/useImagePrefetch';
 
 const OverlayBackground = styled.div`
 	position: fixed; /* Sit on top of the page content */
@@ -76,6 +77,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	tileSize = DEFAULT_GRID_TILE_SIZE,
 }) => {
 	const [focusedAlbum, setFocusedAlbum] = useState<AlbumDetails>();
+	const { idToImageMapping } = useImagePrefetch(data);
 
 	const handleFocusAlbum = useCallback((album: AlbumDetails) => {
 		setFocusedAlbum(album);
@@ -87,12 +89,15 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		}
 
 		const albumItems = Object.values(data)
-			.slice(0, 100)
+			.slice(0, 500)
 			.map((album) => {
 				const focus = resolveFocusDetails(album, focusedAlbum);
+				const albumImage = idToImageMapping[album.id];
 				return (
 					<GridItem
+						key={album.id}
 						album={album}
+						image={albumImage}
 						onHover={handleFocusAlbum}
 						isFocused={focus.isFocused}
 						isNeighbour={focus.isNeighbour}
@@ -101,7 +106,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 			});
 
 		return albumItems;
-	}, [data, focusedAlbum, handleFocusAlbum]);
+	}, [data, focusedAlbum, handleFocusAlbum, idToImageMapping]);
 
 	if (GridMatrix.length <= 0) {
 		return null;

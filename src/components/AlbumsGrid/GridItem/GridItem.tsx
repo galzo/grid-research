@@ -8,6 +8,7 @@ export const GridItem: FC<IGridItemProps> = ({
 	onHover,
 	isFocused,
 	isNeighbour,
+	image,
 }) => {
 	const ref = useRef<any>(null);
 
@@ -33,6 +34,10 @@ export const GridItem: FC<IGridItemProps> = ({
 
 	if (!album) {
 		return null;
+	}
+
+	if (!image) {
+		return <div>{'loading'}</div>;
 	}
 
 	return (

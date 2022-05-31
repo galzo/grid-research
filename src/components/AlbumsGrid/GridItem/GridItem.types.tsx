@@ -5,4 +5,5 @@ export interface IGridItemProps {
 	onHover: (album: AlbumDetails) => void;
 	isFocused: boolean;
 	isNeighbour: boolean;
+	image: string;
 }
