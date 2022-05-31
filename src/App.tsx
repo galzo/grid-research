@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Spotify from 'react-spotify-embed';
 import './App.css';
-import { Grid } from './components/Grid/Grid';
+import { DEFAULT_GRID_TILE_SIZE } from './common/consts';
+import { AlbumsGrid } from './components/AlbumsGrid/AlbumsGrid';
+import { getAlbumsData } from './utils/albumDataLoader';
 
 export const App = () => {
+	const albumsData = useMemo(() => {
+		return getAlbumsData();
+	}, []);
+
 	return (
 		<div className="App">
-			<Grid rows={100} columns={10} size={50} />
+			<AlbumsGrid data={albumsData} tileSize={DEFAULT_GRID_TILE_SIZE} />
 		</div>
 	);
 };
