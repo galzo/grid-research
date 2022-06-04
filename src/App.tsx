@@ -1,6 +1,7 @@
 import './App.css';
 import { DEFAULT_GRID_TILE_SIZE } from './common/consts';
 import { AlbumsGrid } from './components/AlbumsGrid/AlbumsGrid';
+import { GridLoader } from './components/GridLoader/GridLoader';
 import { useAlbumsData } from './hooks/useAlbumsData';
 
 const TILE_SIZE = DEFAULT_GRID_TILE_SIZE;
@@ -10,7 +11,7 @@ export const App = () => {
 	const { isLoading, albums } = useAlbumsData(ALBUMS_AMOUNT);
 
 	if (isLoading) {
-		return <div>{'loading'}</div>;
+		return <GridLoader />;
 	}
 
 	if (!albums) {
