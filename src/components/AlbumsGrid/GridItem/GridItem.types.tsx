@@ -1,9 +1,9 @@
-import { AlbumDetails } from '../../../common/dataTypes';
+import { Album, AlbumData } from '../../../common/dataTypes';
 
 export interface IGridItemProps {
-	album: AlbumDetails;
-	onHover: (album: AlbumDetails) => void;
+	album: AlbumData;
+	onHover: (album: Album) => void;
 	isFocused: boolean;
 	isNeighbour: boolean;
-	image: string;
+	itemSize: number;
 }

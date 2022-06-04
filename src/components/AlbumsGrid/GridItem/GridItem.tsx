@@ -1,14 +1,14 @@
 import { FC, useCallback, useMemo, useRef } from 'react';
 import { IGridItemProps } from './GridItem.types';
-import { resolveGridItemClassName } from '../../../utils/classNamesHandler';
-import { GridItemImage } from './GridItem.styles';
+import { GridItemImage, GridItemWrapper } from './GridItem.styles';
+import { resolveGridItemClassName } from '../../../utils/ui/classNamesHandler';
 
 export const GridItem: FC<IGridItemProps> = ({
 	album,
 	onHover,
 	isFocused,
 	isNeighbour,
-	image,
+	itemSize,
 }) => {
 	const ref = useRef<any>(null);
 
@@ -36,18 +36,21 @@ export const GridItem: FC<IGridItemProps> = ({
 		return null;
 	}
 
-	if (!image) {
+	if (!album.image) {
 		return <div>{'loading'}</div>;
 	}
 
 	return (
 		<GridItemImage
+			src={album.image}
+			loading={'lazy'}
+			imageSize={itemSize}
+			alt={album.albumName}
 			ref={ref}
 			key={album.id}
-			imageUrl={album.thumbnails.small}
 			onMouseEnter={handleHover}
 			onClick={handleClick}
 			className={className}
-		></GridItemImage>
+		/>
 	);
 };

@@ -1,6 +1,6 @@
-import { AlbumDetails, AlbumId } from '../../common/dataTypes';
+import { Album, AlbumId, AlbumData } from '../../common/dataTypes';
 
 export interface IAlbumsGridProps {
-	data: Record<AlbumId, AlbumDetails>;
+	albums: Record<AlbumId, AlbumData>;
 	tileSize?: number;
 }

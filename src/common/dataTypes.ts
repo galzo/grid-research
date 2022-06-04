@@ -1,6 +1,9 @@
-export type AlbumImageFetchTask = () => Promise<void>;
-
 export type AlbumId = string;
+
+export interface AlbumImage {
+	id: AlbumId;
+	image: string;
+}
 
 export interface RawAlbumData {
 	['album_name']: string;
@@ -29,7 +32,7 @@ export interface RawAlbumData {
 	['youtube_link']: string;
 }
 
-export interface AlbumDetails {
+export interface Album {
 	id: AlbumId;
 	albumName: string;
 	trackName: string;
@@ -39,4 +42,8 @@ export interface AlbumDetails {
 		small: string;
 		large: string;
 	};
+}
+
+export interface AlbumData extends Album {
+	image?: string;
 }

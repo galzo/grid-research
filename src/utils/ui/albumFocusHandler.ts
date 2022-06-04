@@ -1,9 +1,6 @@
-import { AlbumDetails } from '../common/dataTypes';
+import { Album } from '../../common/dataTypes';
 
-export const resolveFocusDetails = (
-	album: AlbumDetails,
-	focusedAlbum?: AlbumDetails,
-) => {
+export const resolveFocusDetails = (album: Album, focusedAlbum?: Album) => {
 	if (!focusedAlbum) {
 		return { isFocused: false, isNeighbour: false };
 	}

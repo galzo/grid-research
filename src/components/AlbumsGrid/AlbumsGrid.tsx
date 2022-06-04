@@ -1,12 +1,11 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { GridItem } from './GridItem/GridItem';
-import { AlbumDetails } from '../../common/dataTypes';
+import { Album } from '../../common/dataTypes';
 import { IAlbumsGridProps } from './AlbumsGrid.types';
 import { DEFAULT_GRID_TILE_SIZE } from '../../common/consts';
-import { resolveFocusDetails } from '../../utils/albumFocusHandler';
+import { resolveFocusDetails } from '../../utils/ui/albumFocusHandler';
 import { GridWrapper } from './AlbumsGrid.styles';
-import { useImagePrefetch } from '../../hooks/useImagePrefetch';
 
 const OverlayBackground = styled.div`
 	position: fixed; /* Sit on top of the page content */
@@ -73,40 +72,36 @@ const OverlayBackground = styled.div`
 `;
 
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
-	data,
+	albums,
 	tileSize = DEFAULT_GRID_TILE_SIZE,
 }) => {
-	const [focusedAlbum, setFocusedAlbum] = useState<AlbumDetails>();
-	const { idToImageMapping } = useImagePrefetch(data);
+	const [focusedAlbum, setFocusedAlbum] = useState<Album>();
 
-	const handleFocusAlbum = useCallback((album: AlbumDetails) => {
+	const handleFocusAlbum = useCallback((album: Album) => {
 		setFocusedAlbum(album);
 	}, []);
 
 	const GridMatrix = useMemo(() => {
-		if (!data) {
+		if (!albums) {
 			return [];
 		}
 
-		const albumItems = Object.values(data)
-			.slice(0, 500)
-			.map((album) => {
-				const focus = resolveFocusDetails(album, focusedAlbum);
-				const albumImage = idToImageMapping[album.id];
-				return (
-					<GridItem
-						key={album.id}
-						album={album}
-						image={albumImage}
-						onHover={handleFocusAlbum}
-						isFocused={focus.isFocused}
-						isNeighbour={focus.isNeighbour}
-					/>
-				);
-			});
+		const albumItems = Object.values(albums).map((album) => {
+			const focus = resolveFocusDetails(album, focusedAlbum);
+			return (
+				<GridItem
+					key={album.id}
+					album={album}
+					onHover={handleFocusAlbum}
+					isFocused={focus.isFocused}
+					isNeighbour={focus.isNeighbour}
+					itemSize={tileSize}
+				/>
+			);
+		});
 
 		return albumItems;
-	}, [data, focusedAlbum, handleFocusAlbum, idToImageMapping]);
+	}, [albums, focusedAlbum, handleFocusAlbum, tileSize]);
 
 	if (GridMatrix.length <= 0) {
 		return null;
