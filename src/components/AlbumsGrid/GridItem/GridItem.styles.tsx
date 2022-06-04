@@ -1,8 +1,17 @@
 import styled from 'styled-components';
 
+export const GridItemPlaceholder = styled.div<{ color: string }>`
+	background-color: ${({ color }) => color};
+`;
+
 export const GridItemImage = styled.img<{ imageSize: number }>`
 	width: ${({ imageSize }) => `${imageSize}px`};
 	height: ${({ imageSize }) => `${imageSize}px`};
+	animation: fadeIn 1s;
+	-webkit-animation: fadeIn 1s;
+	-moz-animation: fadeIn 1s;
+	-o-animation: fadeIn 1s;
+	-ms-animation: fadeIn 1s;
 
 	&.hover {
 		-webkit-transform: scale(2.5);
@@ -30,37 +39,49 @@ export const GridItemImage = styled.img<{ imageSize: number }>`
 		-ms-transition: -ms-transform 0.5s;
 		transition: transform 0.5s;
 	}
-`;
 
-export const GridItemWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&.hover {
-		-webkit-transform: scale(2.5);
-		-moz-transform: scale(2.5);
-		-ms-transform: scale(2.5);
-		transform: scale(2.5);
-		-webkit-transition: -webkit-transform 0.25s;
-		-moz-transition: -moz-transform 0.25s;
-		-ms-transition: -ms-transform 0.25s;
-		transition: transform 0.25s;
-		border: 1px solid white;
-		border-radius: 4px;
-
-		-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
-		box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 
-	&.neighbour {
-		-webkit-transform: scale(1.5);
-		-moz-transform: scale(1.5);
-		-ms-transform: scale(1.5);
-		transform: scale(1.5);
-		-webkit-transition: -webkit-transform 0.5s;
-		-moz-transition: -moz-transform 0.5s;
-		-ms-transition: -ms-transform 0.5s;
-		transition: transform 0.5s;
+	@-moz-keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@-o-keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@-ms-keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 `;

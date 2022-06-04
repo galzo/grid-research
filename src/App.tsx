@@ -1,11 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import Spotify from 'react-spotify-embed';
 import './App.css';
 import { DEFAULT_GRID_TILE_SIZE } from './common/consts';
 import { AlbumsGrid } from './components/AlbumsGrid/AlbumsGrid';
-import { fetchAlbums } from './utils/data/albumDataLoader';
-import { AlbumImage } from './common/dataTypes';
-import { fetchAlbumImages } from './utils/data/albumImageFetcher';
 import { useAlbumsData } from './hooks/useAlbumsData';
 
 const TILE_SIZE = DEFAULT_GRID_TILE_SIZE;

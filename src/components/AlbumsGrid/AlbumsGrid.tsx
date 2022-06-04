@@ -7,70 +7,6 @@ import { DEFAULT_GRID_TILE_SIZE } from '../../common/consts';
 import { resolveFocusDetails } from '../../utils/ui/albumFocusHandler';
 import { GridWrapper } from './AlbumsGrid.styles';
 
-const OverlayBackground = styled.div`
-	position: fixed; /* Sit on top of the page content */
-	display: block; /* Hidden by default */
-	width: 100%; /* Full width (cover the whole page) */
-	height: 100%; /* Full height (cover the whole page) */
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
-	z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-	cursor: pointer; /* Add a pointer on hover */
-	animation: fadeIn 1s;
-	-webkit-animation: fadeIn 1s;
-	-moz-animation: fadeIn 1s;
-	-o-animation: fadeIn 1s;
-	-ms-animation: fadeIn 1s;
-
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-moz-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-webkit-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-o-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-ms-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-`;
-
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,
 	tileSize = DEFAULT_GRID_TILE_SIZE,
@@ -86,12 +22,13 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 			return [];
 		}
 
-		const albumItems = Object.values(albums).map((album) => {
+		const albumItems = Object.values(albums).map((album, index) => {
 			const focus = resolveFocusDetails(album, focusedAlbum);
 			return (
 				<GridItem
 					key={album.id}
 					album={album}
+					albumIndex={index}
 					onHover={handleFocusAlbum}
 					isFocused={focus.isFocused}
 					isNeighbour={focus.isNeighbour}
