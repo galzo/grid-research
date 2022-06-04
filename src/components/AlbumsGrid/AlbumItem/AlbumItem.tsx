@@ -1,13 +1,15 @@
 import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { IGridItemProps } from './GridItem.types';
-import { GridItemImage, GridItemPlaceholder } from './GridItem.styles';
+import { IAlbumItemProps } from './AlbumItem.types';
+import { AlbumItemImage, AlbumItemPlaceholder } from './AlbumItem.styles';
 import { resolveGridItemClassName } from '../../../utils/ui/classNamesHandler';
 import { useDelayedRender } from '../../../hooks/useDelayedRender';
+import { GridItemPosition } from '../../../common/uiTypes';
 
-export const GridItem: FC<IGridItemProps> = ({
+export const AlbumItem: FC<IAlbumItemProps> = ({
 	album,
 	albumIndex,
 	onHover,
+	onClick,
 	isFocused,
 	isNeighbour,
 	itemSize,
@@ -20,27 +22,29 @@ export const GridItem: FC<IGridItemProps> = ({
 	}, [album, onHover]);
 
 	const handleClick = useCallback(() => {
-		alert('click!');
-		// const dimensions = ref.current.getBoundingClientRect();
-		// const position: GridItemPosition = {
-		// 	top: dimensions.top,
-		// 	bottom: dimensions.bottom,
-		// 	left: dimensions.left,
-		// 	right: dimensions.right,
-		// };
-		// onClick(id, position);
-	}, []);
+		const { top, bottom, left, right } =
+			ref.current.getBoundingClientRect();
+
+		const position: GridItemPosition = {
+			top,
+			bottom,
+			left,
+			right,
+		};
+
+		onClick(album, position);
+	}, [album, onClick]);
 
 	const className = useMemo(() => {
 		return resolveGridItemClassName(isFocused, isNeighbour);
 	}, [isFocused, isNeighbour]);
 
 	if (!shouldRender) {
-		return <GridItemPlaceholder color={'#282c34'} />;
+		return <AlbumItemPlaceholder color={'#282c34'} />;
 	}
 
 	return (
-		<GridItemImage
+		<AlbumItemImage
 			ref={ref}
 			key={album.id}
 			src={album.image}

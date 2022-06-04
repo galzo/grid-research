@@ -1,21 +1,32 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { GridItem } from './GridItem/GridItem';
-import { Album } from '../../common/dataTypes';
+import { AlbumItem } from './AlbumItem/AlbumItem';
+import { Album, AlbumData } from '../../common/dataTypes';
 import { IAlbumsGridProps } from './AlbumsGrid.types';
 import { DEFAULT_GRID_TILE_SIZE } from '../../common/consts';
 import { resolveFocusDetails } from '../../utils/ui/albumFocusHandler';
 import { GridWrapper } from './AlbumsGrid.styles';
+import { GridItemPosition } from '../../common/uiTypes';
+import { SelectedAlbumOverlay } from '../SelectedAlbum/SelectedAlbumOverlay';
+import { useFocusAlbum } from '../../hooks/useFocusAlbum';
 
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,
 	tileSize = DEFAULT_GRID_TILE_SIZE,
 }) => {
-	const [focusedAlbum, setFocusedAlbum] = useState<Album>();
+	const { focusedAlbum, handleFocusAlbum } = useFocusAlbum();
+	const [selectedAlbum, setSelectedAlbum] = useState<AlbumData>();
+	const [selectedPosition, setSelectedPosition] =
+		useState<GridItemPosition>();
 
-	const handleFocusAlbum = useCallback((album: Album) => {
-		setFocusedAlbum(album);
-	}, []);
+	const handleClick = useCallback(
+		(album: AlbumData, position: GridItemPosition) => {
+			handleFocusAlbum(undefined);
+			setSelectedAlbum(album);
+			setSelectedPosition(position);
+		},
+		[handleFocusAlbum],
+	);
 
 	const GridMatrix = useMemo(() => {
 		if (!albums) {
@@ -25,11 +36,12 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		const albumItems = Object.values(albums).map((album, index) => {
 			const focus = resolveFocusDetails(album, focusedAlbum);
 			return (
-				<GridItem
+				<AlbumItem
 					key={album.id}
 					album={album}
 					albumIndex={index}
 					onHover={handleFocusAlbum}
+					onClick={handleClick}
 					isFocused={focus.isFocused}
 					isNeighbour={focus.isNeighbour}
 					itemSize={tileSize}
@@ -38,13 +50,21 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		});
 
 		return albumItems;
-	}, [albums, focusedAlbum, handleFocusAlbum, tileSize]);
+	}, [albums, focusedAlbum, handleClick, handleFocusAlbum, tileSize]);
 
 	if (GridMatrix.length <= 0) {
 		return null;
 	}
 
-	return <GridWrapper size={tileSize}>{GridMatrix}</GridWrapper>;
+	return (
+		<GridWrapper size={tileSize}>
+			<SelectedAlbumOverlay
+				selectedAlbum={selectedAlbum}
+				albumPosition={selectedPosition}
+			/>
+			{GridMatrix}
+		</GridWrapper>
+	);
 
 	// const [hoverId, setHoverId] = useState<GridItemId>();
 	// const [selectedId, setSelectedId] = useState<GridItemId>();

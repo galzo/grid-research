@@ -1,22 +1,22 @@
 import pLimit from 'p-limit';
 import { Album, AlbumImage } from '../../common/dataTypes';
 
-const fetchAlbumImage = async (album: Album): Promise<AlbumImage> => {
-	const res = await fetch(album.thumbnails.small);
+export const fetchImage = async (url: string): Promise<string> => {
+	const res = await fetch(url);
 	const imageBlob = await res.blob();
 	const imageObjectURL = URL.createObjectURL(imageBlob);
-	return {
-		id: album.id,
-		image: imageObjectURL,
-	};
+	return imageObjectURL;
 };
 
 export const fetchAlbumImages = async (albums: Album[]) => {
 	const limit = pLimit(50);
 	const fetchTasks = Object.values(albums).map((album, index) => {
-		return limit(() => {
-			console.log('loading', index);
-			return fetchAlbumImage(album);
+		return limit(async () => {
+			const image = await fetchImage(album.thumbnails.small);
+			return {
+				id: album.id,
+				image,
+			};
 		});
 	});
 

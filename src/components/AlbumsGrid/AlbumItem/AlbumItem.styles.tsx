@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const GridItemPlaceholder = styled.div<{ color: string }>`
+export const AlbumItemPlaceholder = styled.div<{ color: string }>`
 	background-color: ${({ color }) => color};
 `;
 
-export const GridItemImage = styled.img<{ imageSize: number }>`
+export const AlbumItemImage = styled.img<{ imageSize: number }>`
 	width: ${({ imageSize }) => `${imageSize}px`};
 	height: ${({ imageSize }) => `${imageSize}px`};
 	animation: fadeIn 1s;
@@ -12,6 +12,7 @@ export const GridItemImage = styled.img<{ imageSize: number }>`
 	-moz-animation: fadeIn 1s;
 	-o-animation: fadeIn 1s;
 	-ms-animation: fadeIn 1s;
+	cursor: pointer;
 
 	&.hover {
 		-webkit-transform: scale(2.5);
@@ -22,7 +23,6 @@ export const GridItemImage = styled.img<{ imageSize: number }>`
 		-moz-transition: -moz-transform 0.25s;
 		-ms-transition: -ms-transform 0.25s;
 		transition: transform 0.25s;
-		border: 1px solid white;
 		border-radius: 4px;
 
 		-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
