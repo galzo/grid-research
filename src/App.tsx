@@ -4,8 +4,8 @@ import { AlbumsGrid } from './components/AlbumsGrid/AlbumsGrid';
 import { GridLoader } from './components/GridLoader/GridLoader';
 import { useAlbumsData } from './hooks/useAlbumsData';
 
-const TILE_SIZE = DEFAULT_GRID_TILE_SIZE;
-const ALBUMS_AMOUNT = 1000;
+const TILE_SIZE = 40;
+const ALBUMS_AMOUNT = 1500;
 
 export const App = () => {
 	const { isLoading, albums } = useAlbumsData(ALBUMS_AMOUNT);
