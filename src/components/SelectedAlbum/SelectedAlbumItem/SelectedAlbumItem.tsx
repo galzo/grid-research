@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { fetchImage } from '../../../utils/data/albumImageFetcher';
 import {
 	FixedItemWrapper,
@@ -28,7 +28,7 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 			setAlbumImage(image);
 		};
 
-		fetchLargeImage();
+		setTimeout(fetchLargeImage, 500);
 	}, [album]);
 
 	return (
