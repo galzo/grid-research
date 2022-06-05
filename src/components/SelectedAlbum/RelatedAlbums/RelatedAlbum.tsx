@@ -15,6 +15,7 @@ interface IRelatedAlbumProps {
 export const RelatedAlbumContainer = styled.div`
 	width: 115px;
 	height: 115px;
+	min-width: 115px;
 	border: 2px solid white;
 	border-radius: 4px;
 	background-color: gray;

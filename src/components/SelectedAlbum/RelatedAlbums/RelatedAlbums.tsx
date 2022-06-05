@@ -14,6 +14,14 @@ export const RelatedAlbumsContainer = styled.div`
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-start;
+	overflow: auto;
+	white-space: nowrap;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 `;
 
 export const RelatedAlbums: FC<IRelatedAlbumsProps> = ({ albums, onClick }) => {
