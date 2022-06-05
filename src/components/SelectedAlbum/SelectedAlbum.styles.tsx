@@ -11,6 +11,7 @@ export const OverlayWrapper = styled.div`
 	bottom: 0;
 	flex-direction: column;
 	padding: 80px;
+	z-index: 5;
 `;
 
 export const OverlayBackground = styled.div`
@@ -30,6 +31,7 @@ export const OverlayBackground = styled.div`
 	-moz-animation: fadeIn 1s;
 	-o-animation: fadeIn 1s;
 	-ms-animation: fadeIn 1s;
+	z-index: 4;
 
 	@keyframes fadeIn {
 		0% {

@@ -16,11 +16,23 @@ export const AlbumItemImage = styled.img<{ imageSize: number }>`
 	cursor: pointer;
 	background-color: #282c34;
 
+	&.none {
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1);
+		-webkit-transition: -webkit-transform 0.25s;
+		-moz-transition: -moz-transform 0.25s;
+		-ms-transition: -ms-transform 0.25s;
+		transition: transform 0.25s;
+		z-index: 1;
+	}
+
 	&.focus {
-		-webkit-transform: scale(3);
-		-moz-transform: scale(3);
-		-ms-transform: scale(3);
-		transform: scale(3);
+		-webkit-transform: scale(2.5);
+		-moz-transform: scale(2.5);
+		-ms-transform: scale(2.5);
+		transform: scale(2.5);
 		-webkit-transition: -webkit-transform 0.25s;
 		-moz-transition: -moz-transform 0.25s;
 		-ms-transition: -ms-transform 0.25s;
@@ -29,6 +41,7 @@ export const AlbumItemImage = styled.img<{ imageSize: number }>`
 		border: 1px solid white;
 		-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 		box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
+		z-index: 2;
 	}
 
 	&.related {
@@ -44,6 +57,7 @@ export const AlbumItemImage = styled.img<{ imageSize: number }>`
 		border-radius: 4px;
 		-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 		box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
+		z-index: 2;
 	}
 
 	@keyframes fadeIn {

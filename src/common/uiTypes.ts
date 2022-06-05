@@ -9,3 +9,5 @@ export type GridItemPosition = {
 	left: number;
 	right: number;
 };
+
+export type FocusType = 'focus' | 'related' | 'none';

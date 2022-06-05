@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import { FocusType } from '../../../common/uiTypes';
 import { resolveGridItemClassName } from '../../../utils/ui/classNamesHandler';
 
 export const useFocusClass = (isFocused: boolean, isRelated: boolean) => {
-	const [className, setClassname] = useState<'focus' | 'related' | ''>('');
+	const [className, setClassname] = useState<FocusType>('none');
 
 	useEffect(() => {
 		let timeout: any;
@@ -22,7 +23,7 @@ export const useFocusClass = (isFocused: boolean, isRelated: boolean) => {
 				clearTimeout(timeout);
 			}
 		};
-	}, [isFocused, isRelated]);
+	}, [className, isFocused, isRelated]);
 
 	return {
 		className,
