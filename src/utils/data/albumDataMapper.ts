@@ -21,3 +21,14 @@ export const buildAlbumDataMapping = (
 		};
 	}, {});
 };
+
+export const resolveRelatedAlbums = (
+	allAlbums: Record<AlbumId, AlbumData>,
+	selectedAlbum: AlbumData,
+) => {
+	const relatedAlbumIds = selectedAlbum.relatedAlbums;
+	const relatedAlbums = relatedAlbumIds.map((id) => {
+		return allAlbums[id];
+	});
+	return relatedAlbums;
+};

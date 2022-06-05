@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import styled from 'styled-components';
+import { AlbumData } from '../../../common/dataTypes';
+import { RelatedAlbum } from './RelatedAlbum';
 
 interface IRelatedAlbumsProps {
-	hello?: 'world';
+	albums: AlbumData[];
 }
 
 export const RelatedAlbumsContainer = styled.div`
@@ -13,22 +15,12 @@ export const RelatedAlbumsContainer = styled.div`
 	justify-content: flex-start;
 `;
 
-export const RelatedAlbum = styled.div`
-	width: 115px;
-	height: 115px;
-	border: 1px solid white;
-	border-radius: 4px;
-	background-color: gray;
-`;
+export const RelatedAlbums: FC<IRelatedAlbumsProps> = ({ albums }) => {
+	const AlbumComponents = useMemo(() => {
+		return albums.map((album) => {
+			return <RelatedAlbum album={album} />;
+		});
+	}, [albums]);
 
-export const RelatedAlbums: FC<IRelatedAlbumsProps> = (props) => {
-	return (
-		<RelatedAlbumsContainer>
-			<RelatedAlbum />
-			<RelatedAlbum />
-			<RelatedAlbum />
-			<RelatedAlbum />
-			<RelatedAlbum />
-		</RelatedAlbumsContainer>
-	);
+	return <RelatedAlbumsContainer>{AlbumComponents}</RelatedAlbumsContainer>;
 };

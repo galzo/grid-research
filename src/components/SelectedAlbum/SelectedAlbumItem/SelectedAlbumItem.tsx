@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
+import { useHighResImage } from '../../../hooks/useHighResImage';
 import { fetchImage } from '../../../utils/data/albumImageFetcher';
 import {
 	FixedItemWrapper,
@@ -12,7 +13,7 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 	album,
 	onDismiss,
 }) => {
-	const [albumImage, setAlbumImage] = useState(album.image);
+	const { albumImage } = useHighResImage(album);
 	const [albumSize, setAlbumSize] = useState<'small' | 'large'>('small');
 
 	// Trigger item enlargemenet animation
@@ -20,22 +21,11 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 		setAlbumSize('large');
 	}, []);
 
-	// Fetch higer resolution of the image and hot-swap it on the fly
-	useEffect(() => {
-		const fetchLargeImage = async () => {
-			const highResImage = await fetchImage(album.thumbnails.large);
-			setAlbumImage(highResImage);
-		};
-
-		fetchLargeImage();
-	}, [album]);
-
 	return (
 		<SelectedItemWrapper
 			size={albumSize}
 			onClick={onDismiss}
 			position={position}
-			image={albumImage}
 		>
 			<SelectedItemImage src={albumImage} />
 		</SelectedItemWrapper>

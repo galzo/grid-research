@@ -67,6 +67,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}
 				onDismiss={handleDismiss}
+				allAlbums={albums}
 			/>
 			{GridMatrix}
 		</GridWrapper>
