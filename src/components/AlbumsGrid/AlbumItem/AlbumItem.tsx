@@ -5,6 +5,7 @@ import { resolveGridItemClassName } from '../../../utils/ui/classNamesHandler';
 import { useDelayedRender } from '../../../hooks/useDelayedRender';
 import { GridItemPosition } from '../../../common/uiTypes';
 import { useFocusClass } from './useFocusClass';
+import { fetchImage } from '../../../utils/data/albumImageFetcher';
 
 export const AlbumItem: FC<IAlbumItemProps> = ({
 	album,
@@ -15,9 +16,23 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 	isRelated,
 	itemSize,
 }) => {
+	const [albumImage, setAlbumImage] = useState(album.image);
 	const { shouldRender } = useDelayedRender(albumIndex * 2);
 	const { className } = useFocusClass(isFocused, isRelated);
 	const ref = useRef<any>(null);
+
+	useEffect(() => {
+		const fetchImageForFocus = async () => {
+			if (className === 'focus') {
+				const highResImage = await fetchImage(album.thumbnails.large);
+				setAlbumImage(highResImage);
+				return;
+			}
+
+			setAlbumImage(album.image);
+		};
+		fetchImageForFocus();
+	}, [album.image, album.thumbnails.large, className]);
 
 	const handleHover = useCallback(() => {
 		onHover(album);
@@ -45,7 +60,7 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 		<AlbumItemImage
 			ref={ref}
 			key={album.id}
-			src={album.image}
+			src={albumImage}
 			imageSize={itemSize}
 			alt={album.albumName}
 			onMouseEnter={handleHover}
