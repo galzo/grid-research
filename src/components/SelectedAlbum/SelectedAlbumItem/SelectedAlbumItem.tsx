@@ -20,14 +20,14 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 		setIsTriggered(true);
 	}, []);
 
-	// Fetch higer resolution of the image
+	// Fetch higer resolution of the image and hot-swap it on the fly
 	useEffect(() => {
 		const fetchLargeImage = async () => {
-			const image = await fetchImage(album.thumbnails.large);
-			setAlbumImage(image);
+			const highResImage = await fetchImage(album.thumbnails.large);
+			setAlbumImage(highResImage);
 		};
 
-		setTimeout(fetchLargeImage, 0);
+		fetchLargeImage();
 	}, [album]);
 
 	return (
