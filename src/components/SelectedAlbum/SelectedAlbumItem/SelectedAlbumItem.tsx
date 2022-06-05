@@ -17,10 +17,8 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 
 	// Trigger item enlargemenet animation
 	useEffect(() => {
-		setTimeout(() => {
-			setIsTriggered(true);
-		}, 0);
-	}, [position]);
+		setIsTriggered(true);
+	}, []);
 
 	// Fetch higer resolution of the image
 	useEffect(() => {
