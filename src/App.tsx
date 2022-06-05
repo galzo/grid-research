@@ -5,7 +5,7 @@ import { GridLoader } from './components/GridLoader/GridLoader';
 import { useAlbumsData } from './hooks/useAlbumsData';
 
 const TILE_SIZE = DEFAULT_GRID_TILE_SIZE;
-const ALBUMS_AMOUNT = 2000;
+const ALBUMS_AMOUNT = 1000;
 
 export const App = () => {
 	const { isLoading, albums } = useAlbumsData(ALBUMS_AMOUNT);

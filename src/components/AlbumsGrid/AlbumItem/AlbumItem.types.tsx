@@ -7,6 +7,6 @@ export interface IAlbumItemProps {
 	onHover: (album: AlbumData) => void;
 	onClick: (album: AlbumData, position: GridItemPosition) => void;
 	isFocused: boolean;
-	isNeighbour: boolean;
+	isRelated: boolean;
 	itemSize: number;
 }

@@ -8,6 +8,11 @@ export const buildAlbumDataMapping = (
 		const albumData = {
 			...album,
 			image: albumImages.find((image) => album.id === image.id)?.image,
+			relatedAlbums: [
+				albums[Math.round(Math.random() * 300)].id,
+				albums[Math.round(Math.random() * 200)].id,
+				albums[Math.round(Math.random() * 100)].id,
+			],
 		};
 
 		return {

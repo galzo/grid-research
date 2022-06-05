@@ -1,12 +1,12 @@
 export const resolveGridItemClassName = (
 	isFocused: boolean,
-	isNeighbour: boolean,
+	isRelated: boolean,
 ) => {
 	if (isFocused) {
-		return 'hover';
+		return 'focus';
 	}
-	if (isNeighbour) {
-		return 'neighbour';
+	if (isRelated) {
+		return 'related';
 	}
 	return '';
 };

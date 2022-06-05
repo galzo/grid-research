@@ -1,13 +1,14 @@
-import { Album } from '../../common/dataTypes';
+import { Album, AlbumData } from '../../common/dataTypes';
 
-export const resolveFocusDetails = (album: Album, focusedAlbum?: Album) => {
+export const resolveFocusDetails = (album: Album, focusedAlbum?: AlbumData) => {
 	if (!focusedAlbum) {
-		return { isFocused: false, isNeighbour: false };
+		return { isFocused: false, isRelated: false };
 	}
 
 	const isFocused = album.id === focusedAlbum.id;
+	const isRelated = focusedAlbum.relatedAlbums.some((id) => album.id === id);
 	return {
 		isFocused,
-		isNeighbour: false,
+		isRelated,
 	};
 };

@@ -4,6 +4,7 @@ import { AlbumItemImage, AlbumItemPlaceholder } from './AlbumItem.styles';
 import { resolveGridItemClassName } from '../../../utils/ui/classNamesHandler';
 import { useDelayedRender } from '../../../hooks/useDelayedRender';
 import { GridItemPosition } from '../../../common/uiTypes';
+import { useFocusClass } from './useFocusClass';
 
 export const AlbumItem: FC<IAlbumItemProps> = ({
 	album,
@@ -11,10 +12,11 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 	onHover,
 	onClick,
 	isFocused,
-	isNeighbour,
+	isRelated,
 	itemSize,
 }) => {
 	const { shouldRender } = useDelayedRender(albumIndex * 2);
+	const { className } = useFocusClass(isFocused, isRelated);
 	const ref = useRef<any>(null);
 
 	const handleHover = useCallback(() => {
@@ -35,12 +37,8 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 		onClick(album, position);
 	}, [album, onClick]);
 
-	const className = useMemo(() => {
-		return resolveGridItemClassName(isFocused, isNeighbour);
-	}, [isFocused, isNeighbour]);
-
 	if (!shouldRender) {
-		return <AlbumItemPlaceholder color={'#282c34'} />;
+		return <AlbumItemPlaceholder />;
 	}
 
 	return (

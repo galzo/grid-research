@@ -46,4 +46,5 @@ export interface Album {
 
 export interface AlbumData extends Album {
 	image?: string;
+	relatedAlbums: AlbumId[];
 }
