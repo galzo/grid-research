@@ -10,6 +10,12 @@ export const FixedItemWrapper = styled.div`
 	z-index: 9999;
 `;
 
+export const SelectedItemImage = styled.img`
+	width: 100%;
+	height: 100%;
+	transition: all 1000ms ease-in-out;
+`;
+
 export const SelectedItemWrapper = styled.div<{
 	position: GridItemPosition;
 	image?: string;
@@ -29,7 +35,7 @@ export const SelectedItemWrapper = styled.div<{
 	transition: all 800ms;
 	transition-timing-function: ease;
 	transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-	background-image: ${({ image }) => `url(${image})`};
+	/* background-image: ${({ image }) => `url(${image})`}; */
 	background-color: #282c34;
 	background-size: contain;
 

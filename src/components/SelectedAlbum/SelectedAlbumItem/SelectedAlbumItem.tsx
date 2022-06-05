@@ -2,6 +2,7 @@ import React, { FC, useEffect, useMemo, useState } from 'react';
 import { fetchImage } from '../../../utils/data/albumImageFetcher';
 import {
 	FixedItemWrapper,
+	SelectedItemImage,
 	SelectedItemWrapper,
 } from './SelectedAlbumItem.styles';
 import { ISelectedAlbumItemProps } from './SelectedAlbumItem.types';
@@ -28,7 +29,7 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 			setAlbumImage(image);
 		};
 
-		setTimeout(fetchLargeImage, 500);
+		setTimeout(fetchLargeImage, 0);
 	}, [album]);
 
 	return (
@@ -37,7 +38,9 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 				position={position}
 				className={isTriggered ? 'enlarge' : ''}
 				image={albumImage}
-			/>
+			>
+				<SelectedItemImage src={albumImage} />
+			</SelectedItemWrapper>
 		</FixedItemWrapper>
 	);
 };
