@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { GridItemPosition } from '../../../common/uiTypes';
 
 export const FixedItemWrapper = styled.div`
@@ -18,31 +18,33 @@ export const SelectedItemImage = styled.img`
 
 export const SelectedItemWrapper = styled.div<{
 	position: GridItemPosition;
+	size: 'small' | 'large';
 	image?: string;
 }>`
 	position: absolute;
 	-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 	box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
-	top: ${({ position }) => `${position.top}px`};
-	bottom: ${({ position }) => `${position.bottom}px`};
-	left: ${({ position }) => `${position.left}px`};
-	right: ${({ position }) => `${position.right}px`};
+
+	top: ${({ position, size }) =>
+		size === 'small' ? `${position.top}px` : `135px`};
+
+	bottom: ${({ position, size }) =>
+		size === 'small' ? `${position.bottom}px` : 0};
+
+	left: ${({ position, size }) =>
+		size === 'small' ? `${position.left}px` : '60vw'};
+
+	right: ${({ position, size }) =>
+		size === 'small' ? `${position.top}px` : 0};
+
 	border: 2px solid #ffffff;
 	border-radius: 4px;
 	z-index: 9999;
-	width: 125px;
-	height: 125px;
+	width: ${({ size }) => (size === 'small' ? '125px' : '586px')};
+	height: ${({ size }) => (size === 'small' ? '125px' : '586px')};
 	transition: all 800ms;
 	transition-timing-function: ease;
 	transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-	/* background-image: ${({ image }) => `url(${image})`}; */
 	background-color: #282c34;
 	background-size: contain;
-
-	&.enlarge {
-		width: 586px;
-		height: 586px;
-		top: 15vh;
-		left: 55vw;
-	}
 `;

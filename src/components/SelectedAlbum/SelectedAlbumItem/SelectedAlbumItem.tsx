@@ -12,12 +12,12 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 	album,
 	onDismiss,
 }) => {
-	const [isTriggered, setIsTriggered] = useState(false);
 	const [albumImage, setAlbumImage] = useState(album.image);
+	const [albumSize, setAlbumSize] = useState<'small' | 'large'>('small');
 
 	// Trigger item enlargemenet animation
 	useEffect(() => {
-		setIsTriggered(true);
+		setAlbumSize('large');
 	}, []);
 
 	// Fetch higer resolution of the image and hot-swap it on the fly
@@ -31,14 +31,13 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 	}, [album]);
 
 	return (
-		<FixedItemWrapper onClick={onDismiss}>
-			<SelectedItemWrapper
-				position={position}
-				className={isTriggered ? 'enlarge' : ''}
-				image={albumImage}
-			>
-				<SelectedItemImage src={albumImage} />
-			</SelectedItemWrapper>
-		</FixedItemWrapper>
+		<SelectedItemWrapper
+			size={albumSize}
+			onClick={onDismiss}
+			position={position}
+			image={albumImage}
+		>
+			<SelectedItemImage src={albumImage} />
+		</SelectedItemWrapper>
 	);
 };
