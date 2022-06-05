@@ -9,6 +9,8 @@ export const OverlayWrapper = styled.div`
 	left: 0;
 	right: 0;
 	bottom: 0;
+	flex-direction: column;
+	padding: 80px;
 `;
 
 export const OverlayBackground = styled.div`

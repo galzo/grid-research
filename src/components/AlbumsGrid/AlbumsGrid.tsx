@@ -7,7 +7,7 @@ import { DEFAULT_GRID_TILE_SIZE } from '../../common/consts';
 import { resolveFocusDetails } from '../../utils/ui/albumFocusHandler';
 import { GridWrapper } from './AlbumsGrid.styles';
 import { GridItemPosition } from '../../common/uiTypes';
-import { SelectedAlbumOverlay } from '../SelectedAlbum/SelectedAlbumOverlay';
+import { SelectedAlbum } from '../SelectedAlbum/SelectedAlbum';
 import { useFocusAlbum } from '../../hooks/useFocusAlbum';
 
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
@@ -63,7 +63,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 
 	return (
 		<GridWrapper size={tileSize}>
-			<SelectedAlbumOverlay
+			<SelectedAlbum
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}
 				onDismiss={handleDismiss}

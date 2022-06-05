@@ -8,6 +8,7 @@ const adaptAlbum = (id: AlbumId, albumData: any): Album => {
 		trackName: albumData.track_name,
 		artistName: albumData.artist_name,
 		releaseYear: albumData.release_year,
+		genre: albumData.genre,
 		thumbnails: {
 			small: albumData.small_thumbnail,
 			large: albumData.big_thumbnail,

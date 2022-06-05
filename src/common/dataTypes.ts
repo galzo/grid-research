@@ -38,6 +38,7 @@ export interface Album {
 	trackName: string;
 	artistName: string;
 	releaseYear: number;
+	genre: string;
 	thumbnails: {
 		small: string;
 		large: string;
