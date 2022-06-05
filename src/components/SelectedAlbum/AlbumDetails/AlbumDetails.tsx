@@ -10,12 +10,19 @@ const AlbumDetailsContainer = styled.div`
 	width: 730px;
 	height: 580px;
 	margin-top: 80px;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 	z-index: 9999;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
+`;
+
+const TitleContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 const Title = styled.span`
@@ -49,8 +56,10 @@ export const AlbumDetails: FC<IAlbumDetailsProps> = ({ album }) => {
 
 	return (
 		<AlbumDetailsContainer>
-			<Title>{album.albumName}</Title>
-			<Subtitle>{subtitleContent}</Subtitle>
+			<TitleContainer>
+				<Title>{album.albumName}</Title>
+				<Subtitle>{subtitleContent}</Subtitle>
+			</TitleContainer>
 		</AlbumDetailsContainer>
 	);
 };

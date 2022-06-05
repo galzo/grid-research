@@ -17,8 +17,8 @@ export const RelatedAlbumsContainer = styled.div`
 
 export const RelatedAlbums: FC<IRelatedAlbumsProps> = ({ albums }) => {
 	const AlbumComponents = useMemo(() => {
-		return albums.map((album) => {
-			return <RelatedAlbum album={album} />;
+		return albums.map((album, index) => {
+			return <RelatedAlbum album={album} albumIndex={index} />;
 		});
 	}, [albums]);
 
