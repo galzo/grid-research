@@ -28,6 +28,11 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		[handleFocusAlbum],
 	);
 
+	const handleDismiss = useCallback(() => {
+		setSelectedAlbum(undefined);
+		setSelectedPosition(undefined);
+	}, []);
+
 	const GridMatrix = useMemo(() => {
 		if (!albums) {
 			return [];
@@ -61,6 +66,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 			<SelectedAlbumOverlay
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}
+				onDismiss={handleDismiss}
 			/>
 			{GridMatrix}
 		</GridWrapper>

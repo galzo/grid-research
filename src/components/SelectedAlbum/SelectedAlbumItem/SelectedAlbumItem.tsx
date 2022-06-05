@@ -9,6 +9,7 @@ import { ISelectedAlbumItemProps } from './SelectedAlbumItem.types';
 export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 	position,
 	album,
+	onDismiss,
 }) => {
 	const [isTriggered, setIsTriggered] = useState(false);
 	const [albumImage, setAlbumImage] = useState(album.image);
@@ -31,7 +32,7 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 	}, [album]);
 
 	return (
-		<FixedItemWrapper>
+		<FixedItemWrapper onClick={onDismiss}>
 			<SelectedItemWrapper
 				position={position}
 				className={isTriggered ? 'enlarge' : ''}
