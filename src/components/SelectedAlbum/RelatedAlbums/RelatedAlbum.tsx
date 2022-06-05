@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { AlbumData } from '../../../common/dataTypes';
 import { fetchImage } from '../../../utils/data/albumImageFetcher';
@@ -9,6 +9,7 @@ import { useDelayedRender } from '../../../hooks/useDelayedRender';
 interface IRelatedAlbumProps {
 	album: AlbumData;
 	albumIndex: number;
+	onClick: (album: AlbumData) => void;
 }
 
 export const RelatedAlbumContainer = styled.div`
@@ -29,51 +30,6 @@ export const RelatedAlbumContainer = styled.div`
 	-moz-animation: fadeIn 1s;
 	-o-animation: fadeIn 1s;
 	-ms-animation: fadeIn 1s;
-
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-moz-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-webkit-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-o-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@-ms-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
 `;
 
 export const RelatedAlbumImage = styled.img`
@@ -85,14 +41,19 @@ export const RelatedAlbumImage = styled.img`
 export const RelatedAlbum: React.FunctionComponent<IRelatedAlbumProps> = ({
 	album,
 	albumIndex,
+	onClick,
 }) => {
 	const { shouldRender } = useDelayedRender(albumIndex * 200);
 	const { albumImage } = useHighResImage(album);
 
+	const handleClick = useCallback(() => {
+		onClick(album);
+	}, [album, onClick]);
+
 	if (!shouldRender) return null;
 
 	return (
-		<RelatedAlbumContainer>
+		<RelatedAlbumContainer onClick={handleClick}>
 			<RelatedAlbumImage src={albumImage} />
 		</RelatedAlbumContainer>
 	);

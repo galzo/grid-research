@@ -12,6 +12,13 @@ export const buildAlbumDataMapping = (
 				albums[Math.round(Math.random() * 300)].id,
 				albums[Math.round(Math.random() * 200)].id,
 				albums[Math.round(Math.random() * 100)].id,
+				albums[Math.round(Math.random() * 50)].id,
+				albums[Math.round(Math.random() * 150)].id,
+				albums[Math.round(Math.random() * 350)].id,
+				albums[Math.round(Math.random() * 320)].id,
+				albums[Math.round(Math.random() * 120)].id,
+				albums[Math.round(Math.random() * 111)].id,
+				albums[Math.round(Math.random() * 400)].id,
 			],
 		};
 

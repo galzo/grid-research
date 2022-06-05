@@ -3,7 +3,7 @@ import { SelectedAlbumItem } from './SelectedAlbumItem/SelectedAlbumItem';
 import { OverlayBackground, OverlayWrapper } from './SelectedAlbum.styles';
 import { ISelectedAlbumProps } from './SelectedAlbum.types';
 import { RelatedAlbums } from './RelatedAlbums/RelatedAlbums';
-import { AlbumDetails } from './AlbumDetails/AlbumDetails';
+import { SelectedAlbumDetails } from './SelectedAlbumDetails/SelectedAlbumDetails';
 import { resolveRelatedAlbums } from '../../utils/data/albumDataMapper';
 
 export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
@@ -11,13 +11,12 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	albumPosition,
 	onDismiss,
 	allAlbums,
+	onSelect,
 }) => {
 	const relatedAlbums = useMemo(() => {
 		if (!selectedAlbum || !allAlbums) return [];
 		return resolveRelatedAlbums(allAlbums, selectedAlbum);
 	}, [selectedAlbum, allAlbums]);
-
-	console.log('related are', relatedAlbums);
 
 	if (!selectedAlbum || !albumPosition) return null;
 
@@ -28,8 +27,8 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 				position={albumPosition}
 				onDismiss={onDismiss}
 			/>
-			<AlbumDetails album={selectedAlbum} />
-			<RelatedAlbums albums={relatedAlbums} />
+			<SelectedAlbumDetails album={selectedAlbum} />
+			<RelatedAlbums albums={relatedAlbums} onClick={onSelect} />
 			<OverlayBackground />
 		</OverlayWrapper>
 	);

@@ -5,5 +5,6 @@ export interface ISelectedAlbumProps {
 	selectedAlbum?: AlbumData;
 	albumPosition?: GridItemPosition;
 	onDismiss: VoidFunction;
+	onSelect: (album: AlbumData) => void;
 	allAlbums: Record<AlbumId, AlbumData>;
 }

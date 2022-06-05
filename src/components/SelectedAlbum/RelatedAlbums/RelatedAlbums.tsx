@@ -5,6 +5,7 @@ import { RelatedAlbum } from './RelatedAlbum';
 
 interface IRelatedAlbumsProps {
 	albums: AlbumData[];
+	onClick: (album: AlbumData) => void;
 }
 
 export const RelatedAlbumsContainer = styled.div`
@@ -15,12 +16,18 @@ export const RelatedAlbumsContainer = styled.div`
 	justify-content: flex-start;
 `;
 
-export const RelatedAlbums: FC<IRelatedAlbumsProps> = ({ albums }) => {
+export const RelatedAlbums: FC<IRelatedAlbumsProps> = ({ albums, onClick }) => {
 	const AlbumComponents = useMemo(() => {
 		return albums.map((album, index) => {
-			return <RelatedAlbum album={album} albumIndex={index} />;
+			return (
+				<RelatedAlbum
+					album={album}
+					albumIndex={index}
+					onClick={onClick}
+				/>
+			);
 		});
-	}, [albums]);
+	}, [albums, onClick]);
 
 	return <RelatedAlbumsContainer>{AlbumComponents}</RelatedAlbumsContainer>;
 };

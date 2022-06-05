@@ -1,8 +1,7 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useHighResImage } from '../../../hooks/useHighResImage';
 import { fetchImage } from '../../../utils/data/albumImageFetcher';
 import {
-	FixedItemWrapper,
 	SelectedItemImage,
 	SelectedItemWrapper,
 } from './SelectedAlbumItem.styles';

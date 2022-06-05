@@ -19,7 +19,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	const [selectedPosition, setSelectedPosition] =
 		useState<GridItemPosition>();
 
-	const handleClick = useCallback(
+	const handleClickGridAlbum = useCallback(
 		(album: AlbumData, position: GridItemPosition) => {
 			handleFocusAlbum(undefined);
 			setSelectedAlbum(album);
@@ -27,6 +27,10 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		},
 		[handleFocusAlbum],
 	);
+
+	const handleClickRelatedAlbum = useCallback((album: AlbumData) => {
+		setSelectedAlbum(album);
+	}, []);
 
 	const handleDismiss = useCallback(() => {
 		setSelectedAlbum(undefined);
@@ -46,7 +50,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 					album={album}
 					albumIndex={index}
 					onHover={handleFocusAlbum}
-					onClick={handleClick}
+					onClick={handleClickGridAlbum}
 					isFocused={focus.isFocused}
 					isRelated={focus.isRelated}
 					itemSize={tileSize}
@@ -55,7 +59,13 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		});
 
 		return albumItems;
-	}, [albums, focusedAlbum, handleClick, handleFocusAlbum, tileSize]);
+	}, [
+		albums,
+		focusedAlbum,
+		handleClickGridAlbum,
+		handleFocusAlbum,
+		tileSize,
+	]);
 
 	if (GridMatrix.length <= 0) {
 		return null;
@@ -67,6 +77,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}
 				onDismiss={handleDismiss}
+				onSelect={handleClickRelatedAlbum}
 				allAlbums={albums}
 			/>
 			{GridMatrix}

@@ -12,4 +12,9 @@ export const GridLoaderWrapper = styled.div`
 export const LoaderImage = styled.img`
 	width: 150px;
 	height: 150px;
+	animation: fadeIn 3s;
+	-webkit-animation: fadeIn 3s;
+	-moz-animation: fadeIn 3s;
+	-o-animation: fadeIn 3s;
+	-ms-animation: fadeIn 3s;
 `;
