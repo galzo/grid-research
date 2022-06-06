@@ -1,7 +1,7 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { AlbumItem } from './AlbumItem/AlbumItem';
-import { Album, AlbumData } from '../../common/dataTypes';
+import { Album, AlbumData, AlbumId } from '../../common/dataTypes';
 import { IAlbumsGridProps } from './AlbumsGrid.types';
 import { DEFAULT_GRID_TILE_SIZE } from '../../common/consts';
 import { resolveFocusDetails } from '../../utils/ui/albumFocusHandler';
@@ -9,6 +9,7 @@ import { GridWrapper } from './AlbumsGrid.styles';
 import { GridItemPosition } from '../../common/uiTypes';
 import { SelectedAlbum } from '../SelectedAlbum/SelectedAlbum';
 import { useFocusAlbum } from '../../hooks/useFocusAlbum';
+import { shuffle } from 'lodash';
 
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,
@@ -28,9 +29,22 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		[handleFocusAlbum],
 	);
 
-	const handleClickRelatedAlbum = useCallback((album: AlbumData) => {
+	const handleSelectRelatedAlbum = useCallback((album: AlbumData) => {
 		setSelectedAlbum(album);
 	}, []);
+
+	const handleShuffleAlbum = useCallback(
+		(albumIds: AlbumId[]) => {
+			if (!albumIds || albumIds.length <= 0) {
+				return;
+			}
+
+			const randomAlbumId = shuffle(albumIds)[0];
+			const randomAlbum = albums[randomAlbumId];
+			handleSelectRelatedAlbum(randomAlbum);
+		},
+		[albums, handleSelectRelatedAlbum],
+	);
 
 	const handleDismiss = useCallback(() => {
 		setSelectedAlbum(undefined);
@@ -77,7 +91,8 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}
 				onDismiss={handleDismiss}
-				onSelect={handleClickRelatedAlbum}
+				onSelect={handleSelectRelatedAlbum}
+				onShuffle={handleShuffleAlbum}
 				allAlbums={albums}
 			/>
 			{GridMatrix}

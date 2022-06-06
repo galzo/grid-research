@@ -1,8 +1,9 @@
-import { AlbumData } from '../../../common/dataTypes';
+import { AlbumData, AlbumId } from '../../../common/dataTypes';
 
 export interface IRelatedAlbumsProps {
 	albums: AlbumData[];
 	onClick: (album: AlbumData) => void;
+	onShuffleClick: (albumIds: AlbumId[]) => void;
 }
 
 export interface IRelatedAlbumProps {

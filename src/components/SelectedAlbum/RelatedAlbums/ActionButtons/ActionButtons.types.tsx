@@ -1,3 +1,10 @@
+export type ActionType = 'shuffle' | 'graphicOverview';
+
 export interface IActionButtonProps {
-	icon: 'shuffle' | 'grapicOverview';
+	action: ActionType;
+	onClick: (action: ActionType) => void;
+}
+
+export interface IActionButtonsProps {
+	onClickShuffle: () => void;
 }

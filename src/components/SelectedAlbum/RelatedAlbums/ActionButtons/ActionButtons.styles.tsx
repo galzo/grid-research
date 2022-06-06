@@ -25,6 +25,7 @@ export const ButtonWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: all 200ms ease-in-out;
 
 	&:hover {
 		background: rgba(255, 255, 255, 0.4);

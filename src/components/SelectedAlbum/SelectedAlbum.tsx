@@ -12,6 +12,7 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	onDismiss,
 	allAlbums,
 	onSelect,
+	onShuffle,
 }) => {
 	const relatedAlbums = useMemo(() => {
 		if (!selectedAlbum || !allAlbums) return [];
@@ -28,7 +29,11 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 				onDismiss={onDismiss}
 			/>
 			<SelectedAlbumDetails album={selectedAlbum} />
-			<RelatedAlbums albums={relatedAlbums} onClick={onSelect} />
+			<RelatedAlbums
+				albums={relatedAlbums}
+				onClick={onSelect}
+				onShuffleClick={onShuffle}
+			/>
 			<OverlayBackground />
 		</OverlayWrapper>
 	);
