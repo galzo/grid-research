@@ -10,7 +10,7 @@ export const OverlayWrapper = styled.div`
 	right: 0;
 	bottom: 0;
 	flex-direction: column;
-	padding: 80px;
+	padding: 40px 40px 0 40px;
 	z-index: 5;
 `;
 

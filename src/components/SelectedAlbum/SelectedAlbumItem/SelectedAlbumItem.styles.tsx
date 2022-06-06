@@ -26,13 +26,13 @@ export const SelectedItemWrapper = styled.div<{
 	box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 
 	top: ${({ position, size }) =>
-		size === 'small' ? `${position.top}px` : `135px`};
+		size === 'small' ? `${position.top}px` : `60px`};
 
 	bottom: ${({ position, size }) =>
 		size === 'small' ? `${position.bottom}px` : 0};
 
 	left: ${({ position, size }) =>
-		size === 'small' ? `${position.left}px` : '60vw'};
+		size === 'small' ? `${position.left}px` : '53%'};
 
 	right: ${({ position, size }) =>
 		size === 'small' ? `${position.top}px` : 0};
