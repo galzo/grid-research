@@ -17,6 +17,7 @@ export const TitleContainer = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
+	margin-bottom: 20px;
 	animation: fadeIn 1s;
 	-webkit-animation: fadeIn 1s;
 	-moz-animation: fadeIn 1s;
@@ -29,7 +30,7 @@ export const Title = styled.span`
 	color: #ffffff;
 	font-weight: 400;
 	font-family: 'Gotham';
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 `;
 
 export const Subtitle = styled.span`
@@ -37,5 +38,4 @@ export const Subtitle = styled.span`
 	color: #ffffff;
 	font-weight: 400;
 	font-family: 'Gotham-light';
-	padding-left: 4px;
 `;

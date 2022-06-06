@@ -1,7 +1,9 @@
 // import albumsJson from '../assets/albumsData.json';
 import { Album, AlbumId, RawAlbumData } from '../../common/dataTypes';
+import { adaptAlbumColors } from './albumColorsHandler';
 
 const adaptAlbum = (id: AlbumId, albumData: any): Album => {
+	console.log('colors are', albumData.colors);
 	return {
 		id,
 		albumName: albumData.album_name,
@@ -13,6 +15,7 @@ const adaptAlbum = (id: AlbumId, albumData: any): Album => {
 			small: albumData.small_thumbnail,
 			large: albumData.big_thumbnail,
 		},
+		colors: adaptAlbumColors(albumData.colors),
 	};
 };
 

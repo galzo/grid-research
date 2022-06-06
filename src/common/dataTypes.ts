@@ -1,10 +1,3 @@
-export type AlbumId = string;
-
-export interface AlbumImage {
-	id: AlbumId;
-	image: string;
-}
-
 export interface RawAlbumData {
 	['album_name']: string;
 	['animal']: string;
@@ -32,6 +25,18 @@ export interface RawAlbumData {
 	['youtube_link']: string;
 }
 
+export type AlbumId = string;
+
+export interface AlbumImage {
+	id: AlbumId;
+	image: string;
+}
+
+export interface AlbumColor {
+	color: string;
+	priority: number;
+}
+
 export interface Album {
 	id: AlbumId;
 	albumName: string;
@@ -43,6 +48,7 @@ export interface Album {
 		small: string;
 		large: string;
 	};
+	colors: AlbumColor[];
 }
 
 export interface AlbumData extends Album {

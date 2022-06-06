@@ -2,6 +2,7 @@ import React, { FC, useMemo } from 'react';
 import styled from 'styled-components';
 import { AlbumData } from '../../../common/dataTypes';
 import { resolveAlbumSubtitle } from '../../../utils/ui/albumDetailsHandler';
+import { AlbumColors } from './AlbumColors/AlbumColors';
 import {
 	AlbumDetailsContainer,
 	Subtitle,
@@ -24,6 +25,7 @@ export const SelectedAlbumDetails: FC<IAlbumDetailsProps> = ({ album }) => {
 				<Title>{album.albumName}</Title>
 				<Subtitle>{subtitleContent}</Subtitle>
 			</TitleContainer>
+			<AlbumColors album={album} />
 		</AlbumDetailsContainer>
 	);
 };
