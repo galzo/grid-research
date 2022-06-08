@@ -1,20 +1,7 @@
 import styled from 'styled-components';
-import { FadeInDiv } from '../../../Base/FadeInDiv';
+import { FadeInDiv } from '../../Base/FadeInDiv';
 
-export const ButtonsContainer = styled(FadeInDiv)`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	height: 104px;
-`;
-
-export const ButtonsPlaceholder = styled.div`
-	width: 48px;
-	height: 104px;
-`;
-
-export const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled(FadeInDiv)`
 	height: 48px;
 	width: 48px;
 	box-sizing: border-box;
@@ -27,6 +14,7 @@ export const ButtonWrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	transition: all 200ms ease-in-out;
+	user-select: none;
 
 	&:hover {
 		background: rgba(255, 255, 255, 0.4);

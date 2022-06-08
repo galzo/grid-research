@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useMemo } from 'react';
-import { ActionButtons } from './ActionButtons/ActionButtons';
+import { ActionButton } from '../ActionButton/ActionButton';
 import { RelatedAlbum } from './RelatedAlbum';
 import {
 	RelatedAlbumsContainer,
@@ -35,7 +35,7 @@ export const RelatedAlbums: FC<IRelatedAlbumsProps> = ({
 			<RelatedAlbumsTitle>{'Similar albums:'}</RelatedAlbumsTitle>
 			<RelatedAlbumsLineContainer>
 				{AlbumComponents}
-				<ActionButtons onClickShuffle={handleShuffleClick} />
+				<ActionButton icon="shuffle" onClick={handleShuffleClick} />
 			</RelatedAlbumsLineContainer>
 		</RelatedAlbumsContainer>
 	);
