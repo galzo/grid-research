@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const AlbumDetailsContainer = styled.div`
 	width: 730px;
-	height: 580px;
+	height: 100%;
 	margin-bottom: 50px;
 	z-index: 9999;
 	display: flex;

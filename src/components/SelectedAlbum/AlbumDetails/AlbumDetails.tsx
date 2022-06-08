@@ -1,9 +1,7 @@
-import React, { FC, useMemo } from 'react';
-import styled from 'styled-components';
+import { FC } from 'react';
 import { AlbumData } from '../../../common/dataTypes';
-import { resolveAlbumSubtitle } from '../../../utils/ui/albumDetailsHandler';
 import { AlbumColors } from './AlbumColors/AlbumColors';
-import { AlbumTitle } from './AlbumTitle/AlbumTitle';
+import { AlbumDetailsTitle } from './Title/AlbumDetailsTitle';
 import { GraphicOverview } from './GraphicOverview/GraphicOverview';
 import { AlbumDetailsContainer } from './AlbumDetails.styles';
 
@@ -14,7 +12,7 @@ interface IAlbumDetailsProps {
 export const AlbumDetails: FC<IAlbumDetailsProps> = ({ album }) => {
 	return (
 		<AlbumDetailsContainer>
-			<AlbumTitle album={album} />
+			<AlbumDetailsTitle album={album} />
 			<AlbumColors album={album} />
 			<GraphicOverview album={album} />
 		</AlbumDetailsContainer>

@@ -11,7 +11,7 @@ export const OverlayWrapper = styled.div`
 	right: 0;
 	bottom: 0;
 	flex-direction: column;
-	padding: 40px 40px 0 40px;
+	padding: 0 40px;
 	z-index: 5;
 	box-sizing: border-box;
 `;
@@ -26,7 +26,5 @@ export const OverlayBackground = styled(FadeInDiv)`
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
-	z-index: 2;
-	cursor: pointer; /* Add a pointer on hover */
 	z-index: 4;
 `;

@@ -1,6 +1,18 @@
 import styled from 'styled-components';
 import { FadeInDiv } from '../../Base/FadeInDiv';
 
+export const FlatButtonWrapper = styled(FadeInDiv)`
+	height: 48px;
+	width: 48px;
+	box-sizing: border-box;
+	display: flex;
+	z-index: 5;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	cursor: pointer;
+`;
+
 export const ButtonWrapper = styled(FadeInDiv)`
 	height: 48px;
 	width: 48px;

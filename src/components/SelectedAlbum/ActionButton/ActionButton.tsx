@@ -1,21 +1,38 @@
 import { FC, useCallback, useMemo } from 'react';
-import { ButtonWrapper } from './ActionButtons.styles';
+import { ButtonWrapper, FlatButtonWrapper } from './ActionButtons.styles';
 import { IActionButtonProps } from './ActionButtons.types';
 import shuffle from '../../../assets/shuffle.png';
 import graphicOverview from '../../../assets/grapicOverview.png';
+import close from '../../../assets/close.png';
 
-export const ActionButton: FC<IActionButtonProps> = ({ icon, onClick }) => {
+export const ActionButton: FC<IActionButtonProps> = ({
+	icon,
+	onClick,
+	isFlat,
+}) => {
 	const Icon = useMemo(() => {
-		if (icon === 'shuffle') {
-			return shuffle;
+		switch (icon) {
+			case 'shuffle':
+				return shuffle;
+			case 'graphicOverview':
+				return graphicOverview;
+			case 'close':
+			default:
+				return close;
 		}
-
-		return graphicOverview;
 	}, [icon]);
+
+	if (isFlat) {
+		return (
+			<FlatButtonWrapper>
+				<img src={Icon} alt={icon} onClick={onClick} />
+			</FlatButtonWrapper>
+		);
+	}
 
 	return (
 		<ButtonWrapper>
-			<img src={Icon} alt="shuffle" onClick={onClick} />
+			<img src={Icon} alt={icon} onClick={onClick} />
 		</ButtonWrapper>
 	);
 };

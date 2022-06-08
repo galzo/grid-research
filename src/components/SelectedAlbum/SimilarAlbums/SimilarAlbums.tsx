@@ -39,7 +39,10 @@ export const SimilarAlbums: FC<ISimilarAlbumsProps> = ({
 			<SimilarAlbumsTitle>{'Similar albums:'}</SimilarAlbumsTitle>
 			<SimilarAlbumsLineContainer>
 				{AlbumComponents}
-				<ActionButton icon="shuffle" onClick={handleShuffleClick} />
+				<ActionButton
+					icon="graphicOverview"
+					onClick={handleShuffleClick}
+				/>
 			</SimilarAlbumsLineContainer>
 		</SimilarAlbumsContainer>
 	);

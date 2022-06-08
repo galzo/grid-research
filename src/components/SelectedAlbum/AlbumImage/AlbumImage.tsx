@@ -6,11 +6,7 @@ import { IAlbumImageProps } from './AlbumImage.types';
 import { GridItemPosition } from '../../../common/uiTypes';
 import { useWindowWidth } from '../../../hooks/useWindowResize';
 
-export const AlbumImage: FC<IAlbumImageProps> = ({
-	position,
-	album,
-	onDismiss,
-}) => {
+export const AlbumImage: FC<IAlbumImageProps> = ({ position, album }) => {
 	const { albumImage } = useHighResImage(album);
 	const [albumSize, setAlbumSize] = useState<'small' | 'large'>('small');
 	const { windowWidth } = useWindowWidth();
@@ -22,7 +18,7 @@ export const AlbumImage: FC<IAlbumImageProps> = ({
 
 	const targetPosition: GridItemPosition = useMemo(() => {
 		return {
-			top: 60,
+			top: 95,
 			bottom: 0,
 			right: 0,
 			left: windowWidth - 586 - 60,
@@ -32,7 +28,6 @@ export const AlbumImage: FC<IAlbumImageProps> = ({
 	return (
 		<AlbumImageWrapper
 			size={albumSize}
-			onClick={onDismiss}
 			sourcePosition={position}
 			targetPosition={targetPosition}
 		>

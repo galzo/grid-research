@@ -1,13 +1,13 @@
 import { FC, useMemo } from 'react';
-import { Subtitle, Title, TitleContainer } from './AlbumTitle.styles';
+import { Subtitle, Title, TitleContainer } from './AlbumDetailsTitle.styles';
 import { resolveAlbumSubtitle } from '../../../../utils/ui/albumDetailsHandler';
 import { Album } from '../../../../common/dataTypes';
 
-interface IAlbumTitleProps {
+interface IAlbumDetailsTitleProps {
 	album: Album;
 }
 
-export const AlbumTitle: FC<IAlbumTitleProps> = ({ album }) => {
+export const AlbumDetailsTitle: FC<IAlbumDetailsTitleProps> = ({ album }) => {
 	const subtitleContent = useMemo(() => {
 		return resolveAlbumSubtitle(album);
 	}, [album]);
