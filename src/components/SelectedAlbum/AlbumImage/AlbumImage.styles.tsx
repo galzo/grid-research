@@ -1,22 +1,13 @@
 import styled, { css } from 'styled-components';
 import { GridItemPosition } from '../../../common/uiTypes';
 
-export const FixedItemWrapper = styled.div`
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 9999;
-`;
-
-export const SelectedItemImage = styled.img`
+export const AlbumImg = styled.img`
 	width: 100%;
 	height: 100%;
 	transition: all 1000ms ease-in-out;
 `;
 
-export const SelectedItemWrapper = styled.div<{
+export const AlbumImageWrapper = styled.div<{
 	sourcePosition: GridItemPosition;
 	targetPosition: GridItemPosition;
 	size: 'small' | 'large';

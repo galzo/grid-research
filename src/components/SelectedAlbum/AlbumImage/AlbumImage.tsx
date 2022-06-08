@@ -1,15 +1,12 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useHighResImage } from '../../../hooks/useHighResImage';
 import { fetchImage } from '../../../utils/data/albumImageFetcher';
-import {
-	SelectedItemImage,
-	SelectedItemWrapper,
-} from './SelectedAlbumItem.styles';
-import { ISelectedAlbumItemProps } from './SelectedAlbumItem.types';
+import { AlbumImg, AlbumImageWrapper } from './AlbumImage.styles';
+import { IAlbumImageProps } from './AlbumImage.types';
 import { GridItemPosition } from '../../../common/uiTypes';
 import { useWindowWidth } from '../../../hooks/useWindowResize';
 
-export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
+export const AlbumImage: FC<IAlbumImageProps> = ({
 	position,
 	album,
 	onDismiss,
@@ -33,13 +30,13 @@ export const SelectedAlbumItem: FC<ISelectedAlbumItemProps> = ({
 	}, [windowWidth]);
 
 	return (
-		<SelectedItemWrapper
+		<AlbumImageWrapper
 			size={albumSize}
 			onClick={onDismiss}
 			sourcePosition={position}
 			targetPosition={targetPosition}
 		>
-			<SelectedItemImage src={albumImage} />
-		</SelectedItemWrapper>
+			<AlbumImg src={albumImage} />
+		</AlbumImageWrapper>
 	);
 };

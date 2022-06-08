@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react';
-import { SelectedAlbumItem } from './SelectedAlbumItem/SelectedAlbumItem';
+import { AlbumImage } from './AlbumImage/AlbumImage';
 import { OverlayBackground, OverlayWrapper } from './SelectedAlbum.styles';
 import { ISelectedAlbumProps } from './SelectedAlbum.types';
 import { SimilarAlbums } from './SimilarAlbums/SimilarAlbums';
@@ -23,7 +23,7 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 
 	return (
 		<OverlayWrapper>
-			<SelectedAlbumItem
+			<AlbumImage
 				album={selectedAlbum}
 				position={albumPosition}
 				onDismiss={onDismiss}
