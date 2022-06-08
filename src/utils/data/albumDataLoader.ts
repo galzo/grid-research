@@ -3,7 +3,6 @@ import { Album, AlbumId, RawAlbumData } from '../../common/dataTypes';
 import { adaptAlbumColors } from './albumColorsHandler';
 
 const adaptAlbum = (id: AlbumId, albumData: any): Album => {
-	console.log('colors are', albumData.colors);
 	return {
 		id,
 		albumName: albumData.album_name,
@@ -16,6 +15,12 @@ const adaptAlbum = (id: AlbumId, albumData: any): Album => {
 			large: albumData.big_thumbnail,
 		},
 		colors: adaptAlbumColors(albumData.colors),
+		isPhotography: albumData.photography && albumData.photography === 1,
+		isDrawing: albumData.drawing && albumData.drawing === 1,
+		isFashion: albumData.fashion && albumData.fashion === 1,
+		isGeometric: albumData.geometric && albumData.geometric === 1,
+		isMusical: albumData.musical && albumData.musical === 1,
+		isUrban: albumData.urban && albumData.urban === 1,
 	};
 };
 

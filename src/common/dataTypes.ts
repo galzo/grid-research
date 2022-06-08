@@ -49,6 +49,12 @@ export interface Album {
 		large: string;
 	};
 	colors: AlbumColor[];
+	isDrawing: boolean;
+	isPhotography: boolean;
+	isMusical: boolean;
+	isGeometric: boolean;
+	isFashion: boolean;
+	isUrban: boolean;
 }
 
 export interface AlbumData extends Album {
