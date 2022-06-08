@@ -12,6 +12,7 @@ export const OverlayWrapper = styled.div`
 	flex-direction: column;
 	padding: 40px 40px 0 40px;
 	z-index: 5;
+	box-sizing: border-box;
 `;
 
 export const OverlayBackground = styled.div`

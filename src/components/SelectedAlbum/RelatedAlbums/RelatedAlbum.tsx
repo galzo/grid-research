@@ -8,6 +8,7 @@ import { useDelayedRender } from '../../../hooks/useDelayedRender';
 import {
 	RelatedAlbumContainer,
 	RelatedAlbumImage,
+	RelatedAlbumPlaceholder,
 } from './RelatedAlbums.styles';
 import { IRelatedAlbumProps } from './RelatedAlbums.types';
 
@@ -23,7 +24,9 @@ export const RelatedAlbum: React.FunctionComponent<IRelatedAlbumProps> = ({
 		onClick(album);
 	}, [album, onClick]);
 
-	if (!shouldRender) return null;
+	if (!shouldRender) {
+		return <RelatedAlbumPlaceholder />;
+	}
 
 	return (
 		<RelatedAlbumContainer onClick={handleClick}>

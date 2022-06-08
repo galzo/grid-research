@@ -5,9 +5,10 @@ export const RelatedAlbumsContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: flex-start;
-	overflow: auto;
-	white-space: nowrap;
+	justify-content: space-between;
+	box-sizing: border-box;
+	/* overflow: auto;
+	white-space: nowrap; */
 
 	&::-webkit-scrollbar {
 		display: none;
@@ -16,17 +17,21 @@ export const RelatedAlbumsContainer = styled.div`
 	scrollbar-width: none;
 `;
 
+export const RelatedAlbumPlaceholder = styled.div`
+	width: 108px;
+	height: 108px;
+	min-width: 119px;
+`;
+
 export const RelatedAlbumContainer = styled.div`
 	width: 104px;
 	height: 104px;
 	min-width: 115px;
 	border: 2px solid white;
 	border-radius: 4px;
-	background-color: gray;
-	background-color: #282c34;
 	background-size: contain;
 	z-index: 5;
-	margin-right: 40px;
+	/* margin-right: 40px; */
 	-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 	box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 	cursor: pointer; /* Add a pointer on hover */
