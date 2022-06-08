@@ -10,4 +10,5 @@ export const GridWrapper = styled.div<{ size: number }>`
 	column-gap: 1px;
 	row-gap: 1px;
 	background-color: rgba(0, 0, 0, 0.7);
+	overflow-x: hidden;
 `;

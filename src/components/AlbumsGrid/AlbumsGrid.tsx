@@ -1,5 +1,6 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
+import { shuffle } from 'lodash';
 import { AlbumItem } from './AlbumItem/AlbumItem';
 import { Album, AlbumData, AlbumId } from '../../common/dataTypes';
 import { IAlbumsGridProps } from './AlbumsGrid.types';
@@ -9,7 +10,6 @@ import { GridWrapper } from './AlbumsGrid.styles';
 import { GridItemPosition } from '../../common/uiTypes';
 import { SelectedAlbum } from '../SelectedAlbum/SelectedAlbum';
 import { useFocusAlbum } from '../../hooks/useFocusAlbum';
-import { shuffle } from 'lodash';
 
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,

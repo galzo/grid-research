@@ -7,7 +7,7 @@ export const GraphicOverviewContainer = styled(FadeInDiv)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 60px;
+	margin-top: 70px;
 `;
 
 export const GraphicOverviewImage = styled.img`

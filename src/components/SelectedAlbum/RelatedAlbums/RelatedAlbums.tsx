@@ -1,7 +1,11 @@
 import React, { FC, useCallback, useMemo } from 'react';
 import { ActionButtons } from './ActionButtons/ActionButtons';
 import { RelatedAlbum } from './RelatedAlbum';
-import { RelatedAlbumsContainer } from './RelatedAlbums.styles';
+import {
+	RelatedAlbumsContainer,
+	RelatedAlbumsLineContainer,
+	RelatedAlbumsTitle,
+} from './RelatedAlbums.styles';
 import { IRelatedAlbumsProps } from './RelatedAlbums.types';
 
 export const RelatedAlbums: FC<IRelatedAlbumsProps> = ({
@@ -28,8 +32,11 @@ export const RelatedAlbums: FC<IRelatedAlbumsProps> = ({
 
 	return (
 		<RelatedAlbumsContainer>
-			{AlbumComponents}
-			<ActionButtons onClickShuffle={handleShuffleClick} />
+			<RelatedAlbumsTitle>{'Similar albums:'}</RelatedAlbumsTitle>
+			<RelatedAlbumsLineContainer>
+				{AlbumComponents}
+				<ActionButtons onClickShuffle={handleShuffleClick} />
+			</RelatedAlbumsLineContainer>
 		</RelatedAlbumsContainer>
 	);
 };
