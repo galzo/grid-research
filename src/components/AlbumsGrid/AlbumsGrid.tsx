@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useContext, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { shuffle } from 'lodash';
 import { AlbumItem } from './AlbumItem/AlbumItem';
@@ -10,6 +10,7 @@ import { GridWrapper } from './AlbumsGrid.styles';
 import { GridItemPosition } from '../../common/uiTypes';
 import { SelectedAlbum } from '../SelectedAlbum/SelectedAlbum';
 import { useFocusAlbum } from '../../hooks/useFocusAlbum';
+import { YoutubePlayerContext } from '../YoutubePlayer/YoutubePlayerContext';
 
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,
@@ -19,19 +20,26 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	const [selectedAlbum, setSelectedAlbum] = useState<AlbumData>();
 	const [selectedPosition, setSelectedPosition] =
 		useState<GridItemPosition>();
+	const { setVideoId, isPlaying, toggleVideoPlay } =
+		useContext(YoutubePlayerContext);
 
 	const handleClickGridAlbum = useCallback(
 		(album: AlbumData, position: GridItemPosition) => {
 			handleFocusAlbum(undefined);
 			setSelectedAlbum(album);
 			setSelectedPosition(position);
+			setVideoId(album.youtubeId);
 		},
-		[handleFocusAlbum],
+		[handleFocusAlbum, setVideoId],
 	);
 
-	const handleSelectRelatedAlbum = useCallback((album: AlbumData) => {
-		setSelectedAlbum(album);
-	}, []);
+	const handleSelectRelatedAlbum = useCallback(
+		(album: AlbumData) => {
+			setSelectedAlbum(album);
+			setVideoId(album.youtubeId);
+		},
+		[setVideoId],
+	);
 
 	const handleShuffleAlbum = useCallback(
 		(albumIds: AlbumId[]) => {
@@ -49,7 +57,8 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	const handleDismiss = useCallback(() => {
 		setSelectedAlbum(undefined);
 		setSelectedPosition(undefined);
-	}, []);
+		setVideoId('');
+	}, [setVideoId]);
 
 	const GridMatrix = useMemo(() => {
 		if (!albums) {

@@ -55,6 +55,8 @@ export interface Album {
 	isGeometric: boolean;
 	isFashion: boolean;
 	isUrban: boolean;
+	youtubeId: string;
+	youtubeUrl: string;
 }
 
 export interface AlbumData extends Album {

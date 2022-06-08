@@ -1,6 +1,7 @@
 // import albumsJson from '../assets/albumsData.json';
 import { Album, AlbumId, RawAlbumData } from '../../common/dataTypes';
 import { adaptAlbumColors } from './albumColorsHandler';
+import { getYoutubeVideoIdFromURL } from './youtubeVideoHandler';
 
 const adaptAlbum = (id: AlbumId, albumData: any): Album => {
 	return {
@@ -21,6 +22,8 @@ const adaptAlbum = (id: AlbumId, albumData: any): Album => {
 		isGeometric: albumData.geometric && albumData.geometric === 1,
 		isMusical: albumData.musical && albumData.musical === 1,
 		isUrban: albumData.urban && albumData.urban === 1,
+		youtubeUrl: albumData.youtube_link,
+		youtubeId: getYoutubeVideoIdFromURL(albumData.youtube_link) ?? '',
 	};
 };
 
