@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { ActionButton } from '../ActionButton/ActionButton';
 import { SimilarAlbum } from './SimilarAlbum';
 import {
@@ -12,8 +12,13 @@ export const SimilarAlbums: FC<ISimilarAlbumsProps> = ({
 	selectedAlbum,
 	albums,
 	onClick,
-	onShuffleClick,
 }) => {
+	const [showGraphicOverview, setShowGraphicOverview] = useState(false);
+
+	const handleClickShowGraphicOverview = useCallback(() => {
+		setShowGraphicOverview(!showGraphicOverview);
+	}, [showGraphicOverview]);
+
 	const AlbumComponents = useMemo(() => {
 		return albums.map((album, index) => {
 			return (
@@ -21,18 +26,11 @@ export const SimilarAlbums: FC<ISimilarAlbumsProps> = ({
 					album={album}
 					albumIndex={index}
 					onClick={onClick}
+					showGraphicOverview={showGraphicOverview}
 				/>
 			);
 		});
-	}, [albums, onClick]);
-
-	const handleShuffleClick = useCallback(() => {
-		const albumIds = albums
-			.map((album) => album.id)
-			.filter((id) => id !== selectedAlbum.id);
-
-		onShuffleClick(albumIds);
-	}, [albums, onShuffleClick, selectedAlbum.id]);
+	}, [albums, onClick, showGraphicOverview]);
 
 	return (
 		<SimilarAlbumsContainer>
@@ -41,7 +39,7 @@ export const SimilarAlbums: FC<ISimilarAlbumsProps> = ({
 				{AlbumComponents}
 				<ActionButton
 					icon="graphicOverview"
-					onClick={handleShuffleClick}
+					onClick={handleClickShowGraphicOverview}
 				/>
 			</SimilarAlbumsLineContainer>
 		</SimilarAlbumsContainer>

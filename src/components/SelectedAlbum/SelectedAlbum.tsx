@@ -43,7 +43,6 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 				selectedAlbum={selectedAlbum}
 				albums={similarAlbums}
 				onClick={onSelect}
-				onShuffleClick={onShuffle}
 			/>
 			<OverlayBackground />
 		</OverlayWrapper>
