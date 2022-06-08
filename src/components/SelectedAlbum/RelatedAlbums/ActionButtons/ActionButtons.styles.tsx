@@ -13,6 +13,11 @@ export const ButtonsContainer = styled.div`
 	-ms-animation: fadeIn 1s;
 `;
 
+export const ButtonsPlaceholder = styled.div`
+	width: 48px;
+	height: 104px;
+`;
+
 export const ButtonWrapper = styled.div`
 	height: 48px;
 	width: 48px;

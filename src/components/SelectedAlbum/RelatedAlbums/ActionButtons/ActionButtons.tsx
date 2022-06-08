@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { useDelayedRender } from '../../../../hooks/useDelayedRender';
 import { ActionButton } from './ActionButton';
-import { ButtonsContainer } from './ActionButtons.styles';
+import { ButtonsContainer, ButtonsPlaceholder } from './ActionButtons.styles';
 import { IActionButtonsProps, ActionType } from './ActionButtons.types';
 
 export const ActionButtons: FC<IActionButtonsProps> = ({ onClickShuffle }) => {
@@ -19,7 +19,9 @@ export const ActionButtons: FC<IActionButtonsProps> = ({ onClickShuffle }) => {
 		[onClickShuffle],
 	);
 
-	if (!shouldRender) return null;
+	if (!shouldRender) {
+		return <ButtonsPlaceholder />;
+	}
 
 	return (
 		<ButtonsContainer>
