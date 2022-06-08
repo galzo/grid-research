@@ -6,7 +6,7 @@ export const resolveFocusDetails = (album: Album, focusedAlbum?: AlbumData) => {
 	}
 
 	const isFocused = album.id === focusedAlbum.id;
-	const isRelated = focusedAlbum.relatedAlbums.some((id) => album.id === id);
+	const isRelated = focusedAlbum.similarAlbums.some((id) => album.id === id);
 	return {
 		isFocused,
 		isRelated,

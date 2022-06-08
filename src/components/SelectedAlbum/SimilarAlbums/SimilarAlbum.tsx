@@ -6,13 +6,13 @@ import { fetchImage } from '../../../utils/data/albumImageFetcher';
 import { useHighResImage } from '../../../hooks/useHighResImage';
 import { useDelayedRender } from '../../../hooks/useDelayedRender';
 import {
-	RelatedAlbumContainer,
-	RelatedAlbumImage,
-	RelatedAlbumPlaceholder,
-} from './RelatedAlbums.styles';
-import { IRelatedAlbumProps } from './RelatedAlbums.types';
+	SimilarAlbumContainer,
+	SimilarAlbumImage,
+	SimilarAlbumPlaceholder,
+} from './SimilarAlbums.styles';
+import { ISimilarAlbumProps } from './SimilarAlbums.types';
 
-export const RelatedAlbum: React.FunctionComponent<IRelatedAlbumProps> = ({
+export const SimilarAlbum: React.FunctionComponent<ISimilarAlbumProps> = ({
 	album,
 	albumIndex,
 	onClick,
@@ -25,12 +25,12 @@ export const RelatedAlbum: React.FunctionComponent<IRelatedAlbumProps> = ({
 	}, [album, onClick]);
 
 	if (!shouldRender) {
-		return <RelatedAlbumPlaceholder />;
+		return <SimilarAlbumPlaceholder />;
 	}
 
 	return (
-		<RelatedAlbumContainer onClick={handleClick}>
-			<RelatedAlbumImage src={albumImage} />
-		</RelatedAlbumContainer>
+		<SimilarAlbumContainer onClick={handleClick}>
+			<SimilarAlbumImage src={albumImage} />
+		</SimilarAlbumContainer>
 	);
 };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FadeInDiv } from '../../Base/FadeInDiv';
 
-export const RelatedAlbumsContainer = styled.div`
+export const SimilarAlbumsContainer = styled.div`
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -11,7 +11,7 @@ export const RelatedAlbumsContainer = styled.div`
 	z-index: 6;
 `;
 
-export const RelatedAlbumsTitle = styled.span`
+export const SimilarAlbumsTitle = styled.span`
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
@@ -20,7 +20,7 @@ export const RelatedAlbumsTitle = styled.span`
 	margin-bottom: 25px;
 `;
 
-export const RelatedAlbumsLineContainer = styled.div`
+export const SimilarAlbumsLineContainer = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -34,13 +34,13 @@ export const RelatedAlbumsLineContainer = styled.div`
 	scrollbar-width: none;
 `;
 
-export const RelatedAlbumPlaceholder = styled.div`
+export const SimilarAlbumPlaceholder = styled.div`
 	width: 108px;
 	height: 108px;
 	min-width: 119px;
 `;
 
-export const RelatedAlbumContainer = styled(FadeInDiv)`
+export const SimilarAlbumContainer = styled(FadeInDiv)`
 	width: 104px;
 	height: 104px;
 	min-width: 115px;
@@ -54,7 +54,7 @@ export const RelatedAlbumContainer = styled(FadeInDiv)`
 	cursor: pointer; /* Add a pointer on hover */
 `;
 
-export const RelatedAlbumImage = styled.img`
+export const SimilarAlbumImage = styled.img`
 	width: 100%;
 	height: 100%;
 	transition: all 1000ms ease-in-out;

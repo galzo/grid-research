@@ -8,7 +8,7 @@ export const buildAlbumDataMapping = (
 		const albumData = {
 			...album,
 			image: albumImages.find((image) => album.id === image.id)?.image,
-			relatedAlbums: [
+			similarAlbums: [
 				albums[Math.round(Math.random() * 300)].id,
 				albums[Math.round(Math.random() * 200)].id,
 				albums[Math.round(Math.random() * 100)].id,
@@ -29,13 +29,13 @@ export const buildAlbumDataMapping = (
 	}, {});
 };
 
-export const resolveRelatedAlbums = (
+export const resolveSimilarAlbums = (
 	allAlbums: Record<AlbumId, AlbumData>,
 	selectedAlbum: AlbumData,
 ) => {
-	const relatedAlbumIds = selectedAlbum.relatedAlbums;
-	const relatedAlbums = relatedAlbumIds.map((id) => {
+	const similarAlbumIds = selectedAlbum.similarAlbums;
+	const similarAlbums = similarAlbumIds.map((id) => {
 		return allAlbums[id];
 	});
-	return relatedAlbums;
+	return similarAlbums;
 };

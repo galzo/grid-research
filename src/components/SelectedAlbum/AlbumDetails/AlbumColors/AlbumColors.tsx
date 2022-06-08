@@ -10,7 +10,7 @@ export const AlbumColors: FC<IAlbumColorsProps> = ({ album }) => {
 		}
 
 		return colorsToRender.map((color) => {
-			return <AlbumColorWrapper color={color.color} />;
+			return <AlbumColorWrapper color={color.color} key={color.color} />;
 		});
 	}, [album.colors]);
 

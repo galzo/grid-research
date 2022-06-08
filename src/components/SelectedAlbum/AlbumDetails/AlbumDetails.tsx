@@ -5,13 +5,13 @@ import { resolveAlbumSubtitle } from '../../../utils/ui/albumDetailsHandler';
 import { AlbumColors } from './AlbumColors/AlbumColors';
 import { AlbumTitle } from './AlbumTitle/AlbumTitle';
 import { GraphicOverview } from './GraphicOverview/GraphicOverview';
-import { AlbumDetailsContainer } from './SelectedAlbumDetails.styles';
+import { AlbumDetailsContainer } from './AlbumDetails.styles';
 
 interface IAlbumDetailsProps {
 	album: AlbumData;
 }
 
-export const SelectedAlbumDetails: FC<IAlbumDetailsProps> = ({ album }) => {
+export const AlbumDetails: FC<IAlbumDetailsProps> = ({ album }) => {
 	return (
 		<AlbumDetailsContainer>
 			<AlbumTitle album={album} />

@@ -2,9 +2,9 @@ import React, { FC, useMemo } from 'react';
 import { SelectedAlbumItem } from './SelectedAlbumItem/SelectedAlbumItem';
 import { OverlayBackground, OverlayWrapper } from './SelectedAlbum.styles';
 import { ISelectedAlbumProps } from './SelectedAlbum.types';
-import { RelatedAlbums } from './RelatedAlbums/RelatedAlbums';
-import { SelectedAlbumDetails } from './SelectedAlbumDetails/SelectedAlbumDetails';
-import { resolveRelatedAlbums } from '../../utils/data/albumDataMapper';
+import { SimilarAlbums } from './SimilarAlbums/SimilarAlbums';
+import { AlbumDetails } from './AlbumDetails/AlbumDetails';
+import { resolveSimilarAlbums } from '../../utils/data/albumDataMapper';
 
 export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	selectedAlbum,
@@ -14,9 +14,9 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	onSelect,
 	onShuffle,
 }) => {
-	const relatedAlbums = useMemo(() => {
+	const similarAlbums = useMemo(() => {
 		if (!selectedAlbum || !allAlbums) return [];
-		return resolveRelatedAlbums(allAlbums, selectedAlbum);
+		return resolveSimilarAlbums(allAlbums, selectedAlbum);
 	}, [selectedAlbum, allAlbums]);
 
 	if (!selectedAlbum || !albumPosition) return null;
@@ -28,9 +28,10 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 				position={albumPosition}
 				onDismiss={onDismiss}
 			/>
-			<SelectedAlbumDetails album={selectedAlbum} />
-			<RelatedAlbums
-				albums={relatedAlbums}
+			<AlbumDetails album={selectedAlbum} />
+			<SimilarAlbums
+				selectedAlbum={selectedAlbum}
+				albums={similarAlbums}
 				onClick={onSelect}
 				onShuffleClick={onShuffle}
 			/>
