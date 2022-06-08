@@ -1,17 +1,13 @@
 import styled from 'styled-components';
+import { FadeInImg } from '../../Base/FadeInImg';
 
 export const AlbumItemPlaceholder = styled.div`
 	background-color: #282c34;
 `;
 
-export const AlbumItemImage = styled.img<{ imageSize: number }>`
+export const AlbumItemImage = styled(FadeInImg)<{ imageSize: number }>`
 	width: ${({ imageSize }) => `${imageSize}px`};
 	height: ${({ imageSize }) => `${imageSize}px`};
-	animation: fadeIn 1s;
-	-webkit-animation: fadeIn 1s;
-	-moz-animation: fadeIn 1s;
-	-o-animation: fadeIn 1s;
-	-ms-animation: fadeIn 1s;
 	border: 1px solid;
 	cursor: pointer;
 	background-color: #282c34;

@@ -1,15 +1,11 @@
 import styled from 'styled-components';
+import { FadeInDiv } from '../../../Base/FadeInDiv';
 
-export const AlbumColorsContainer = styled.div`
+export const AlbumColorsContainer = styled(FadeInDiv)`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-start;
-	animation: fadeIn 1s;
-	-webkit-animation: fadeIn 1s;
-	-moz-animation: fadeIn 1s;
-	-o-animation: fadeIn 1s;
-	-ms-animation: fadeIn 1s;
 `;
 
 export const AlbumColorWrapper = styled.div<{ color: string }>`

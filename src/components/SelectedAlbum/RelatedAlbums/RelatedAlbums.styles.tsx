@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FadeInDiv } from '../../Base/FadeInDiv';
 
 export const RelatedAlbumsContainer = styled.div`
 	width: 100%;
@@ -23,7 +24,7 @@ export const RelatedAlbumPlaceholder = styled.div`
 	min-width: 119px;
 `;
 
-export const RelatedAlbumContainer = styled.div`
+export const RelatedAlbumContainer = styled(FadeInDiv)`
 	width: 104px;
 	height: 104px;
 	min-width: 115px;
@@ -35,11 +36,6 @@ export const RelatedAlbumContainer = styled.div`
 	-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 	box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 	cursor: pointer; /* Add a pointer on hover */
-	animation: fadeIn 1s;
-	-webkit-animation: fadeIn 1s;
-	-moz-animation: fadeIn 1s;
-	-o-animation: fadeIn 1s;
-	-ms-animation: fadeIn 1s;
 `;
 
 export const RelatedAlbumImage = styled.img`

@@ -1,16 +1,12 @@
 import styled from 'styled-components';
+import { FadeInDiv } from '../../../Base/FadeInDiv';
 
-export const ButtonsContainer = styled.div`
+export const ButtonsContainer = styled(FadeInDiv)`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	height: 104px;
-	animation: fadeIn 1s;
-	-webkit-animation: fadeIn 1s;
-	-moz-animation: fadeIn 1s;
-	-o-animation: fadeIn 1s;
-	-ms-animation: fadeIn 1s;
 `;
 
 export const ButtonsPlaceholder = styled.div`

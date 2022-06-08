@@ -4,6 +4,7 @@ import { AlbumData } from '../../../common/dataTypes';
 import { resolveAlbumSubtitle } from '../../../utils/ui/albumDetailsHandler';
 import { AlbumColors } from './AlbumColors/AlbumColors';
 import { AlbumTitle } from './AlbumTitle/AlbumTitle';
+import { GraphicOverview } from './GraphicOverview/GraphicOverview';
 import { AlbumDetailsContainer } from './SelectedAlbumDetails.styles';
 
 interface IAlbumDetailsProps {
@@ -15,6 +16,7 @@ export const SelectedAlbumDetails: FC<IAlbumDetailsProps> = ({ album }) => {
 		<AlbumDetailsContainer>
 			<AlbumTitle album={album} />
 			<AlbumColors album={album} />
+			<GraphicOverview album={album} />
 		</AlbumDetailsContainer>
 	);
 };

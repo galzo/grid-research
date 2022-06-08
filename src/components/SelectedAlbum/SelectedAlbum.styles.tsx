@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FadeInDiv } from '../Base/FadeInDiv';
 
 export const OverlayWrapper = styled.div`
 	position: fixed;
@@ -15,7 +16,7 @@ export const OverlayWrapper = styled.div`
 	box-sizing: border-box;
 `;
 
-export const OverlayBackground = styled.div`
+export const OverlayBackground = styled(FadeInDiv)`
 	position: absolute; /* Sit on top of the page content */
 	display: block; /* Hidden by default */
 	width: 100%; /* Full width (cover the whole page) */
@@ -24,13 +25,8 @@ export const OverlayBackground = styled.div`
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+	background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
 	z-index: 2;
 	cursor: pointer; /* Add a pointer on hover */
-	animation: fadeIn 1s;
-	-webkit-animation: fadeIn 1s;
-	-moz-animation: fadeIn 1s;
-	-o-animation: fadeIn 1s;
-	-ms-animation: fadeIn 1s;
 	z-index: 4;
 `;

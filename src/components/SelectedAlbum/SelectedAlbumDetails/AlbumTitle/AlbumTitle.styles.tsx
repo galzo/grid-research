@@ -1,16 +1,12 @@
 import styled from 'styled-components';
+import { FadeInDiv } from '../../../Base/FadeInDiv';
 
-export const TitleContainer = styled.div`
+export const TitleContainer = styled(FadeInDiv)`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
 	margin-bottom: 20px;
-	animation: fadeIn 1s;
-	-webkit-animation: fadeIn 1s;
-	-moz-animation: fadeIn 1s;
-	-o-animation: fadeIn 1s;
-	-ms-animation: fadeIn 1s;
 `;
 
 export const Title = styled.span`
