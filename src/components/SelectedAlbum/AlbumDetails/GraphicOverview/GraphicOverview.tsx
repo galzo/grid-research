@@ -13,27 +13,19 @@ import {
 	GraphicOverviewContainer,
 	GraphicOverviewImage,
 } from './GraphicOverview.styles';
+import { useGraphicOverviewImage } from '../../../../hooks/useGraphicOverviewImage';
 
 interface GraphicOverviewProps {
 	album: Album;
 }
 
 export const GraphicOverview: FC<GraphicOverviewProps> = ({ album }) => {
-	const Image = useMemo(() => {
-		const images = [
-			exampleGraphicOverview,
-			exampleGraphicOverview2,
-			exampleGraphicOverview3,
-			exampleGraphicOverview4,
-		];
-		const selected = shuffle(images)[0];
-		return selected;
-	}, [album]);
-
 	return (
 		<GraphicOverviewContainer>
 			<Characteristics album={album} />
-			<GraphicOverviewImage src={Image} />
+			<GraphicOverviewImage
+				src={`https://hatechnolog.com/static/syncover/images/${album.id}.png`}
+			/>
 		</GraphicOverviewContainer>
 	);
 };

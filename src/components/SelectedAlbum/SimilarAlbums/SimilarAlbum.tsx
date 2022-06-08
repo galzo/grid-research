@@ -11,7 +11,6 @@ import {
 	SimilarAlbumPlaceholder,
 } from './SimilarAlbums.styles';
 import { ISimilarAlbumProps } from './SimilarAlbums.types';
-import graphicOverview from '../../../assets/exampleGraphicOveview2.png';
 
 export const SimilarAlbum: React.FunctionComponent<ISimilarAlbumProps> = ({
 	album,
@@ -27,8 +26,10 @@ export const SimilarAlbum: React.FunctionComponent<ISimilarAlbumProps> = ({
 	}, [album, onClick]);
 
 	const imageToRender = useMemo(() => {
-		return showGraphicOverview ? graphicOverview : albumImage;
-	}, [albumImage, showGraphicOverview]);
+		return showGraphicOverview
+			? `https://hatechnolog.com/static/syncover/images/${album.id}.png`
+			: albumImage;
+	}, [album.id, albumImage, showGraphicOverview]);
 
 	if (!shouldRender) {
 		return <SimilarAlbumPlaceholder />;
