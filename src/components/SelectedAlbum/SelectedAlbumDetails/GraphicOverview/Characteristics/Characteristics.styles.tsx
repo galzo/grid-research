@@ -14,6 +14,7 @@ export const CharacteristicText = styled.span<{
 	line-height: 18px;
 	font-family: 'Gotham';
 	font-weight: 400;
+	transition: opacity 250ms ease-in-out;
 	opacity: ${({ isActive }) => (isActive ? 1 : 0.33)};
 	color: #ffffff;
 	text-transform: uppercase;

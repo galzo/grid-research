@@ -3,14 +3,12 @@ import { FadeInDiv } from '../../Base/FadeInDiv';
 
 export const RelatedAlbumsContainer = styled.div`
 	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	box-sizing: border-box;
-	/* overflow: auto;
-	white-space: nowrap; */
-
 	&::-webkit-scrollbar {
 		display: none;
 	}
