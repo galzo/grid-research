@@ -17,7 +17,8 @@ export const SelectedItemImage = styled.img`
 `;
 
 export const SelectedItemWrapper = styled.div<{
-	position: GridItemPosition;
+	sourcePosition: GridItemPosition;
+	targetPosition: GridItemPosition;
 	size: 'small' | 'large';
 	image?: string;
 }>`
@@ -25,17 +26,25 @@ export const SelectedItemWrapper = styled.div<{
 	-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 	box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 
-	top: ${({ position, size }) =>
-		size === 'small' ? `${position.top}px` : `60px`};
+	top: ${({ sourcePosition, targetPosition, size }) =>
+		size === 'small'
+			? `${sourcePosition.top}px`
+			: `${targetPosition.top}px`};
 
-	bottom: ${({ position, size }) =>
-		size === 'small' ? `${position.bottom}px` : 0};
+	bottom: ${({ sourcePosition, targetPosition, size }) =>
+		size === 'small'
+			? `${sourcePosition.bottom}px`
+			: `${targetPosition.bottom}px`};
 
-	left: ${({ position, size }) =>
-		size === 'small' ? `${position.left}px` : '53%'};
+	left: ${({ sourcePosition, targetPosition, size }) =>
+		size === 'small'
+			? `${sourcePosition.left}px`
+			: `${targetPosition.left}px`};
 
-	right: ${({ position, size }) =>
-		size === 'small' ? `${position.top}px` : 0};
+	right: ${({ sourcePosition, targetPosition, size }) =>
+		size === 'small'
+			? `${sourcePosition.top}px`
+			: `${targetPosition.right}px`};
 
 	border: 2px solid #ffffff;
 	border-radius: 4px;
