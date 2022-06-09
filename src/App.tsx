@@ -2,6 +2,7 @@ import './App.css';
 import { DEFAULT_GRID_TILE_SIZE } from './common/consts';
 import { AlbumsGrid } from './components/AlbumsGrid/AlbumsGrid';
 import { GridLoader } from './components/GridLoader/GridLoader';
+import { OpenPage } from './components/OpenPage/OpenPage';
 import { YoutubePlayerContextProvider } from './components/YoutubePlayer/YoutubePlayerContextProvider';
 import { useAlbumsData } from './hooks/useAlbumsData';
 
@@ -22,6 +23,7 @@ export const App = () => {
 	return (
 		<div className="App">
 			<YoutubePlayerContextProvider>
+				<OpenPage/>
 				<AlbumsGrid albums={albums} tileSize={TILE_SIZE} />
 			</YoutubePlayerContextProvider>
 		</div>

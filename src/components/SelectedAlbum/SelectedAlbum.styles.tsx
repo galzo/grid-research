@@ -25,6 +25,6 @@ export const OverlayBackground = styled(FadeInDiv)`
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+	background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
 	z-index: 4;
 `;
