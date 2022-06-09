@@ -15,7 +15,7 @@ export const SimilarAlbumsTitle = styled.span`
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
-	font-family: 'Gotham-light';
+	font-family: 'Gotham-book';
 	color: rgba(255, 255, 255, 0.8);
 	margin-bottom: 25px;
 `;

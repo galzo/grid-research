@@ -10,3 +10,11 @@ export const AlbumDetailsContainer = styled.div`
 	justify-content: flex-start;
 	align-items: flex-start;
 `;
+
+export const ColorContainer = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 100%;
+align-items: flex-start;
+`;
