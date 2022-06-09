@@ -22,6 +22,8 @@ export const App = () => {
 		return null;
 	}
 
+	
+
 	return (
 		<div className="App">
 			<YoutubePlayerContextProvider>

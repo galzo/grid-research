@@ -1,4 +1,4 @@
-import { FC, useCallback, useContext, useMemo, useState } from 'react';
+import { FC, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { shuffle } from 'lodash';
 import { AlbumItem } from './AlbumItem/AlbumItem';
@@ -22,6 +22,13 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		useState<GridItemPosition>();
 	const { setVideoId, isPlaying, toggleVideoPlay } =
 		useContext(YoutubePlayerContext);
+
+		const containerDivRef = useCallback((node: any) => {
+			if (node !== null) {
+				window.scrollTo(250,500);
+			}
+		}, []);
+
 
 	const handleClickGridAlbum = useCallback(
 		(album: AlbumData, position: GridItemPosition) => {
@@ -95,7 +102,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	}
 
 	return (
-		<GridWrapper size={tileSize}>
+		<GridWrapper ref={containerDivRef} size={tileSize}>
 			<SelectedAlbum
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}
