@@ -37,8 +37,7 @@ export const AlbumImageWrapper = styled.div<{
 			? `${sourcePosition.top}px`
 			: `${targetPosition.right}px`};
 
-	border: 2px solid #ffffff;
-	border-radius: 4px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
 	z-index: 9999;
 	width: ${({ size }) => (size === 'small' ? '125px' : '586px')};
 	height: ${({ size }) => (size === 'small' ? '125px' : '586px')};

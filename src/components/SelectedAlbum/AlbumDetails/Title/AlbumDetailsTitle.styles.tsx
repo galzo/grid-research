@@ -14,12 +14,13 @@ export const Title = styled.span`
 	color: #ffffff;
 	font-weight: 400;
 	font-family: 'Gotham';
-	margin-bottom: 10px;
+	margin-bottom: 24px;
+	text-align: left;
 `;
 
 export const Subtitle = styled.span`
-	font-size: 16px;
-	color: #ffffff;
+	font-size: 18px;
+	color: rgba(255, 255, 255, 0.8);
 	font-weight: 400;
-	font-family: 'Gotham-light';
+	font-family: 'Gotham-book';
 `;
