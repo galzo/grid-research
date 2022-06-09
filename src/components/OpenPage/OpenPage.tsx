@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { OverlayBackground, OverlayWrapper } from '../SelectedAlbum/SelectedAlbum.styles';
-import {ButtonWrapper, Subtitle, OpenPageContainer, Title, GifContainer, GifImage, BoldTitle, BoldSubtitle, FindGifImage } from './OpenPage.styles';
+import {ButtonLearnMore, Gifs, ButtonWrapper, Subtitle, OpenPageContainer, GifImage, BoldTitle, GifContainer, BoldSubtitle, FindGifImage } from './OpenPage.styles';
 import identify from '../../assets/Identify.gif';
 import visualize from '../../assets/Visualize.gif';
 import find from '../../assets/find.gif';
@@ -13,25 +13,23 @@ export const OpenPage=()=>{
   return(
     <OverlayWrapper>
    		<OpenPageContainer>
-        <Title>Syncover</Title>
-        <BoldTitle>explore the designs of music album covers</BoldTitle>
-        <GifContainer>
+        <BoldTitle><b>Syncover</b> explores the designs of music album covers</BoldTitle>
+        <Gifs>
+          <GifContainer>
             <GifImage src={identify} alt="identify" />
-            <BoldSubtitle>Identify</BoldSubtitle>
-            <Subtitle>the visual traits of the covers</Subtitle>
-        </GifContainer>
-        <GifContainer>
+            <Subtitle><b>Identify</b> the visual traits of the covers</Subtitle>
+          </GifContainer>
+          <GifContainer>
             <GifImage src={visualize} alt="visualize" />
-            <BoldSubtitle>Visualize</BoldSubtitle>
-            <Subtitle>the traits by a graphic vector</Subtitle>
-        </GifContainer>
-        <GifContainer>
+            <Subtitle><b>Visualize</b> the traits by a graphic vector</Subtitle>
+          </GifContainer>
+          <GifContainer>
             <FindGifImage src={find} alt="find" />
-            <BoldSubtitle>Find</BoldSubtitle>
-            <Subtitle>similar cover designs based on their traits</Subtitle>
-        </GifContainer>
+            <Subtitle><b>Find</b> similar cover designs based on their traits</Subtitle>
+          </GifContainer>
+        </Gifs>
         <ButtonWrapper onClick={()=>{setShowOpenPage(false)}}>START</ButtonWrapper>
-        {/* <ButtonWrapper >Learn more</ButtonWrapper> */}
+        <ButtonLearnMore >LEARN MORE</ButtonLearnMore>
 		  </OpenPageContainer> 
     <OverlayBackground/>  
     </OverlayWrapper>

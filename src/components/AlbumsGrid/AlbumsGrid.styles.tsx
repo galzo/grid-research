@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { FadeInDiv } from '../Base/FadeInDiv';
 
 export const GridWrapper = styled.div<{ size: number }>`
-	width: 100%;
+	width: 120%;
+	padding: 40px;
 	display: grid;
 	box-sizing: border-box;
 	grid-template-columns: ${({ size }) =>
