@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import { OverlayBackground, OverlayWrapper } from '../SelectedAlbum/SelectedAlbum.styles';
-import {OpenOverlayWrapper, OpenOverlayBackground, ButtonWrapper, Subtitle, OpenPageContainer, Title, GifContainer, GifImage, BoldTitle, BoldSubtitle, FindGifImage } from './OpenPage.styles';
+import {ButtonWrapper, Subtitle, OpenPageContainer, Title, GifContainer, GifImage, BoldTitle, BoldSubtitle, FindGifImage } from './OpenPage.styles';
 import identify from '../../assets/Identify.gif';
 import visualize from '../../assets/Visualize.gif';
 import find from '../../assets/find.gif';
@@ -11,7 +11,7 @@ export const OpenPage=()=>{
   if (!showOpenPage) return null;
   
   return(
-    <OpenOverlayWrapper>
+    <OverlayWrapper>
    		<OpenPageContainer>
         <Title>Syncover</Title>
         <BoldTitle>explore the designs of music album covers</BoldTitle>
@@ -32,7 +32,7 @@ export const OpenPage=()=>{
         </GifContainer>
         <ButtonWrapper onClick={()=>{setShowOpenPage(false)}}>START</ButtonWrapper>
 		  </OpenPageContainer> 
-    <OpenOverlayBackground/>  
-    </OpenOverlayWrapper>
+    <OverlayBackground/>  
+    </OverlayWrapper>
   );
 };
