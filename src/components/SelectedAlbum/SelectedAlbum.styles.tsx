@@ -12,7 +12,7 @@ export const OverlayWrapper = styled.div`
 	bottom: 0;
 	flex-direction: column;
 	padding: 0 40px;
-	z-index: 5;
+	z-index: 6;
 	box-sizing: border-box;
 `;
 
@@ -25,6 +25,6 @@ export const OverlayBackground = styled(FadeInDiv)`
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
-	z-index: 4;
+	background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+	z-index: 5;
 `;
