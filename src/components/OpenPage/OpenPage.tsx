@@ -31,6 +31,7 @@ export const OpenPage=()=>{
             <Subtitle>similar cover designs based on their traits</Subtitle>
         </GifContainer>
         <ButtonWrapper onClick={()=>{setShowOpenPage(false)}}>START</ButtonWrapper>
+        {/* <ButtonWrapper >Learn more</ButtonWrapper> */}
 		  </OpenPageContainer> 
     <OverlayBackground/>  
     </OverlayWrapper>

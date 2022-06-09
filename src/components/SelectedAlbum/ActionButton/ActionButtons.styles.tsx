@@ -6,7 +6,7 @@ export const FlatButtonWrapper = styled(FadeInDiv)`
 	width: 48px;
 	box-sizing: border-box;
 	display: flex;
-	z-index: 5;
+	z-index: 6;
 	justify-content: center;
 	align-items: center;
 	user-select: none;
@@ -21,7 +21,7 @@ export const ButtonWrapper = styled(FadeInDiv)`
 	border: 1px solid rgba(255, 255, 255, 0.8);
 	border-radius: 100%;
 	box-shadow: 7.86885px 7.86885px 3.93443px rgba(0, 0, 0, 0.5);
-	z-index: 5;
+	z-index: 6;
 	display: flex;
 	justify-content: center;
 	align-items: center;
