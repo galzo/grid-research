@@ -6,7 +6,7 @@ export const GridLoaderWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #282c34;
+	background-color: black;
 `;
 
 export const LoaderImage = styled.img`
