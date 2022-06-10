@@ -11,7 +11,6 @@ export const OverlayWrapper = styled.div`
 	right: 0;
 	bottom: 0;
 	flex-direction: column;
-	padding: 0 40px;
 	z-index: 6;
 	box-sizing: border-box;
 `;
@@ -28,3 +27,9 @@ export const OverlayBackground = styled(FadeInDiv)`
 	background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
 	z-index: 5;
 `;
+
+export const AlbumContent = styled(FadeInDiv)`
+	z-index: 7;
+	padding: 10px 120px 0 150px;
+`;
+

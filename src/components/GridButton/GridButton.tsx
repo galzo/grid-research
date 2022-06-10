@@ -4,7 +4,7 @@ import { GridActionButton } from './GridActionButtons';
 
 
 const GridButtonContainer = styled.div`
-	top: 16px;
+	top: 18px;
   right: 40px;
 	margin: auto;
   z-index:5; 

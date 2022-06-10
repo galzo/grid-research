@@ -21,7 +21,7 @@ export const AlbumImage: FC<IAlbumImageProps> = ({ position, album }) => {
 			top: 95,
 			bottom: 0,
 			right: 0,
-			left: windowWidth - 586 - 60,
+			left: windowWidth - 586 - 220,
 		};
 	}, [windowWidth]);
 

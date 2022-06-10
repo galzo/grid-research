@@ -13,11 +13,11 @@ export const FlatButtonWrapper = styled(FadeInDiv)`
 	cursor: pointer;
 `;
 
-export const ButtonWrapper = styled(FadeInDiv)`
+export const ButtonWrapper = styled(FadeInDiv)<{isSelected: boolean}>`
 	height: 48px;
 	width: 48px;
 	box-sizing: border-box;
-	background: rgba(255, 255, 255, 0.15);
+	background: ${({isSelected}) => isSelected ? `rgba(255, 255, 255, 0.5)` : `rgba(255, 255, 255, 0.15)`};
 	border: 1px solid rgba(255, 255, 255, 0.8);
 	border-radius: 100%;
 	box-shadow: 7.86885px 7.86885px 3.93443px rgba(0, 0, 0, 0.5);
@@ -29,7 +29,7 @@ export const ButtonWrapper = styled(FadeInDiv)`
 	user-select: none;
 
 	&:hover {
-		background: rgba(255, 255, 255, 0.4);
+		background: ${({isSelected}) => isSelected ? `rgba(255, 255, 255, 0.65)` : `rgba(255, 255, 255, 0.4)`};
 		border: 1px solid #ffffff;
 		box-shadow: 7.86885px 7.86885px 3.93443px rgba(0, 0, 0, 0.5);
 		cursor: pointer;

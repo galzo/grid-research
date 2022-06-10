@@ -15,6 +15,7 @@ const AlbumHeaderContainer = styled.div`
 	width: 100%;
 	height: 250px;
 	box-sizing: border-box;
+	padding: 10px 40px 0;
 `;
 
 export const AlbumHeader: FC<IAlbumHeader> = ({
@@ -23,8 +24,8 @@ export const AlbumHeader: FC<IAlbumHeader> = ({
 }) => {
 	return (
 		<AlbumHeaderContainer>
-			<ActionButton icon={'close'} onClick={onCloseClick} isFlat={true} />
-			<ActionButton icon={'shuffle'} onClick={onShuffleClick} />
+			<ActionButton isSelected={false} icon={'close'} onClick={onCloseClick} isFlat={true} />
+			<ActionButton isSelected={false} icon={'shuffle'} onClick={onShuffleClick} />
 		</AlbumHeaderContainer>
 	);
 };
