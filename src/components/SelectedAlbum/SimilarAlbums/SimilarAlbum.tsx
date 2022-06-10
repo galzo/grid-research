@@ -11,7 +11,8 @@ import {
 	SimilarAlbumPlaceholder,
 	SimilarAlbumName,
 	SimilarAlbumArtistName,
-	SimilarAlbumNameContainer
+	SimilarAlbumNameContainer,
+	SimilarAlbumGraphic
 } from './SimilarAlbums.styles';
 import { ISimilarAlbumProps } from './SimilarAlbums.types';
 
@@ -28,11 +29,11 @@ export const SimilarAlbum: React.FunctionComponent<ISimilarAlbumProps> = ({
 		onClick(album);
 	}, [album, onClick]);
 
-	const imageToRender = useMemo(() => {
-		return showGraphicOverview
-			? `https://hatechnolog.com/static/syncover/images/${album.id}.png`
-			: albumImage;
-	}, [album.id, albumImage, showGraphicOverview]);
+	// const imageToRender = useMemo(() => {
+	// 	return showGraphicOverview
+	// 		? `https://hatechnolog.com/static/syncover/images/${album.id}.png`
+	// 		: albumImage;
+	// }, [album.id, albumImage, showGraphicOverview]);
 
 	if (!shouldRender) {
 		return <SimilarAlbumPlaceholder />;
@@ -40,7 +41,8 @@ export const SimilarAlbum: React.FunctionComponent<ISimilarAlbumProps> = ({
 
 	return (
 		<SimilarAlbumContainer onClick={handleClick}>
-			<SimilarAlbumImage src={imageToRender} />
+			<SimilarAlbumGraphic isGraphic={showGraphicOverview} src={`https://hatechnolog.com/static/syncover/images/${album.id}.png`} />
+			<SimilarAlbumImage isGraphic={showGraphicOverview} src={albumImage} />
 			<SimilarAlbumNameContainer>
 				<SimilarAlbumName>{album.albumName}</SimilarAlbumName>
 				<SimilarAlbumArtistName>{album.artistName}</SimilarAlbumArtistName>

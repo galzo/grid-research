@@ -20,28 +20,13 @@ export const SimilarAlbumsTitle = styled.span`
 	margin-bottom: 25px;
 `;
 
-export const SimilarAlbumNameContainer = styled(FadeInDiv)`
-	text-align: left ;
-	line-height: 12px;
-	margin-top: 10px;
-`;
-
-export const SimilarAlbumName = styled.span`
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 12px;
-	font-family: 'Gotham-bold';
-	color: white;
-	line-height: 12px;
-`;
-
 export const SimilarAlbumArtistName = styled.div`
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 18px;
 	font-family: 'Gotham-book';
 	color: rgba(255, 255, 255, 0.8);
-	margin-top: 5px;
+	margin-top: 2px;
 `;
 
 export const SimilarAlbumsLineContainer = styled.div`
@@ -71,15 +56,54 @@ export const SimilarAlbumContainer = styled(FadeInDiv)`
 	border: 1px solid rgba(255, 255, 255, 0.6);
 	background-size: contain;
 	z-index: 5;
-	/* margin-right: 40px; */
+	position: relative;
 	-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 	box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
-	cursor: pointer; /* Add a pointer on hover */
-
+	&:hover{
+		cursor: pointer;
+	}
 `;
 
-export const SimilarAlbumImage = styled.img`
+export const SimilarAlbumName = styled.div`
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.15em;
+	font-family: 'Gotham-bold';
+	color: white;
+`;
+
+export const SimilarAlbumNameContainer = styled.div`
+	text-align: left ;
+	line-height: 12px;
+	margin-top: 16px;
+	opacity: 0;
+	transition: all 0.2s;
+	
+	${SimilarAlbumContainer}:hover & {
+		opacity: 1;
+	}
+`;
+
+export const SimilarAlbumGraphic = styled.img<{isGraphic: boolean}>`
 	width: 100%;
 	height: 100%;
-	transition: all 1000ms ease-in-out;
+	position: absolute;
+	top:0;
+	left:0;
+	transform: scale(1.3);
+	opacity: ${({isGraphic}) => isGraphic ? '1' : '0'};
+	transition: all 0.2s;
+	${SimilarAlbumContainer}:hover && {
+		opacity: ${({isGraphic}) => isGraphic ? '0' : '1'};
+	}
+`;
+
+export const SimilarAlbumImage = styled.img<{isGraphic: boolean}>`
+	width: 100%;
+	height: 100%;
+	transition: all 0.2s;
+	opacity: ${({isGraphic}) => isGraphic ? '0' : '1'};
+	${SimilarAlbumContainer}:hover && {
+		opacity: ${({isGraphic}) => isGraphic ? '1' : '0'};
+	}
 `;

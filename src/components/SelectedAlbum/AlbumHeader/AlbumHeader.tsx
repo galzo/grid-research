@@ -24,8 +24,8 @@ export const AlbumHeader: FC<IAlbumHeader> = ({
 }) => {
 	return (
 		<AlbumHeaderContainer>
-			<ActionButton icon={'close'} onClick={onCloseClick} isFlat={true} />
-			<ActionButton icon={'shuffle'} onClick={onShuffleClick} />
+			<ActionButton isSelected={false} icon={'close'} onClick={onCloseClick} isFlat={true} />
+			<ActionButton isSelected={false} icon={'shuffle'} onClick={onShuffleClick} />
 		</AlbumHeaderContainer>
 	);
 };

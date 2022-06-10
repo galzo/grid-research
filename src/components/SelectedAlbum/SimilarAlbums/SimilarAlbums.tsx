@@ -38,7 +38,8 @@ export const SimilarAlbums: FC<ISimilarAlbumsProps> = ({
 			<SimilarAlbumsLineContainer>
 				{AlbumComponents}
 				<ActionButton
-					icon="graphicOverview"
+					isSelected={showGraphicOverview}
+					icon={showGraphicOverview?"graphicOverviewFull":"graphicOverview"}
 					onClick={handleClickShowGraphicOverview}
 				/>
 			</SimilarAlbumsLineContainer>

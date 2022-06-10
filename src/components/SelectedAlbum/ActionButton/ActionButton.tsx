@@ -2,11 +2,13 @@ import { FC, useCallback, useMemo } from 'react';
 import { ButtonWrapper, FlatButtonWrapper } from './ActionButtons.styles';
 import { IActionButtonProps } from './ActionButtons.types';
 import shuffle from '../../../assets/shuffle.png';
-import graphicOverview from '../../../assets/grapicOverview.png';
+import graphicOverview from '../../../assets/graphicOverview.png';
+import graphicOverviewFull from '../../../assets/graphicOverviewFull.png'
 import close from '../../../assets/close.png';
 
 export const ActionButton: FC<IActionButtonProps> = ({
 	icon,
+	isSelected,
 	onClick,
 	isFlat,
 }) => {
@@ -17,22 +19,24 @@ export const ActionButton: FC<IActionButtonProps> = ({
 			case 'graphicOverview':
 				return graphicOverview;
 			case 'close':
-			default:
 				return close;
+				case 'graphicOverviewFull':
+					default:
+						return graphicOverviewFull;
 		}
 	}, [icon]);
 
 	if (isFlat) {
 		return (
-			<FlatButtonWrapper>
-				<img src={Icon} alt={icon} onClick={onClick} />
+			<FlatButtonWrapper onClick={onClick}>
+				<img src={Icon} alt={icon}  />
 			</FlatButtonWrapper>
 		);
 	}
 
 	return (
-		<ButtonWrapper>
-			<img src={Icon} alt={icon} onClick={onClick} />
+		<ButtonWrapper isSelected={isSelected} onClick={onClick}>
+			<img src={Icon} alt={icon}  />
 		</ButtonWrapper>
 	);
 };
