@@ -9,6 +9,9 @@ import {
 	SimilarAlbumContainer,
 	SimilarAlbumImage,
 	SimilarAlbumPlaceholder,
+	SimilarAlbumName,
+	SimilarAlbumArtistName,
+	SimilarAlbumNameContainer
 } from './SimilarAlbums.styles';
 import { ISimilarAlbumProps } from './SimilarAlbums.types';
 
@@ -38,6 +41,10 @@ export const SimilarAlbum: React.FunctionComponent<ISimilarAlbumProps> = ({
 	return (
 		<SimilarAlbumContainer onClick={handleClick}>
 			<SimilarAlbumImage src={imageToRender} />
+			<SimilarAlbumNameContainer>
+				<SimilarAlbumName>{album.albumName}</SimilarAlbumName>
+				<SimilarAlbumArtistName>{album.artistName}</SimilarAlbumArtistName>
+			</SimilarAlbumNameContainer>
 		</SimilarAlbumContainer>
 	);
 };

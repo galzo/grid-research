@@ -37,10 +37,10 @@ export const AlbumImageWrapper = styled.div<{
 			? `${sourcePosition.top}px`
 			: `${targetPosition.right}px`};
 
-	border: 1px solid rgba(255, 255, 255, 0.5);
+	border: 1px solid rgba(255, 255, 255, 0.6);
 	z-index: 9999;
-	width: ${({ size }) => (size === 'small' ? '125px' : '586px')};
-	height: ${({ size }) => (size === 'small' ? '125px' : '586px')};
+	width: ${({ size }) => (size === 'small' ? '125px' : '580px')};
+	height: ${({ size }) => (size === 'small' ? '125px' : '580px')};
 	transition: all 800ms;
 	transition-timing-function: ease;
 	transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);

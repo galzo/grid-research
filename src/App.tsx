@@ -9,7 +9,7 @@ import { YoutubePlayerContextProvider } from './components/YoutubePlayer/Youtube
 import { useAlbumsData } from './hooks/useAlbumsData';
 
 const TILE_SIZE = 30;
-const ALBUMS_AMOUNT = 1000;
+const ALBUMS_AMOUNT = 1500;
 
 export const App = () => {
 	const { isLoading, albums } = useAlbumsData(ALBUMS_AMOUNT);

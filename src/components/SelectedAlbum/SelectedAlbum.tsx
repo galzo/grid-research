@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useMemo } from 'react';
-import { OverlayBackground, OverlayWrapper } from './SelectedAlbum.styles';
+import { OverlayBackground, OverlayWrapper, AlbumContent } from './SelectedAlbum.styles';
 import { ISelectedAlbumProps } from './SelectedAlbum.types';
 import { SimilarAlbums } from './SimilarAlbums/SimilarAlbums';
 import { AlbumDetails } from './AlbumDetails/AlbumDetails';
@@ -33,12 +33,14 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 
 	return (
 		<OverlayWrapper>
-			<AlbumImage album={selectedAlbum} position={albumPosition} />
 			<AlbumHeader
 				onCloseClick={onDismiss}
 				onShuffleClick={shuffleSimilarAlbum}
 			/>
-			<AlbumDetails album={selectedAlbum} />
+			<AlbumContent>
+				<AlbumImage album={selectedAlbum} position={albumPosition} />
+				<AlbumDetails album={selectedAlbum} />
+			</AlbumContent>
 			<SimilarAlbums
 				selectedAlbum={selectedAlbum}
 				albums={similarAlbums}
