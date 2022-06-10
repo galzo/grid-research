@@ -25,15 +25,14 @@ export const AlbumItemImage = styled(FadeInImg)<{ imageSize: number }>`
 	}
 
 	&.focus {
-		-webkit-transform: scale(2.5);
-		-moz-transform: scale(2.5);
-		-ms-transform: scale(2.5);
-		transform: scale(2.5);
+		-webkit-transform: scale(4);
+		-moz-transform: scale(4);
+		-ms-transform: scale(4);
+		transform: scale(4);
 		-webkit-transition: -webkit-transform 0.25s;
 		-moz-transition: -moz-transform 0.25s;
 		-ms-transition: -ms-transform 0.25s;
 		transition: transform 0.25s;
-		border-radius: 4px;
 		border: 1px solid white;
 		-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 		box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
@@ -41,16 +40,15 @@ export const AlbumItemImage = styled(FadeInImg)<{ imageSize: number }>`
 	}
 
 	&.related {
-		-webkit-transform: scale(2);
-		-moz-transform: scale(2);
-		-ms-transform: scale(2);
-		transform: scale(2);
+		-webkit-transform: scale(2.5);
+		-moz-transform: scale(2.5);
+		-ms-transform: scale(2.5);
+		transform: scale(2.5);
 		-webkit-transition: -webkit-transform 0.5s;
 		-moz-transition: -moz-transform 0.5s;
 		-ms-transition: -ms-transform 0.5s;
 		transition: transform 0.5s;
 		border: 1px solid white;
-		border-radius: 4px;
 		-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 		box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 		z-index: 2;
