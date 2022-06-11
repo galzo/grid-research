@@ -28,8 +28,7 @@ export const OverlayBackground = styled(FadeInDiv)`
 	z-index: 5;
 `;
 
-export const AlbumContent = styled(FadeInDiv)`
+export const AlbumContent = styled.div`
 	z-index: 7;
 	padding: 10px 120px 0 150px;
 `;
-

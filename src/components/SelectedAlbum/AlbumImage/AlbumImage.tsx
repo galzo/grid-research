@@ -5,6 +5,7 @@ import { AlbumImg, AlbumImageWrapper } from './AlbumImage.styles';
 import { IAlbumImageProps } from './AlbumImage.types';
 import { GridItemPosition } from '../../../common/uiTypes';
 import { useWindowWidth } from '../../../hooks/useWindowResize';
+import { MusicPlayer } from '../MusicPlayer/MusicPlayer';
 
 export const AlbumImage: FC<IAlbumImageProps> = ({ position, album }) => {
 	const { albumImage } = useHighResImage(album);
@@ -32,6 +33,7 @@ export const AlbumImage: FC<IAlbumImageProps> = ({ position, album }) => {
 			targetPosition={targetPosition}
 		>
 			<AlbumImg src={albumImage} />
+			<MusicPlayer album={album} />
 		</AlbumImageWrapper>
 	);
 };

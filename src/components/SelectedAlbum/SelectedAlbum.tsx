@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo } from 'react';
+import React, { FC, useCallback, useContext, useEffect, useMemo } from 'react';
 import {
 	OverlayBackground,
 	OverlayWrapper,
@@ -10,6 +10,8 @@ import { AlbumDetails } from './AlbumDetails/AlbumDetails';
 import { resolveSimilarAlbums } from '../../utils/data/albumDataMapper';
 import { AlbumImage } from './AlbumImage/AlbumImage';
 import { AlbumHeader } from './AlbumHeader/AlbumHeader';
+import { MusicPlayer } from './MusicPlayer/MusicPlayer';
+import { YoutubePlayerContext } from '../YoutubePlayer/YoutubePlayerContext';
 
 export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	selectedAlbum,
@@ -19,6 +21,8 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	onSelect,
 	onShuffle,
 }) => {
+	const { toggleVideoPlay } = useContext(YoutubePlayerContext);
+
 	const similarAlbums = useMemo(() => {
 		if (!selectedAlbum || !allAlbums) return [];
 		return resolveSimilarAlbums(allAlbums, selectedAlbum);
@@ -34,17 +38,23 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	}, [onShuffle, selectedAlbum?.id, similarAlbums]);
 
 	useEffect(() => {
-		const handleEscClick = (event: any) => {
+		const handleKeyboard = (event: any) => {
+			// Escape button click
 			if (event.key === 'Escape') {
 				onDismiss();
 			}
+
+			// Spacebar button click
+			if (event.keyCode === 32) {
+				toggleVideoPlay();
+			}
 		};
 
-		document.addEventListener('keydown', handleEscClick, false);
+		document.addEventListener('keydown', handleKeyboard, false);
 		return () => {
-			document.removeEventListener('keydown', handleEscClick);
+			document.removeEventListener('keydown', handleKeyboard);
 		};
-	}, [onDismiss]);
+	}, [onDismiss, toggleVideoPlay]);
 
 	if (!selectedAlbum || !albumPosition) return null;
 
