@@ -10,7 +10,7 @@ export const useZoomButton = (isFocused: boolean, isZoomedOut: boolean) => {
 		if (shouldRender) {
 			timeout = setTimeout(() => {
 				setShouldRenderButton(true);
-			}, 1000);
+			}, 900);
 		} else {
 			setShouldRenderButton(false);
 		}
