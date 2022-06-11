@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { FocusType } from '../../../common/uiTypes';
 import { resolveGridItemClassName } from '../../../utils/ui/classNamesHandler';
 
-export const useFocusClass = (isFocused: boolean, isRelated: boolean) => {
+export const useFocusClass = (isFocused: boolean, isRelated: boolean, isGridZoomedOut: boolean) => {
 	const [className, setClassname] = useState<FocusType>('none');
 
 	useEffect(() => {
@@ -16,6 +16,10 @@ export const useFocusClass = (isFocused: boolean, isRelated: boolean) => {
 			}, 1000);
 		} else {
 			setClassname(cssClass);
+		}
+
+		if (!isGridZoomedOut && cssClass === 'related') {
+			setClassname('none');
 		}
 
 		return () => {
