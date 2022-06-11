@@ -81,6 +81,7 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 			key={album.id}
 			imageSize={itemSize}
 			isDisabled={isDisabledByZoom}
+			isGridZoomedOut={isGridZoomedOut}
 			onMouseEnter={handleHover}
 			onClick={handleClick}
 			className={className}
