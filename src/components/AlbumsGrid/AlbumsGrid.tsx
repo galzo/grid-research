@@ -87,6 +87,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 
 	const handleZoomOutClick = useCallback(() => {
 		setIsZoomedOut(true);
+		window.scrollTo(0, 300);
 	}, []);
 
 	const GridMatrix = useMemo(() => {
