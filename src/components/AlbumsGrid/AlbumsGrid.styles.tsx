@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { FadeInDiv } from '../Base/FadeInDiv';
 
 export const GridWrapper = styled.div<{ size: number; isZoomedOut: boolean }>`
-	width: 150%;
+	width: 180%;
 	padding: 40px;
 	display: grid;
 	box-sizing: border-box;
@@ -13,6 +13,7 @@ export const GridWrapper = styled.div<{ size: number; isZoomedOut: boolean }>`
 	row-gap: 1px;
 	background-color: rgba(0, 0, 0, 0.7);
 	overflow: visible;
+	transform-origin: left;
 	transition: transform 500ms;
 	${({ isZoomedOut }) =>
 		isZoomedOut &&
