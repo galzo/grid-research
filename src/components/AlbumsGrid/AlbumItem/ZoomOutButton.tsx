@@ -8,8 +8,8 @@ interface IZoomOutButtonProps {
 }
 
 export const ButtonWrapper = styled(FadeInDiv)`
+	transition: all 0.2s;
 	height: 10px;
-	width: 15px;
 	position: absolute;
 	box-sizing: border-box;
 	background: white;
@@ -17,12 +17,19 @@ export const ButtonWrapper = styled(FadeInDiv)`
 	user-select: none;
 	color: black;
 	font-size: 4px;
+	font-family: 'Gotham-medium';
 	display: flex;
+	padding-top:2px;
 	justify-content: center;
 	align-items: center;
+	-webkit-box-shadow: 0px 3px 14px 0 rgba(0, 0, 0, 1);
+	box-shadow: 0px 3px 14px 0 rgba(0, 0, 0, 1);
+	left: -1px;
+	right: -1px;
+	top: 32px;
 
 	&:hover {
-		background: rgba(255, 255, 255, 0.65);
+		background: rgba(230, 230, 235);
 		cursor: pointer;
 	}
 `;
@@ -44,5 +51,5 @@ export const ZoomOutButton: FC<IZoomOutButtonProps> = ({
 		return null;
 	}
 
-	return <ButtonWrapper onClick={handleClick}>{'click me'}</ButtonWrapper>;
+	return <ButtonWrapper onClick={handleClick}>{'See Neighbors'}</ButtonWrapper>;
 };

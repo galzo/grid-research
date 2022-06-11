@@ -26,7 +26,7 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 }) => {
 	const [albumImage, setAlbumImage] = useState(album.image);
 	const { shouldRender } = useDelayedRender(albumIndex * 2);
-	const { className } = useFocusClass(isFocused, isRelated);
+	const { className } = useFocusClass(isFocused, isRelated, isGridZoomedOut);
 	const { shouldRenderButton } = useZoomButton(isFocused, isGridZoomedOut);
 	const ref = useRef<any>(null);
 
