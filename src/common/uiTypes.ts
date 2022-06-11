@@ -10,4 +10,4 @@ export type GridItemPosition = {
 	right: number;
 };
 
-export type FocusType = 'focus' | 'related' | 'none';
+export type FocusType = 'focus' | 'related' | 'hover' | 'none';

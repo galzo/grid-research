@@ -18,6 +18,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 }) => {
 	const { focusedAlbum, handleFocusAlbum } = useFocusAlbum();
 	const [selectedAlbum, setSelectedAlbum] = useState<AlbumData>();
+	const [isZoomOut, setZoomOut] = useState(false)
 	const [selectedPosition, setSelectedPosition] =
 		useState<GridItemPosition>();
 	const { setVideoId, isPlaying, toggleVideoPlay } =
@@ -29,6 +30,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 			}
 		}, []);
 
+	
 
 	const handleClickGridAlbum = useCallback(
 		(album: AlbumData, position: GridItemPosition) => {
@@ -66,6 +68,10 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		setSelectedPosition(undefined);
 		setVideoId('');
 	}, [setVideoId]);
+	
+	const zoomOutHandler = (shouldZoomOut: boolean) => {
+		setZoomOut(shouldZoomOut);
+	};
 
 	const GridMatrix = useMemo(() => {
 		if (!albums) {
@@ -79,10 +85,13 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 					key={album.id}
 					album={album}
 					albumIndex={index}
-					onHover={handleFocusAlbum}
+					onFocus={handleFocusAlbum}
 					onClick={handleClickGridAlbum}
 					isFocused={focus.isFocused}
 					isRelated={focus.isRelated}
+					isHovered={focus.isRelated}
+					isZoomOut={isZoomOut}
+					handleZoomOut={zoomOutHandler}
 					itemSize={tileSize}
 				/>
 			);
@@ -94,6 +103,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		focusedAlbum,
 		handleClickGridAlbum,
 		handleFocusAlbum,
+		isZoomOut,
 		tileSize,
 	]);
 
@@ -102,7 +112,8 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	}
 
 	return (
-		<GridWrapper ref={containerDivRef} size={tileSize}>
+		<GridWrapper ref={containerDivRef} size={tileSize}
+		className={isZoomOut ? 'zoom-out' : 'no-zoom'}>
 			<SelectedAlbum
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}

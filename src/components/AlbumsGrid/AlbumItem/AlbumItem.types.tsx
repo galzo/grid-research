@@ -4,9 +4,12 @@ import { GridItemPosition } from '../../../common/uiTypes';
 export interface IAlbumItemProps {
 	albumIndex: number;
 	album: AlbumData;
-	onHover: (album: AlbumData) => void;
+	onFocus: (album: AlbumData) => void;
 	onClick: (album: AlbumData, position: GridItemPosition) => void;
 	isFocused: boolean;
 	isRelated: boolean;
+	isHovered: boolean;
+	isZoomOut: boolean;
+	handleZoomOut: (shouldZoomOut:boolean) => void;
 	itemSize: number;
 }
