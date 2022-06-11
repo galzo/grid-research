@@ -8,8 +8,8 @@ import { OpenPage } from './components/OpenPage/OpenPage';
 import { YoutubePlayerContextProvider } from './components/YoutubePlayer/YoutubePlayerContextProvider';
 import { useAlbumsData } from './hooks/useAlbumsData';
 
-const TILE_SIZE = 50;
-const ALBUMS_AMOUNT = 1500;
+const TILE_SIZE = 40;
+const ALBUMS_AMOUNT = 3567;
 
 export const App = () => {
 	const { isLoading, albums } = useAlbumsData(ALBUMS_AMOUNT);

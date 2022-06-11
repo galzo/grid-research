@@ -9,7 +9,6 @@ interface IZoomOutButtonProps {
 
 export const ButtonWrapper = styled.div`
 	height: 10px;
-	width: 15px;
 	position: absolute;
 	box-sizing: border-box;
 	background: white;
@@ -20,9 +19,15 @@ export const ButtonWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	left: -1px;
+	right: -1px;
+	top: 42px;
+	-webkit-box-shadow: 0 3px 14px -2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 14px -2px rgba(0, 0, 0, 0.5);
+	transition: all 0.2s;
 
 	&:hover {
-		background: rgba(255, 255, 255, 0.65);
+		background: rgba(230, 230, 235);
 		cursor: pointer;
 	}
 `;
