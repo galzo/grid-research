@@ -1,5 +1,9 @@
-import React, { FC, useCallback, useMemo } from 'react';
-import { OverlayBackground, OverlayWrapper, AlbumContent } from './SelectedAlbum.styles';
+import React, { FC, useCallback, useEffect, useMemo } from 'react';
+import {
+	OverlayBackground,
+	OverlayWrapper,
+	AlbumContent,
+} from './SelectedAlbum.styles';
 import { ISelectedAlbumProps } from './SelectedAlbum.types';
 import { SimilarAlbums } from './SimilarAlbums/SimilarAlbums';
 import { AlbumDetails } from './AlbumDetails/AlbumDetails';
@@ -28,6 +32,19 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 
 		onShuffle(albumIds);
 	}, [onShuffle, selectedAlbum?.id, similarAlbums]);
+
+	useEffect(() => {
+		const handleEscClick = (event: any) => {
+			if (event.key === 'Escape') {
+				onDismiss();
+			}
+		};
+
+		document.addEventListener('keydown', handleEscClick, false);
+		return () => {
+			document.removeEventListener('keydown', handleEscClick);
+		};
+	}, [onDismiss]);
 
 	if (!selectedAlbum || !albumPosition) return null;
 
