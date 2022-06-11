@@ -12,6 +12,7 @@ import { useFocusClass } from './useFocusClass';
 import { fetchImage } from '../../../utils/data/albumImageFetcher';
 import { ZoomOutButton } from './ZoomOutButton';
 import { useZoomButton } from './useZoomButton';
+import { useIsVisible } from '../../../hooks/useIsVisible';
 
 export const AlbumItem: FC<IAlbumItemProps> = ({
 	album,
@@ -24,11 +25,12 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 	itemSize,
 	isGridZoomedOut,
 }) => {
+	const ref = useRef<any>(null);
 	const [albumImage, setAlbumImage] = useState(album.image);
-	const { shouldRender } = useDelayedRender(albumIndex * 2);
+	const { shouldRender } = useDelayedRender(100);
 	const { className } = useFocusClass(isFocused, isRelated);
 	const { shouldRenderButton } = useZoomButton(isFocused, isGridZoomedOut);
-	const ref = useRef<any>(null);
+	const { isVisible } = useIsVisible(ref);
 
 	useEffect(() => {
 		const fetchImageForFocus = async () => {
@@ -69,8 +71,8 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 		return !isFocused && !isRelated;
 	}, [isFocused, isGridZoomedOut, isRelated]);
 
-	if (!shouldRender) {
-		return <AlbumItemPlaceholder />;
+	if (!isVisible || !shouldRender) {
+		return <AlbumItemPlaceholder ref={ref} />;
 	}
 
 	return (

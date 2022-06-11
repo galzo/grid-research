@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FadeInDiv } from '../Base/FadeInDiv';
 
 export const GridWrapper = styled.div<{ size: number; isZoomedOut: boolean }>`
-	width: 100%;
+	width: 150%;
 	padding: 40px;
 	display: grid;
 	box-sizing: border-box;
@@ -12,8 +12,11 @@ export const GridWrapper = styled.div<{ size: number; isZoomedOut: boolean }>`
 	column-gap: 1px;
 	row-gap: 1px;
 	background-color: rgba(0, 0, 0, 0.7);
-	overflow: visibale;
+	overflow: visible;
 	transition: transform 500ms;
-	transform: ${({ isZoomedOut }) =>
-		isZoomedOut ? 'scale(.55)' : 'scale(1)'};
+	${({ isZoomedOut }) =>
+		isZoomedOut &&
+		css`
+			transform: scale(0.55);
+		`}
 `;

@@ -7,7 +7,7 @@ interface IZoomOutButtonProps {
 	shouldRender: boolean;
 }
 
-export const ButtonWrapper = styled(FadeInDiv)`
+export const ButtonWrapper = styled.div`
 	height: 10px;
 	width: 15px;
 	position: absolute;

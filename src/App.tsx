@@ -8,7 +8,7 @@ import { OpenPage } from './components/OpenPage/OpenPage';
 import { YoutubePlayerContextProvider } from './components/YoutubePlayer/YoutubePlayerContextProvider';
 import { useAlbumsData } from './hooks/useAlbumsData';
 
-const TILE_SIZE = 30;
+const TILE_SIZE = 50;
 const ALBUMS_AMOUNT = 1500;
 
 export const App = () => {
@@ -22,15 +22,13 @@ export const App = () => {
 		return null;
 	}
 
-	
-
 	return (
 		<div className="App">
 			<YoutubePlayerContextProvider>
-				<OpenPage/>
-				<GridButton/>
+				<OpenPage />
+				<GridButton />
 				<AlbumsGrid albums={albums} tileSize={TILE_SIZE} />
-				<LearnMorePage/>
+				<LearnMorePage />
 			</YoutubePlayerContextProvider>
 		</div>
 	);
