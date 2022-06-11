@@ -6,7 +6,9 @@ export interface IAlbumItemProps {
 	album: AlbumData;
 	onHover: (album: AlbumData) => void;
 	onClick: (album: AlbumData, position: GridItemPosition) => void;
+	onZoomOut: VoidFunction;
 	isFocused: boolean;
 	isRelated: boolean;
 	itemSize: number;
+	isGridZoomedOut: boolean;
 }

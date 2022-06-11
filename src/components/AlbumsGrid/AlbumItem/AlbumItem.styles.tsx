@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 import { FadeInImg } from '../../Base/FadeInImg';
+import { FadeInDiv } from '../../Base/FadeInDiv';
 
 export const AlbumItemPlaceholder = styled.div`
 	background-color: #282c34;
 `;
 
-export const AlbumItemImage = styled(FadeInImg)<{ imageSize: number }>`
+export const AlbumItemContainer = styled(FadeInDiv)<{
+	imageSize: number;
+	isDisabled: boolean;
+}>`
 	width: ${({ imageSize }) => `${imageSize}px`};
 	height: ${({ imageSize }) => `${imageSize}px`};
 	border: 1px solid;
 	cursor: pointer;
 	background-color: #282c34;
+	opacity: ${({ isDisabled }) => (isDisabled ? 0.3 : 1)};
 
 	&.none {
 		-webkit-transform: scale(1);
@@ -53,4 +58,11 @@ export const AlbumItemImage = styled(FadeInImg)<{ imageSize: number }>`
 		box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 		z-index: 2;
 	}
+`;
+
+export const AlbumItemImage = styled(FadeInImg)<{
+	imageSize: number;
+}>`
+	width: ${({ imageSize }) => `${imageSize}px`};
+	height: ${({ imageSize }) => `${imageSize}px`};
 `;

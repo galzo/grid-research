@@ -1,11 +1,22 @@
-import { FC, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import {
+	FC,
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+} from 'react';
 import styled from 'styled-components';
 import { shuffle } from 'lodash';
 import { AlbumItem } from './AlbumItem/AlbumItem';
 import { Album, AlbumData, AlbumId } from '../../common/dataTypes';
 import { IAlbumsGridProps } from './AlbumsGrid.types';
 import { DEFAULT_GRID_TILE_SIZE } from '../../common/consts';
-import { resolveFocusDetails } from '../../utils/ui/albumFocusHandler';
+import {
+	isFocusedOrSimilar,
+	resolveFocusDetails,
+} from '../../utils/ui/albumFocusHandler';
 import { GridWrapper } from './AlbumsGrid.styles';
 import { GridItemPosition } from '../../common/uiTypes';
 import { SelectedAlbum } from '../SelectedAlbum/SelectedAlbum';
@@ -16,28 +27,35 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,
 	tileSize = DEFAULT_GRID_TILE_SIZE,
 }) => {
-	const { focusedAlbum, handleFocusAlbum } = useFocusAlbum();
+	const [isZoomedOut, setIsZoomedOut] = useState(false);
+	const { focusedAlbum, handleFocusAlbum } = useFocusAlbum(isZoomedOut);
 	const [selectedAlbum, setSelectedAlbum] = useState<AlbumData>();
 	const [selectedPosition, setSelectedPosition] =
 		useState<GridItemPosition>();
 	const { setVideoId, isPlaying, toggleVideoPlay } =
 		useContext(YoutubePlayerContext);
 
-		const containerDivRef = useCallback((node: any) => {
-			if (node !== null) {
-				window.scrollTo(250,500);
-			}
-		}, []);
-
+	const containerDivRef = useCallback((node: any) => {
+		if (node !== null) {
+			window.scrollTo(250, 500);
+		}
+	}, []);
 
 	const handleClickGridAlbum = useCallback(
 		(album: AlbumData, position: GridItemPosition) => {
-			handleFocusAlbum(undefined);
-			setSelectedAlbum(album);
-			setSelectedPosition(position);
-			setVideoId(album.youtubeId);
+			const shouldSelectAlbum = isZoomedOut
+				? isFocusedOrSimilar(album, focusedAlbum)
+				: true;
+			if (shouldSelectAlbum) {
+				handleFocusAlbum(undefined);
+				setSelectedAlbum(album);
+				setSelectedPosition(position);
+				setVideoId(album.youtubeId);
+			}
+
+			setIsZoomedOut(false);
 		},
-		[handleFocusAlbum, setVideoId],
+		[focusedAlbum, handleFocusAlbum, isZoomedOut, setVideoId],
 	);
 
 	const handleSelectRelatedAlbum = useCallback(
@@ -67,6 +85,10 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		setVideoId('');
 	}, [setVideoId]);
 
+	const handleZoomOutClick = useCallback(() => {
+		setIsZoomedOut(true);
+	}, []);
+
 	const GridMatrix = useMemo(() => {
 		if (!albums) {
 			return [];
@@ -81,9 +103,11 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 					albumIndex={index}
 					onHover={handleFocusAlbum}
 					onClick={handleClickGridAlbum}
+					onZoomOut={handleZoomOutClick}
 					isFocused={focus.isFocused}
 					isRelated={focus.isRelated}
 					itemSize={tileSize}
+					isGridZoomedOut={isZoomedOut}
 				/>
 			);
 		});
@@ -94,6 +118,8 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		focusedAlbum,
 		handleClickGridAlbum,
 		handleFocusAlbum,
+		handleZoomOutClick,
+		isZoomedOut,
 		tileSize,
 	]);
 
@@ -102,7 +128,11 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	}
 
 	return (
-		<GridWrapper ref={containerDivRef} size={tileSize}>
+		<GridWrapper
+			ref={containerDivRef}
+			size={tileSize}
+			isZoomedOut={isZoomedOut}
+		>
 			<SelectedAlbum
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}

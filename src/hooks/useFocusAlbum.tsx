@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
 import { AlbumData } from '../common/dataTypes';
 
-export const useFocusAlbum = () => {
+export const useFocusAlbum = (izZoomedOut: boolean) => {
 	const [focusedAlbum, setFocusedAlbum] = useState<AlbumData>();
 	const [disableFocus, setDisableFocus] = useState(true);
 
 	const handleFocusAlbum = useCallback(
 		(album?: AlbumData) => {
-			if (disableFocus) return;
+			if (izZoomedOut || disableFocus) return;
 
 			setFocusedAlbum(album);
 		},
-		[disableFocus],
+		[disableFocus, izZoomedOut],
 	);
 
 	useEffect(() => {

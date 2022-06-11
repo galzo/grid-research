@@ -1,24 +1,33 @@
 import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { IAlbumItemProps } from './AlbumItem.types';
-import { AlbumItemImage, AlbumItemPlaceholder } from './AlbumItem.styles';
+import {
+	AlbumItemContainer,
+	AlbumItemImage,
+	AlbumItemPlaceholder,
+} from './AlbumItem.styles';
 import { resolveGridItemClassName } from '../../../utils/ui/classNamesHandler';
 import { useDelayedRender } from '../../../hooks/useDelayedRender';
 import { GridItemPosition } from '../../../common/uiTypes';
 import { useFocusClass } from './useFocusClass';
 import { fetchImage } from '../../../utils/data/albumImageFetcher';
+import { ZoomOutButton } from './ZoomOutButton';
+import { useZoomButton } from './useZoomButton';
 
 export const AlbumItem: FC<IAlbumItemProps> = ({
 	album,
 	albumIndex,
 	onHover,
 	onClick,
+	onZoomOut,
 	isFocused,
 	isRelated,
 	itemSize,
+	isGridZoomedOut,
 }) => {
 	const [albumImage, setAlbumImage] = useState(album.image);
 	const { shouldRender } = useDelayedRender(albumIndex * 2);
 	const { className } = useFocusClass(isFocused, isRelated);
+	const { shouldRenderButton } = useZoomButton(isFocused, isGridZoomedOut);
 	const ref = useRef<any>(null);
 
 	useEffect(() => {
@@ -52,21 +61,41 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 		onClick(album, position);
 	}, [album, onClick]);
 
+	const isDisabledByZoom = useMemo(() => {
+		if (!isGridZoomedOut) {
+			return false;
+		}
+
+		return !isFocused && !isRelated;
+	}, [isFocused, isGridZoomedOut, isRelated]);
+
 	if (!shouldRender) {
 		return <AlbumItemPlaceholder />;
 	}
 
 	return (
-		<AlbumItemImage
+		<AlbumItemContainer
 			ref={ref}
 			key={album.id}
-			src={albumImage}
 			imageSize={itemSize}
-			alt={album.albumName}
+			isDisabled={isDisabledByZoom}
 			onMouseEnter={handleHover}
 			onClick={handleClick}
 			className={className}
-			loading={'lazy'}
-		/>
+		>
+			<ZoomOutButton
+				onClick={onZoomOut}
+				shouldRender={shouldRenderButton}
+			/>
+			<AlbumItemImage
+				src={albumImage}
+				imageSize={itemSize}
+				alt={album.albumName}
+				onMouseEnter={handleHover}
+				onClick={handleClick}
+				className={className}
+				loading={'lazy'}
+			/>
+		</AlbumItemContainer>
 	);
 };

@@ -12,3 +12,16 @@ export const resolveFocusDetails = (album: Album, focusedAlbum?: AlbumData) => {
 		isRelated,
 	};
 };
+
+export const isFocusedOrSimilar = (
+	album: AlbumData,
+	focusedAlbum?: AlbumData,
+) => {
+	if (!focusedAlbum) {
+		return false;
+	}
+
+	const isFocused = album.id === focusedAlbum.id;
+	const isSimilar = focusedAlbum.similarAlbums.includes(album.id);
+	return isFocused || isSimilar;
+};
