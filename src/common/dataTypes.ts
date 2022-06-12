@@ -57,6 +57,7 @@ export interface Album {
 	isUrban: boolean;
 	youtubeId: string;
 	youtubeUrl: string;
+	similarAlbums: AlbumId[];
 }
 
 export interface AlbumData extends Album {

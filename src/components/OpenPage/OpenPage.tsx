@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { OverlayBackground, OverlayWrapper } from '../SelectedAlbum/SelectedAlbum.styles';
 import {ButtonLearnMore, Gifs, ButtonWrapper, Subtitle, OpenPageContainer, GifImage, BoldTitle, GifContainer, BoldSubtitle, FindGifImage } from './OpenPage.styles';
 import identify from '../../assets/Identify.gif';
 import visualize from '../../assets/Visualize.gif';
 import find from '../../assets/find.gif';
 
-export const OpenPage=()=>{
-  const [showOpenPage, setShowOpenPage] = useState<boolean>(true);
+interface IOpenPageProp {
+  isShown: boolean;
+}
 
+export const OpenPage: FC<IOpenPageProp> =({isShown})=>{
+  const [showOpenPage, setShowOpenPage] = useState<boolean>(isShown);
+  
   if (!showOpenPage) return null;
   
   return(
@@ -29,7 +33,7 @@ export const OpenPage=()=>{
           </GifContainer>
         </Gifs>
         <ButtonWrapper onClick={()=>{setShowOpenPage(false)}}>START</ButtonWrapper>
-        <ButtonLearnMore >LEARN MORE</ButtonLearnMore>
+        <ButtonLearnMore onClick={()=> window.open("https://syncover.webflow.io/", "_blank")}>LEARN MORE </ButtonLearnMore>
 		  </OpenPageContainer> 
     <OverlayBackground/>  
     </OverlayWrapper>

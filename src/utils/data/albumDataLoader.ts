@@ -24,6 +24,7 @@ const adaptAlbum = (id: AlbumId, albumData: any): Album => {
 		isUrban: albumData.urban && albumData.urban === 1,
 		youtubeUrl: albumData.youtube_link,
 		youtubeId: getYoutubeVideoIdFromURL(albumData.youtube_link) ?? '',
+		similarAlbums: albumData.ns
 	};
 };
 
@@ -31,7 +32,6 @@ export const fetchAlbums = async (
 	limitAlbumsCount?: number,
 ): Promise<Album[]> => {
 	const albumsJson = await import('../../assets/albumsData.json');
-
 	const albums = Object.entries(albumsJson).map(([id, album]) => {
 		return adaptAlbum(id, album);
 	});
