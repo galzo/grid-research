@@ -26,7 +26,7 @@ export const ButtonWrapper = styled(FadeInDiv)`
 	color: #ffffff;
 	font-weight: 400;
 	font-family: 'Gotham-medium';
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 	overflow: hidden;
 	z-index: 5; 
 

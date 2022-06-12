@@ -1,10 +1,10 @@
 import { FC, useMemo } from 'react';
 import shuffle from '../../assets/shuffleBlack.png';
-import learnMore from '../../assets/learnMore.png';
+import home from '../../assets/home.png';
 import { ButtonWrapper, IconWrapper } from './GridActionButton.styles';
 
 
-export type GridActionButtonIcon = 'shuffle' | 'learnMore';
+export type GridActionButtonIcon = 'shuffle' | 'home';
 
 export interface IGridActionButtonProps {
 	icon: GridActionButtonIcon;
@@ -22,8 +22,8 @@ export const GridActionButton: FC<IGridActionButtonProps> = ({
 		switch (icon) {
 			case 'shuffle':
 				return shuffle;
-			case 'learnMore':
-				return learnMore;
+			case 'home':
+				return home;
 			default:
 				return shuffle;
 		}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { GridActionButton } from './GridActionButtons';
 
@@ -13,13 +13,15 @@ const GridButtonContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
 `;
+interface IGridButtonProps {
+  openPageHandler: () => void;
+}
 
-
-export const GridButton=()=>{
+export const GridButton: FC<IGridButtonProps> =({openPageHandler})=>{
   return(
     <GridButtonContainer>
       <GridActionButton icon={'shuffle'} text={'Random album'} onClick={() => "void" }/>
-      <GridActionButton icon={'learnMore'} text={'Learn more'} onClick={() => "void" }/>
+      <GridActionButton icon={'home'} text={'home'} onClick={openPageHandler} />
     </GridButtonContainer>
   )
 }

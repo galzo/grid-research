@@ -24,6 +24,7 @@ const adaptAlbum = (id: AlbumId, albumData: any): Album => {
 		isUrban: albumData.urban && albumData.urban === 1,
 		youtubeUrl: albumData.youtube_link,
 		youtubeId: getYoutubeVideoIdFromURL(albumData.youtube_link) ?? '',
+		similarAlbums: albumData.ns
 	};
 };
 
