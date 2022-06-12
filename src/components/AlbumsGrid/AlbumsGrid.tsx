@@ -17,7 +17,7 @@ import {
 	isFocusedOrSimilar,
 	resolveFocusDetails,
 } from '../../utils/ui/albumFocusHandler';
-import { GridWrapper } from './AlbumsGrid.styles';
+import { GridSimilarAlbumsTitle, GridWrapper } from './AlbumsGrid.styles';
 import { GridItemPosition } from '../../common/uiTypes';
 import { SelectedAlbum } from '../SelectedAlbum/SelectedAlbum';
 import { useFocusAlbum } from '../../hooks/useFocusAlbum';
@@ -135,6 +135,9 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 			size={tileSize}
 			isZoomedOut={isZoomedOut}
 		>
+			<GridSimilarAlbumsTitle isZoomedOut={isZoomedOut}>
+			<span> Similar albums to </span> {focusedAlbum?.albumName} <span>by</span> {focusedAlbum?.artistName}
+			</GridSimilarAlbumsTitle>
 			<SelectedAlbum
 				selectedAlbum={selectedAlbum}
 				albumPosition={selectedPosition}

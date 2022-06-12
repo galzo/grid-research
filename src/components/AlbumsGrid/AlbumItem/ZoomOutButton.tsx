@@ -8,7 +8,7 @@ interface IZoomOutButtonProps {
 }
 
 export const ButtonWrapper = styled.div`
-	height: 10px;
+	height: 13.2px;
 	position: absolute;
 	box-sizing: border-box;
 	background: white;
