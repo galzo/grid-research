@@ -95,7 +95,8 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 			return [];
 		}
 
-		const albumItems = Object.values(albums).map((album, index) => {
+		const albumItemsSort = Object.values(albums).sort((a, b) => (a.releaseYear > b.releaseYear) ? 1 : -1);
+		const albumItems= albumItemsSort.map((album, index) => {
 			const focus = resolveFocusDetails(album, focusedAlbum);
 			return (
 				<AlbumItem
