@@ -31,10 +31,10 @@ export const AlbumItemContainer = styled(FadeInDiv)<{
 	}
 
 	&.focus {
-		-webkit-transform: ${({ isGridZoomedOut }) => (isGridZoomedOut ? `scale(6)` : `scale(4)`)};
-		-moz-transform: ${({ isGridZoomedOut }) => (isGridZoomedOut ? `scale(6)` : `scale(4)`)};
-		-ms-transform: ${({ isGridZoomedOut }) => (isGridZoomedOut ? `scale(6)` : `scale(4)`)};
-		transform: ${({ isGridZoomedOut }) => (isGridZoomedOut ? `scale(6)` : `scale(4)`)};
+		-webkit-transform: ${({ isGridZoomedOut }) => (isGridZoomedOut ? `scale(6)` : `scale(3)`)};
+		-moz-transform: ${({ isGridZoomedOut }) => (isGridZoomedOut ? `scale(6)` : `scale(3)`)};
+		-ms-transform: ${({ isGridZoomedOut }) => (isGridZoomedOut ? `scale(6)` : `scale(3)`)};
+		transform: ${({ isGridZoomedOut }) => (isGridZoomedOut ? `scale(6)` : `scale(3)`)};
 		-webkit-transition: -webkit-transform 0.25s;
 		-moz-transition: -moz-transform 0.25s;
 		-ms-transition: -ms-transform 0.25s;
