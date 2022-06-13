@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FadeInDiv } from '../../Base/FadeInDiv';
 
 export const MusicPlayerContainer = styled(FadeInDiv)`
-	width: 565px;
+	width: 580px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
