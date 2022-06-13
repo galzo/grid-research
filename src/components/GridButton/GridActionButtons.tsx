@@ -30,10 +30,10 @@ export const GridActionButton: FC<IGridActionButtonProps> = ({
 	}, [icon]);
 
 	return (
-		<ButtonWrapper>
+		<ButtonWrapper onClick={onClick}>
       <span>{text}</span>
 			<IconWrapper>
-        <img src={Icon} alt={icon} onClick={onClick} />
+        <img src={Icon} alt={icon}/>
       </IconWrapper>
 		</ButtonWrapper>
 	);
