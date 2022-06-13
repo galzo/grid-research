@@ -20,7 +20,7 @@ export const GridButton: FC<IGridButtonProps> =({openPageHandler})=>{
   return(
     <GridButtonContainer>
       <GridActionButton icon={'shuffle'} text={'Random album'} onClick={()=>"void" }/>
-      <GridActionButton icon={'home'} text={'home'} onClick={openPageHandler} />
+      <GridActionButton icon={'info'} text={'About the project'} onClick={openPageHandler} />
     </GridButtonContainer>
   )
 }
