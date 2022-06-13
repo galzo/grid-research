@@ -17,7 +17,7 @@ export const OpenPage: FC<IOpenPageProp> =({isShown})=>{
   return(
     <OverlayWrapper>
    		<OpenPageContainer>
-        <BoldTitle><b>Syncover</b> explores the designs of music album covers</BoldTitle>
+        <BoldTitle><b>Syncover</b> a new way to explore the designs of music album covers</BoldTitle>
         <Gifs>
           <GifContainer>
             <GifImage src={identify} alt="identify" />
@@ -32,7 +32,7 @@ export const OpenPage: FC<IOpenPageProp> =({isShown})=>{
             <Subtitle><b>Find</b> similar cover designs based on their traits</Subtitle>
           </GifContainer>
         </Gifs>
-        <ButtonWrapper onClick={()=>{setShowOpenPage(false)}}>START</ButtonWrapper>
+        <ButtonWrapper onClick={()=>{setShowOpenPage(false)}}>START EXPLORING</ButtonWrapper>
         <ButtonLearnMore onClick={()=> window.open("https://syncover.webflow.io/", "_blank")}>LEARN MORE </ButtonLearnMore>
 		  </OpenPageContainer> 
     <OverlayBackground/>  

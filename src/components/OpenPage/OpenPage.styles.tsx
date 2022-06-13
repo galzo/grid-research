@@ -22,7 +22,7 @@ export const GifContainer = styled.div`
 `;
 
 export const BoldTitle = styled.div`
-	font-size: 18px;
+	font-size: 19px;
   letter-spacing: 8%;
 	color: #ffffff;
 	font-weight: 400;
@@ -86,7 +86,7 @@ export const ButtonWrapper = styled(FadeInDiv)`
 	justify-content: center;
 	transition: all 200ms ease-in-out;
 	user-select: none;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 8%;
 	color: black;
 	font-weight: 400;
