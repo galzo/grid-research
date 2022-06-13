@@ -1,14 +1,15 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
-import { FadeInDiv } from '../../Base/FadeInDiv';
+import neighborsButton from '../../../assets/NeighborsButton.png';
 
 interface IZoomOutButtonProps {
 	onClick: VoidFunction;
 	shouldRender: boolean;
 }
 
-export const ButtonWrapper = styled.div`
-	height: 13.2px;
+const ButtonWrapper = styled.img`
+	height: 13px;
+	width: 42px;
 	position: absolute;
 	box-sizing: border-box;
 	background: white;
@@ -24,10 +25,10 @@ export const ButtonWrapper = styled.div`
 	top: 42px;
 	-webkit-box-shadow: 0 3px 14px -2px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 3px 14px -2px rgba(0, 0, 0, 0.5);
-	transition: all 0.2s;
+	transition: all 0.19s;
 
 	&:hover {
-		background: rgba(230, 230, 235);
+		background: rgba(230, 230, 235, 0.1);
 		cursor: pointer;
 	}
 `;
@@ -36,6 +37,7 @@ export const ZoomOutButton: FC<IZoomOutButtonProps> = ({
 	onClick,
 	shouldRender,
 }) => {
+
 	const handleClick = useCallback(
 		(event: any) => {
 			event.preventDefault();
@@ -49,5 +51,8 @@ export const ZoomOutButton: FC<IZoomOutButtonProps> = ({
 		return null;
 	}
 
-	return <ButtonWrapper onClick={handleClick}>{'click me'}</ButtonWrapper>;
+	return (	
+	<ButtonWrapper src={neighborsButton} onClick={handleClick}>
+	</ButtonWrapper>
+	);
 };
