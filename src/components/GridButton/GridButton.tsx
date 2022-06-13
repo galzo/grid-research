@@ -4,23 +4,35 @@ import { GridActionButton } from './GridActionButtons';
 
 const GridButtonContainer = styled.div`
 	top: 18px;
-  right: 40px;
+	right: 40px;
 	margin: auto;
-  z-index:5; 
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+	z-index: 5;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
 `;
 interface IGridButtonProps {
-  openPageHandler: () => void;
+	onOpenIntroPage: VoidFunction;
+	onShuffleAlbum: VoidFunction;
 }
 
-export const GridButton: FC<IGridButtonProps> =({openPageHandler})=>{
-  return(
-    <GridButtonContainer>
-      <GridActionButton icon={'shuffle'} text={'Random album'} onClick={()=>"void" }/>
-      <GridActionButton icon={'info'} text={'About the project'} onClick={openPageHandler} />
-    </GridButtonContainer>
-  )
-}
+export const GridButton: FC<IGridButtonProps> = ({
+	onOpenIntroPage,
+	onShuffleAlbum,
+}) => {
+	return (
+		<GridButtonContainer>
+			<GridActionButton
+				icon={'shuffle'}
+				text={'Random album'}
+				onClick={onShuffleAlbum}
+			/>
+			<GridActionButton
+				icon={'info'}
+				text={'About the project'}
+				onClick={onOpenIntroPage}
+			/>
+		</GridButtonContainer>
+	);
+};

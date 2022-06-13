@@ -6,6 +6,6 @@ export interface ISelectedAlbumProps {
 	albumPosition?: GridItemPosition;
 	onDismiss: VoidFunction;
 	onSelect: (album: AlbumData) => void;
-	onShuffle: (albumIds: AlbumId[]) => void;
+	onShuffle: VoidFunction;
 	allAlbums: Record<AlbumId, AlbumData>;
 }

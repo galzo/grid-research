@@ -23,21 +23,6 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 }) => {
 	const { toggleVideoPlay } = useContext(YoutubePlayerContext);
 
-	// const similarAlbums = useMemo(() => {
-	// 	if (!selectedAlbum || !allAlbums) return [];
-	// 	return resolveSimilarAlbums(allAlbums, selectedAlbum);
-	// }, [selectedAlbum, allAlbums]);
-
-	const shuffleSimilarAlbum = useCallback(() => {
-		
-		const albumIds =
-		selectedAlbum?.similarAlbums
-				.map((albumId) => albumId)
-				.filter((id) => id !== selectedAlbum?.id) ?? [];
-
-		onShuffle(albumIds);
-	}, [onShuffle, selectedAlbum?.id, selectedAlbum?.similarAlbums]);
-
 	useEffect(() => {
 		const handleKeyboard = (event: any) => {
 			// Escape button click
@@ -60,15 +45,14 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	if (!selectedAlbum || !albumPosition) return null;
 
 	// get similar albums
-	const similarAlbums = selectedAlbum?.similarAlbums.map(id => allAlbums[id]);
+	const similarAlbums = selectedAlbum?.similarAlbums.map(
+		(id) => allAlbums[id],
+	);
 	console.log(selectedAlbum);
 
 	return (
 		<OverlayWrapper>
-			<AlbumHeader
-				onCloseClick={onDismiss}
-				onShuffleClick={shuffleSimilarAlbum}
-			/>
+			<AlbumHeader onCloseClick={onDismiss} onShuffleClick={onShuffle} />
 			<AlbumContent>
 				<AlbumImage album={selectedAlbum} position={albumPosition} />
 				<AlbumDetails album={selectedAlbum} />
