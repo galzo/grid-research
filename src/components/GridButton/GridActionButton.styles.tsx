@@ -23,7 +23,7 @@ export const ButtonWrapper = styled(FadeInDiv)`
 	user-select: none;
   font-size: 18px;
   letter-spacing: 8%;
-	color: #ffffff;
+	color: #262626;
 	font-weight: 400;
 	font-family: 'Gotham-medium';
 	margin-bottom: 10px;
@@ -40,13 +40,13 @@ export const ButtonWrapper = styled(FadeInDiv)`
 		font-size: 12px;
 		flex: none;
 		font-weight: 500;
-		margin-top: 6px;
+		margin-top: 8px;
 		color: #262626;
 		transition: all 200ms 200ms ease-in-out;
 	}
 
 	&:hover {
-		width: 136px;
+		width: 177px;
 		background: #ffffff;
 		box-shadow: 7.86885px 7.86885px 3.93443px rgba(0, 0, 0, 0.5);
 		cursor: pointer;
