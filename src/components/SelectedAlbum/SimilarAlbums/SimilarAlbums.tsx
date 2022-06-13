@@ -14,13 +14,12 @@ export const SimilarAlbums: FC<ISimilarAlbumsProps> = ({
 	onClick,
 }) => {
 	const [showGraphicOverview, setShowGraphicOverview] = useState(false);
-
 	const handleClickShowGraphicOverview = useCallback(() => {
 		setShowGraphicOverview(!showGraphicOverview);
 	}, [showGraphicOverview]);
 
 	const AlbumComponents = useMemo(() => {
-		return albums.map((album, index) => {
+		return albums.slice(0, 10).map((album, index) => {
 			return (
 				<SimilarAlbum
 					album={album}

@@ -14,6 +14,7 @@ const ALBUMS_AMOUNT = 3567;
 export const App = () => {
 	const { isLoading, albums } = useAlbumsData(ALBUMS_AMOUNT);
 	const [ showOpenPage, setShowOpenPage ] = useState<boolean>(true);
+	const bestAlbumsNeighbors = ["aaab19e9-1836-41f4-8c07-5155a425bbd3", "0137cfe7-16fa-4413-9a44-15929edd03a3", "04dda6c4-bd4b-4230-bc5c-dcf3cbc48ecc"];
 
 	if (isLoading) {
 		return <GridLoader />;
@@ -32,7 +33,7 @@ export const App = () => {
 			<YoutubePlayerContextProvider>
 				<OpenPage isShown={showOpenPage}/>
 				<GridButton openPageHandler={() => openPageHandler()}/>
-				<AlbumsGrid albums={albums} tileSize={TILE_SIZE}/>
+				<AlbumsGrid albums={albums} tileSize={TILE_SIZE} bestAlbumsNeighbors={bestAlbumsNeighbors}/>
 			</YoutubePlayerContextProvider>
 		</div>
 	);

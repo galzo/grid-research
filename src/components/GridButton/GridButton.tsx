@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { GridActionButton } from './GridActionButtons';
 
-
 const GridButtonContainer = styled.div`
 	top: 18px;
   right: 40px;
@@ -20,7 +19,7 @@ interface IGridButtonProps {
 export const GridButton: FC<IGridButtonProps> =({openPageHandler})=>{
   return(
     <GridButtonContainer>
-      <GridActionButton icon={'shuffle'} text={'Random album'} onClick={() => "void" }/>
+      <GridActionButton icon={'shuffle'} text={'Random album'} onClick={()=>"void" }/>
       <GridActionButton icon={'home'} text={'home'} onClick={openPageHandler} />
     </GridButtonContainer>
   )

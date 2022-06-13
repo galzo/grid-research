@@ -26,6 +26,7 @@ import { YoutubePlayerContext } from '../YoutubePlayer/YoutubePlayerContext';
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,
 	tileSize = DEFAULT_GRID_TILE_SIZE,
+	bestAlbumsNeighbors
 }) => {
 	const [isZoomedOut, setIsZoomedOut] = useState(false);
 	const { focusedAlbum, handleFocusAlbum } = useFocusAlbum(isZoomedOut);
@@ -72,8 +73,9 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 				return;
 			}
 
-			const randomAlbumId = shuffle(albumIds)[0];
+			const randomAlbumId = shuffle(bestAlbumsNeighbors)[0];
 			const randomAlbum = albums[randomAlbumId];
+			console.log(randomAlbum);
 			handleSelectRelatedAlbum(randomAlbum);
 		},
 		[albums, handleSelectRelatedAlbum],
