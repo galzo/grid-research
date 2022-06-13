@@ -62,5 +62,4 @@ export interface Album {
 
 export interface AlbumData extends Album {
 	image?: string;
-	similarAlbums: AlbumId[];
 }

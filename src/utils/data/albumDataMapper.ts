@@ -4,11 +4,17 @@ export const buildAlbumDataMapping = (
 	albums: Album[],
 	albumImages: AlbumImage[],
 ): Record<AlbumId, AlbumData> => {
+	const allAlbumIds = albums.map((album) => album.id);
+
 	return albums.reduce<Record<AlbumId, AlbumData>>((res, album) => {
+		const validSimilarAlbums = album.similarAlbums.filter(
+			(similarAlbumId) => allAlbumIds.includes(similarAlbumId),
+		);
+
 		const albumData = {
 			...album,
+			similarAlbums: validSimilarAlbums,
 			image: albumImages.find((image) => album.id === image.id)?.image,
-			similarAlbums: [],
 		};
 
 		return {
