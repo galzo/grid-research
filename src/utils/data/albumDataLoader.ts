@@ -31,7 +31,7 @@ const adaptAlbum = (id: AlbumId, albumData: any): Album => {
 export const fetchAlbums = async (
 	limitAlbumsCount?: number,
 ): Promise<Album[]> => {
-	const albumsJson = await import('../../assets/albumsData.json');
+	const albumsJson = await import('../../assets/db_dump_ns.json');
 	const albums = Object.entries(albumsJson).map(([id, album]) => {
 		return adaptAlbum(id, album);
 	});
