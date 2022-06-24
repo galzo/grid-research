@@ -40,7 +40,6 @@ export const ButtonWrapper = styled(FadeInDiv)`
 		font-size: 12px;
 		flex: none;
 		font-weight: 500;
-		margin-top: 8px;
 		color: #262626;
 		transition: all 200ms 200ms ease-in-out;
 	}
