@@ -1,4 +1,12 @@
-import { FC, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+	FC,
+	memo,
+	useCallback,
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+} from 'react';
 import { IAlbumItemProps } from './AlbumItem.types';
 import {
 	AlbumItemContainer,
@@ -26,7 +34,7 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 	itemSize,
 	isGridZoomedOut,
 }) => {
-	console.log("rendering album", album.id);
+	console.log('rendering album', album.id);
 
 	const ref = useRef<any>(null);
 	const [albumImage, setAlbumImage] = useState(album.image);
