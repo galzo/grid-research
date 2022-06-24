@@ -25,32 +25,14 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 		useContext(YoutubePlayerContext);
 
 	useEffect(() => {
-		if (selectedAlbum && setVideoId) {
-			if (selectedAlbum.youtubeId !== videoId) {
-				setVideoId(selectedAlbum.youtubeId);
-			}
-		}
-	}, [selectedAlbum, setVideoId, toggleVideoPlay, videoId]);
-
-	useEffect(() => {
-		let timeout: any;
 		if (
 			selectedAlbum &&
-			videoId &&
-			selectedAlbum.youtubeId === videoId &&
-			!isPlaying
+			setVideoId &&
+			selectedAlbum.youtubeId !== videoId
 		) {
-			timeout = setTimeout(() => {
-				toggleVideoPlay();
-			}, 1000);
+			setVideoId(selectedAlbum.youtubeId);
 		}
-
-		return () => {
-			if (timeout) {
-				clearTimeout(timeout);
-			}
-		};
-	}, [isPlaying, selectedAlbum, toggleVideoPlay, videoId]);
+	}, [selectedAlbum, setVideoId, toggleVideoPlay, videoId]);
 
 	useEffect(() => {
 		const handleKeyboard = (event: any) => {

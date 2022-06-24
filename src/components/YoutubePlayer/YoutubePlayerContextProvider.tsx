@@ -53,6 +53,14 @@ export const YoutubePlayerContextProvider: FC<IYoutubePlayerProps> = ({
 		[pauseVideo],
 	);
 
+	useEffect(() => {
+		if (currentVideoId && playVideo) {
+			setTimeout(() => {
+				playVideo();
+			}, 300);
+		}
+	}, [currentVideoId, playVideo]);
+
 	return (
 		<YoutubePlayerContext.Provider
 			value={{
