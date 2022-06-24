@@ -9,7 +9,7 @@ import {
 } from 'react';
 import styled from 'styled-components';
 import { shuffle } from 'lodash';
-import { AlbumItem } from './AlbumItem/AlbumItem';
+import { AlbumItem, MemoizedAlbumItem } from './AlbumItem/AlbumItem';
 import { Album, AlbumData, AlbumId } from '../../common/dataTypes';
 import { IAlbumsGridProps } from './AlbumsGrid.types';
 import {
@@ -53,19 +53,15 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 
 	const handleClickGridAlbum = useCallback(
 		(album: AlbumData, position: GridItemPosition) => {
-			const shouldSelectAlbum = isZoomedOut
-				? isFocusedOrSimilar(album, focusedAlbum)
-				: true;
-			if (shouldSelectAlbum) {
-				handleFocusAlbum(undefined);
-				setSelectedAlbum(album);
-				setSelectedPosition(position);
-				setVideoId(album.youtubeId);
-			}
-
+			// const shouldSelectAlbum = isZoomedOut
+			// 	? isFocusedOrSimilar(album, focusedAlbum)
+			// 	: true;
+			handleFocusAlbum(undefined);
+			setSelectedAlbum(album);
+			setSelectedPosition(position);
 			setIsZoomedOut(false);
 		},
-		[focusedAlbum, handleFocusAlbum, isZoomedOut, setVideoId],
+		[handleFocusAlbum],
 	);
 
 	const handleSelectRelatedAlbum = useCallback(
@@ -111,7 +107,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 		const albumItems = albumItemsSort.map((album, index) => {
 			const focus = resolveFocusDetails(album, focusedAlbum);
 			return (
-				<AlbumItem
+				<MemoizedAlbumItem
 					key={album.id}
 					album={album}
 					albumIndex={index}

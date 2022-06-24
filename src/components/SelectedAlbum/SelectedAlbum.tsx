@@ -21,7 +21,36 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	onSelect,
 	onShuffle,
 }) => {
-	const { toggleVideoPlay } = useContext(YoutubePlayerContext);
+	const { setVideoId, toggleVideoPlay, videoId, isPlaying } =
+		useContext(YoutubePlayerContext);
+
+	useEffect(() => {
+		if (selectedAlbum && setVideoId) {
+			if (selectedAlbum.youtubeId !== videoId) {
+				setVideoId(selectedAlbum.youtubeId);
+			}
+		}
+	}, [selectedAlbum, setVideoId, toggleVideoPlay, videoId]);
+
+	useEffect(() => {
+		let timeout: any;
+		if (
+			selectedAlbum &&
+			videoId &&
+			selectedAlbum.youtubeId === videoId &&
+			!isPlaying
+		) {
+			timeout = setTimeout(() => {
+				toggleVideoPlay();
+			}, 1000);
+		}
+
+		return () => {
+			if (timeout) {
+				clearTimeout(timeout);
+			}
+		};
+	}, [isPlaying, selectedAlbum, toggleVideoPlay, videoId]);
 
 	useEffect(() => {
 		const handleKeyboard = (event: any) => {
@@ -48,7 +77,6 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	const similarAlbums = selectedAlbum?.similarAlbums.map(
 		(id) => allAlbums[id],
 	);
-	console.log(selectedAlbum);
 
 	return (
 		<OverlayWrapper>

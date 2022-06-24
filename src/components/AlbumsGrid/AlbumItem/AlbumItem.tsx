@@ -1,9 +1,10 @@
-import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { FC, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { IAlbumItemProps } from './AlbumItem.types';
 import {
 	AlbumItemContainer,
 	AlbumItemImage,
 	AlbumItemPlaceholder,
+	MemoizedImage,
 } from './AlbumItem.styles';
 import { resolveGridItemClassName } from '../../../utils/ui/classNamesHandler';
 import { useDelayedRender } from '../../../hooks/useDelayedRender';
@@ -25,6 +26,8 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 	itemSize,
 	isGridZoomedOut,
 }) => {
+	console.log("rendering album", album.id);
+
 	const ref = useRef<any>(null);
 	const [albumImage, setAlbumImage] = useState(album.image);
 	const { shouldRender } = useDelayedRender(100);
@@ -32,18 +35,18 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 	const { shouldRenderButton } = useZoomButton(isFocused, isGridZoomedOut);
 	const { isVisible } = useIsVisible(ref);
 
-	useEffect(() => {
-		const fetchImageForFocus = async () => {
-			if (className === 'focus') {
-				const highResImage = await fetchImage(album.thumbnails.large);
-				setAlbumImage(highResImage);
-				return;
-			}
+	// useEffect(() => {
+	// 	const fetchImageForFocus = async () => {
+	// 		if (className === 'focus') {
+	// 			const highResImage = await fetchImage(album.thumbnails.large);
+	// 			setAlbumImage(highResImage);
+	// 			return;
+	// 		}
 
-			setAlbumImage(album.image);
-		};
-		fetchImageForFocus();
-	}, [album.image, album.thumbnails.large, className]);
+	// 		setAlbumImage(album.image);
+	// 	};
+	// 	fetchImageForFocus();
+	// }, [album.image, album.thumbnails.large, className]);
 
 	const handleHover = useCallback(() => {
 		onHover(album);
@@ -90,15 +93,16 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 				onClick={onZoomOut}
 				shouldRender={shouldRenderButton}
 			/>
-			<AlbumItemImage
+			<MemoizedImage
 				src={albumImage}
 				imageSize={itemSize}
 				alt={album.albumName}
 				onMouseEnter={handleHover}
 				onClick={handleClick}
 				className={className}
-				loading={'lazy'}
 			/>
 		</AlbumItemContainer>
 	);
 };
+
+export const MemoizedAlbumItem = memo(AlbumItem);
