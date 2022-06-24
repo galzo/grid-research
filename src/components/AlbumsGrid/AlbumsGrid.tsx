@@ -32,7 +32,7 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,
 	tileSize = DEFAULT_GRID_TILE_SIZE,
 }) => {
-	const [showIntroPage, setShowIntroPage] = useState(false);
+	const [showIntroPage, setShowIntroPage] = useState(true);
 	const [isZoomedOut, setIsZoomedOut] = useState(false);
 	const { focusedAlbum, handleFocusAlbum } = useFocusAlbum(isZoomedOut);
 	const [selectedAlbum, setSelectedAlbum] = useState<AlbumData>();

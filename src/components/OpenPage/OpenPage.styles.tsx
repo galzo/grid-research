@@ -73,9 +73,8 @@ export const FindGifImage = styled.img`
 
 
 export const ButtonWrapper = styled(FadeInDiv)`
-	height: 50px;
 	width: 210px;
-	padding: 18px;
+	padding: 14px;
 	box-sizing: border-box;
 	background: #ffffff;
 	border-radius: 50px;
