@@ -24,8 +24,7 @@ export const ButtonWrapper = styled(FadeInDiv)`
   font-size: 18px;
   letter-spacing: 8%;
 	color: #262626;
-	font-weight: 400;
-	font-family: 'Gotham-medium';
+	font-weight: 700;
 	margin-bottom: 10px;
 	overflow: hidden;
 	z-index: 5; 
@@ -39,7 +38,7 @@ export const ButtonWrapper = styled(FadeInDiv)`
 		opacity: 0;
 		font-size: 12px;
 		flex: none;
-		font-weight: 500;
+		font-weight: 600;
 		color: #262626;
 		transition: all 200ms 200ms ease-in-out;
 	}

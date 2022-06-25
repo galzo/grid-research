@@ -26,14 +26,12 @@ export const BoldTitle = styled.div`
   letter-spacing: 8%;
 	color: #ffffff;
 	font-weight: 400;
-	font-family: 'Gotham-book';
 	margin-bottom: 60px;
 `;
 
 export const BoldSubtitle = styled.div`
 	font-size: 16px;
 	color: #ffffff;
-	font-family: 'Gotham-bold';
   align-items: flex-end;
   letter-spacing: 8%;
   margin-right: 8px;
@@ -44,7 +42,6 @@ export const Subtitle = styled.div`
   letter-spacing: 8%;
 	color: #ffffff;
 	font-weight: 400;
-	font-family: 'Gotham-book';
 `;
 
 export const GifImage = styled.img`
@@ -88,8 +85,7 @@ export const ButtonWrapper = styled(FadeInDiv)`
   font-size: 16px;
   letter-spacing: 8%;
 	color: black;
-	font-weight: 400;
-	font-family: 'Gotham-medium';
+	font-weight: 600;
 	margin-bottom: 16px;
 
 	&:hover {
@@ -115,7 +111,6 @@ export const ButtonLearnMore = styled(FadeInDiv)`
   letter-spacing: 8%;
 	color: white;
 	font-weight: 400;
-	font-family: 'Gotham-medium';
 
 	&:hover {
 		opacity: 0.8;
