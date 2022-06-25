@@ -27,8 +27,8 @@ export const GridSimilarAlbumsTitle = styled.div<{isZoomedOut: boolean}> `
 	color: white;
 	top: -120px;
 	left: 40px;
-	font-size: 64px;
-	font-family: 'Gotham-medium';
+	font-size: 62px;
+	font-weight: 600;
 	transition: opacity 0.5s 1.25s;
 	opacity: ${({ isZoomedOut }) => isZoomedOut ? .85 : 0};
 

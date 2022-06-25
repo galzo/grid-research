@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import { FadeInImg } from '../../Base/FadeInImg';
 import { FadeInDiv } from '../../Base/FadeInDiv';
@@ -77,3 +78,5 @@ export const AlbumItemImage = styled(FadeInImg)<{
 	width: ${({ imageSize }) => `${imageSize}px`};
 	height: ${({ imageSize }) => `${imageSize}px`};
 `;
+
+export const MemoizedImage = React.memo(AlbumItemImage);

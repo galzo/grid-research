@@ -18,7 +18,6 @@ export const PlayButton = styled.img`
 `;
 
 export const SongName = styled.span`
-	font-family: 'Gotham-medium';
 	font-style: italic;
 	font-weight: 400;
 	font-size: 14px;

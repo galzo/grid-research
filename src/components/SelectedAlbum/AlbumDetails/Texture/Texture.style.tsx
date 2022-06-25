@@ -13,8 +13,8 @@ export const TextureTitle = styled.div`
 	font-weight: 400;
 	padding-top: 8px;
 	font-size: 14px;
-	font-family: 'Gotham-medium';
 	color: white;
+	font-weight: 700;
 	margin-right: 16px;
 `;
 

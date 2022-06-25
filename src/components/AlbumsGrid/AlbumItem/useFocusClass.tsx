@@ -6,28 +6,20 @@ export const useFocusClass = (isFocused: boolean, isRelated: boolean, isGridZoom
 	const [className, setClassname] = useState<FocusType>('none');
 
 	useEffect(() => {
-		let timeout: any;
-		const cssClass = resolveGridItemClassName(isFocused, isRelated);
-		const shouldDelayRender = cssClass === 'related';
+		// const cssClass = resolveGridItemClassName(isFocused, isRelated);
 
-		if (shouldDelayRender) {
-			timeout = setTimeout(() => {
-				setClassname(cssClass);
-			}, 1000);
-		} else {
-			setClassname(cssClass);
+		if (isFocused) {
+			setClassname("focus");
+			return;
 		}
 
-		if (!isGridZoomedOut && cssClass === 'related') {
-			setClassname('none');
+		if (isRelated && isGridZoomedOut) {
+			setClassname("related");
+			return;
 		}
 
-		return () => {
-			if (timeout) {
-				clearTimeout(timeout);
-			}
-		};
-	}, [className, isFocused, isRelated]);
+		setClassname('none');
+	}, [isFocused, isGridZoomedOut, isRelated]);
 
 	return {
 		className,

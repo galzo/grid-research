@@ -21,14 +21,17 @@ export const YoutubePlayerContextProvider: FC<IYoutubePlayerProps> = ({
 	const [currentVideoId, setCurrentVideoId] = useState('');
 
 	const pauseVideo = useCallback(() => {
+		if (!currentVideoId) return;
 		playerElement.pauseVideo();
 		setIsPlaying(false);
-	}, [playerElement]);
+	}, [currentVideoId, playerElement]);
 
 	const playVideo = useCallback(() => {
+		if (!currentVideoId) return;
+
 		playerElement.playVideo();
 		setIsPlaying(true);
-	}, [playerElement]);
+	}, [currentVideoId, playerElement]);
 
 	const handleVideoToggle = useCallback(() => {
 		if (!currentVideoId) {
@@ -52,7 +55,9 @@ export const YoutubePlayerContextProvider: FC<IYoutubePlayerProps> = ({
 
 	useEffect(() => {
 		if (currentVideoId && playVideo) {
-			playVideo();
+			setTimeout(() => {
+				playVideo();
+			}, 300);
 		}
 	}, [currentVideoId, playVideo]);
 
@@ -62,6 +67,7 @@ export const YoutubePlayerContextProvider: FC<IYoutubePlayerProps> = ({
 				isPlaying,
 				toggleVideoPlay: handleVideoToggle,
 				setVideoId: handleSelectVideoId,
+				videoId: currentVideoId,
 			}}
 		>
 			<YoutubePlayerWrapper>

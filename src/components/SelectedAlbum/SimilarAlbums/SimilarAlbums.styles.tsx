@@ -15,7 +15,6 @@ export const SimilarAlbumsTitle = styled.span`
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
-	font-family: 'Gotham-book';
 	color: rgba(255, 255, 255, 0.8);
 	margin-bottom: 25px;
 `;
@@ -24,7 +23,6 @@ export const SimilarAlbumArtistName = styled.div`
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 18px;
-	font-family: 'Gotham-book';
 	color: rgba(255, 255, 255, 0.8);
 	margin-top: 2px;
 `;
@@ -65,10 +63,9 @@ export const SimilarAlbumContainer = styled(FadeInDiv)`
 `;
 
 export const SimilarAlbumName = styled.div`
-	font-weight: 400;
+	font-weight: 600;
 	font-size: 14px;
 	line-height: 1.15em;
-	font-family: 'Gotham-bold';
 	color: white;
 `;
 
