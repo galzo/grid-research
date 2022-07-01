@@ -19,7 +19,7 @@ export const AlbumImage: FC<IAlbumImageProps> = ({ position, album }) => {
 
 	const targetPosition: GridItemPosition = useMemo(() => {
 		return {
-			top: 95,
+			top: 70,
 			bottom: 0,
 			right: 0,
 			left: windowWidth - 586 - 220,
