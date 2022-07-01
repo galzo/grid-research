@@ -43,18 +43,18 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 	const { shouldRenderButton } = useZoomButton(isFocused, isGridZoomedOut);
 	const { isVisible } = useIsVisible(ref);
 
-	// useEffect(() => {
-	// 	const fetchImageForFocus = async () => {
-	// 		if (className === 'focus') {
-	// 			const highResImage = await fetchImage(album.thumbnails.large);
-	// 			setAlbumImage(highResImage);
-	// 			return;
-	// 		}
+	useEffect(() => {
+		const fetchImageForFocus = async () => {
+			if (className === 'focus') {
+				const highResImage = await fetchImage(album.thumbnails.large);
+				setAlbumImage(highResImage);
+				return;
+			}
 
-	// 		setAlbumImage(album.image);
-	// 	};
-	// 	fetchImageForFocus();
-	// }, [album.image, album.thumbnails.large, className]);
+			setAlbumImage(album.image);
+		};
+		fetchImageForFocus();
+	}, [album.image, album.thumbnails.large, className]);
 
 	const handleHover = useCallback(() => {
 		onHover(album);
