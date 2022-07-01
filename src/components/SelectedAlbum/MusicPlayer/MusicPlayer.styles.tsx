@@ -8,7 +8,7 @@ export const MusicPlayerContainer = styled(FadeInDiv)`
 	justify-content: space-between;
 	align-items: center;
 	z-index: 6;
-	margin-top: 30px;
+	margin-top: 27px;
 `;
 
 export const PlayButton = styled.img`
