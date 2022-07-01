@@ -12,5 +12,5 @@ export const GraphicOverviewContainer = styled(FadeInDiv)`
 
 export const GraphicOverviewImage = styled.img`
 	width: 397px;
-	height: 397px;
+	height: 378px;
 `;
