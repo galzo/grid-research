@@ -8,6 +8,9 @@ export const GraphicOverviewContainer = styled(FadeInDiv)`
 	justify-content: center;
 	align-items: center;
 	margin-top: 70px;
+	@media (max-width: 1799px) {
+		transform: scale(0.8);
+	}
 `;
 
 export const GraphicOverviewImage = styled.img`

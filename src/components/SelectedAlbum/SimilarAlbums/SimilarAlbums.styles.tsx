@@ -57,7 +57,7 @@ export const SimilarAlbumContainer = styled(FadeInDiv)`
 	position: relative;
 	-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
 	box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
-	&:hover{
+	&:hover {
 		cursor: pointer;
 	}
 `;
@@ -70,37 +70,37 @@ export const SimilarAlbumName = styled.div`
 `;
 
 export const SimilarAlbumNameContainer = styled.div`
-	text-align: left ;
+	text-align: left;
 	line-height: 12px;
 	margin-top: 16px;
 	opacity: 0;
 	transition: all 0.2s;
-	
+
 	${SimilarAlbumContainer}:hover & {
 		opacity: 1;
 	}
 `;
 
-export const SimilarAlbumGraphic = styled.img<{isGraphic: boolean}>`
+export const SimilarAlbumGraphic = styled.img<{ isGraphic: boolean }>`
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	top:0;
-	left:0;
+	top: 0;
+	left: 0;
 	transform: scale(1.3);
-	opacity: ${({isGraphic}) => isGraphic ? '1' : '0'};
+	opacity: ${({ isGraphic }) => (isGraphic ? '1' : '0')};
 	transition: all 0.2s;
 	${SimilarAlbumContainer}:hover && {
-		opacity: ${({isGraphic}) => isGraphic ? '0' : '1'};
+		opacity: ${({ isGraphic }) => (isGraphic ? '0' : '1')};
 	}
 `;
 
-export const SimilarAlbumImage = styled.img<{isGraphic: boolean}>`
+export const SimilarAlbumImage = styled.img<{ isGraphic: boolean }>`
 	width: 100%;
 	height: 100%;
 	transition: all 0.2s;
-	opacity: ${({isGraphic}) => isGraphic ? '0' : '1'};
+	opacity: ${({ isGraphic }) => (isGraphic ? '0' : '1')};
 	${SimilarAlbumContainer}:hover && {
-		opacity: ${({isGraphic}) => isGraphic ? '1' : '0'};
+		opacity: ${({ isGraphic }) => (isGraphic ? '1' : '0')};
 	}
 `;

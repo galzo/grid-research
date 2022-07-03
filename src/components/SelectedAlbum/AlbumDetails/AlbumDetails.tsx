@@ -15,8 +15,8 @@ export const AlbumDetails: FC<IAlbumDetailsProps> = ({ album }) => {
 		<AlbumDetailsContainer>
 			<AlbumDetailsTitle album={album} />
 			<ColorContainer>
-			<AlbumColors album={album} />
-			<Texture/>
+				<AlbumColors album={album} />
+				<Texture />
 			</ColorContainer>
 			<GraphicOverview album={album} />
 		</AlbumDetailsContainer>

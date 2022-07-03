@@ -12,7 +12,7 @@ const resolveImageSize = (size: 'small' | 'large', isLargeWindow: boolean) => {
 		return '125px';
 	}
 
-	return isLargeWindow ? '580px' : '400px';
+	return isLargeWindow ? '580px' : '420px';
 };
 
 export const AlbumImageWrapper = styled.div<{

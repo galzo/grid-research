@@ -44,6 +44,7 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 			// Spacebar button click
 			if (event.keyCode === 32) {
 				toggleVideoPlay();
+				event.preventDefault();
 			}
 		};
 

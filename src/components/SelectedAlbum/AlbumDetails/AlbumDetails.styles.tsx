@@ -12,9 +12,12 @@ export const AlbumDetailsContainer = styled.div`
 `;
 
 export const ColorContainer = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 100%;
-align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	@media (max-width: 1799px) {
+		width: 85%;
+	}
+	width: 100%;
+	align-items: flex-start;
 `;
