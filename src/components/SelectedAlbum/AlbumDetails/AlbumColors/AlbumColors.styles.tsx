@@ -17,4 +17,9 @@ export const AlbumColorWrapper = styled.div<{ color: string }>`
 	height: 28px;
 	flex-grow: 0;
 	flex-shrink: 0;
+
+	@media (max-width: 1799px) {
+		width: 24px;
+		height: 24px;
+	}
 `;

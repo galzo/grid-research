@@ -7,8 +7,9 @@ export const SimilarAlbumsContainer = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	padding: 0 120px 50px 150px;
+	padding: 0 35px 50px 150px;
 	z-index: 6;
+	user-select: none;
 `;
 
 export const SimilarAlbumsTitle = styled.span`
@@ -17,6 +18,11 @@ export const SimilarAlbumsTitle = styled.span`
 	line-height: 22px;
 	color: rgba(255, 255, 255, 0.8);
 	margin-bottom: 25px;
+
+	@media (max-width: 1799px) {
+		font-size: 16px;
+		margin-bottom: 10px;
+	}
 `;
 
 export const SimilarAlbumArtistName = styled.div`
@@ -25,6 +31,10 @@ export const SimilarAlbumArtistName = styled.div`
 	line-height: 18px;
 	color: rgba(255, 255, 255, 0.8);
 	margin-top: 2px;
+
+	@media (max-width: 1799px) {
+		font-size: 12px;
+	}
 `;
 
 export const SimilarAlbumsLineContainer = styled.div`
@@ -45,12 +55,25 @@ export const SimilarAlbumPlaceholder = styled.div`
 	width: 108px;
 	height: 108px;
 	min-width: 119px;
+
+	@media (max-width: 1799px) {
+		width: 84px;
+		height: 84px;
+		min-width: 95px;
+	}
 `;
 
 export const SimilarAlbumContainer = styled(FadeInDiv)`
 	width: 104px;
 	height: 104px;
 	min-width: 115px;
+
+	@media (max-width: 1799px) {
+		width: 80px;
+		height: 80px;
+		min-width: 91px;
+	}
+
 	border: 1px solid rgba(255, 255, 255, 0.6);
 	background-size: contain;
 	z-index: 5;
@@ -67,6 +90,10 @@ export const SimilarAlbumName = styled.div`
 	font-size: 14px;
 	line-height: 1.15em;
 	color: white;
+
+	@media (max-width: 1799px) {
+		font-size: 12px;
+	}
 `;
 
 export const SimilarAlbumNameContainer = styled.div`
@@ -75,6 +102,10 @@ export const SimilarAlbumNameContainer = styled.div`
 	margin-top: 16px;
 	opacity: 0;
 	transition: all 0.2s;
+
+	@media (max-width: 1799px) {
+		margin-top: 6px;
+	}
 
 	${SimilarAlbumContainer}:hover & {
 		opacity: 1;

@@ -21,6 +21,12 @@ export const TextureTitle = styled.div`
 export const TextureImage = styled.img`
 	width: 28px;
 	height: 28px;
+
+	@media (max-width: 1799px) {
+		width: 24px;
+		height: 24px;
+	}
+
 	border: 1px solid #ffffff;
 	margin-right: 10px;
 	border-radius: 4px;

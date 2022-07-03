@@ -10,6 +10,7 @@ export const GraphicOverviewContainer = styled(FadeInDiv)`
 	margin-top: 70px;
 	@media (max-width: 1799px) {
 		transform: scale(0.8);
+		margin-top: 10px;
 	}
 `;
 

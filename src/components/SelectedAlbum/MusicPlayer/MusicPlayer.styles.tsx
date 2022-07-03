@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { FadeInDiv } from '../../Base/FadeInDiv';
 
 export const MusicPlayerContainer = styled(FadeInDiv)`
-	width: 580px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -29,6 +28,7 @@ export const SongName = styled.span`
 	text-overflow: ellipsis;
 	user-select: none;
 	opacity: 0.95;
+	margin-right: 12px;
 `;
 
 export const PlayerAnimation = styled.img`

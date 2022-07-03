@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useContext, useEffect, useMemo } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import {
 	OverlayBackground,
 	OverlayWrapper,
@@ -7,10 +7,8 @@ import {
 import { ISelectedAlbumProps } from './SelectedAlbum.types';
 import { SimilarAlbums } from './SimilarAlbums/SimilarAlbums';
 import { AlbumDetails } from './AlbumDetails/AlbumDetails';
-import { resolveSimilarAlbums } from '../../utils/data/albumDataMapper';
 import { AlbumImage } from './AlbumImage/AlbumImage';
 import { AlbumHeader } from './AlbumHeader/AlbumHeader';
-import { MusicPlayer } from './MusicPlayer/MusicPlayer';
 import { YoutubePlayerContext } from '../YoutubePlayer/YoutubePlayerContext';
 
 export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
@@ -21,7 +19,7 @@ export const SelectedAlbum: FC<ISelectedAlbumProps> = ({
 	onSelect,
 	onShuffle,
 }) => {
-	const { setVideoId, toggleVideoPlay, videoId, isPlaying } =
+	const { setVideoId, toggleVideoPlay, videoId } =
 		useContext(YoutubePlayerContext);
 
 	useEffect(() => {
