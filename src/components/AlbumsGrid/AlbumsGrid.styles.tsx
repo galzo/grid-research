@@ -25,9 +25,9 @@ export const GridWrapper = styled.div<{ size: number; isZoomedOut: boolean }>`
 export const GridSimilarAlbumsTitle = styled.div<{ isZoomedOut: boolean }>`
 	position: fixed;
 	color: white;
-	top: -120px;
+	top: -100px;
 	left: 40px;
-	font-size: 62px;
+	font-size: 58px;
 	font-weight: 600;
 	transition: opacity 0.5s 1.25s;
 	opacity: ${({ isZoomedOut }) => (isZoomedOut ? 0.85 : 0)};
