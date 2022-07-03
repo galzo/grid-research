@@ -7,11 +7,20 @@ export const AlbumImg = styled.img`
 	transition: all 1000ms ease-in-out;
 `;
 
+const resolveImageSize = (size: 'small' | 'large', isLargeWindow: boolean) => {
+	if (size === 'small') {
+		return '125px';
+	}
+
+	return isLargeWindow ? '580px' : '400px';
+};
+
 export const AlbumImageWrapper = styled.div<{
 	sourcePosition: GridItemPosition;
 	targetPosition: GridItemPosition;
 	size: 'small' | 'large';
 	image?: string;
+	isLargeWindow: boolean;
 }>`
 	position: absolute;
 	-webkit-box-shadow: 7px 7px 14px -8px rgba(0, 0, 0, 0.81);
@@ -39,8 +48,10 @@ export const AlbumImageWrapper = styled.div<{
 
 	border: 1px solid rgba(255, 255, 255, 0.6);
 	z-index: 9999;
-	width: ${({ size }) => (size === 'small' ? '125px' : '580px')};
-	height: ${({ size }) => (size === 'small' ? '125px' : '580px')};
+	width: ${({ size, isLargeWindow }) =>
+		resolveImageSize(size, isLargeWindow)};
+	height: ${({ size, isLargeWindow }) =>
+		resolveImageSize(size, isLargeWindow)};
 	transition: all 800ms;
 	transition-timing-function: ease;
 	transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);

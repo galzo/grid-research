@@ -10,7 +10,7 @@ import { MusicPlayer } from '../MusicPlayer/MusicPlayer';
 export const AlbumImage: FC<IAlbumImageProps> = ({ position, album }) => {
 	const { albumImage } = useHighResImage(album);
 	const [albumSize, setAlbumSize] = useState<'small' | 'large'>('small');
-	const { windowWidth } = useWindowWidth();
+	const { windowWidth, isLargeWindow } = useWindowWidth();
 
 	// Trigger item enlargemenet animation
 	useEffect(() => {
@@ -18,19 +18,22 @@ export const AlbumImage: FC<IAlbumImageProps> = ({ position, album }) => {
 	}, []);
 
 	const targetPosition: GridItemPosition = useMemo(() => {
+		const imageWidth = isLargeWindow ? 586 : 400;
+		const offset = isLargeWindow ? 220 : 110;
 		return {
 			top: 90,
 			bottom: 0,
 			right: 0,
-			left: windowWidth - 586 - 220,
+			left: windowWidth - imageWidth - offset,
 		};
-	}, [windowWidth]);
+	}, [isLargeWindow, windowWidth]);
 
 	return (
 		<AlbumImageWrapper
 			size={albumSize}
 			sourcePosition={position}
 			targetPosition={targetPosition}
+			isLargeWindow={isLargeWindow}
 		>
 			<AlbumImg src={albumImage} />
 			<MusicPlayer album={album} />

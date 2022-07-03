@@ -5,6 +5,7 @@ const parseUrl = (url: string): URL | undefined => {
 	try {
 		return new URL(url);
 	} catch (e) {
+		// eslint-disable-next-line no-console
 		console.error(`failed parsing youtube URL. ${url}`);
 		return undefined;
 	}
