@@ -1,13 +1,14 @@
 import React, { FC, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 import neighborsButton from '../../../assets/NeighborsButton.png';
+import { FadeInImg } from '../../Base/FadeInImg';
 
 interface IZoomOutButtonProps {
 	onClick: VoidFunction;
 	shouldRender: boolean;
 }
 
-const ButtonWrapper = styled.img`
+const ButtonWrapper = styled(FadeInImg)`
 	height: 13px;
 	width: 42px;
 	position: absolute;
@@ -37,7 +38,6 @@ export const ZoomOutButton: FC<IZoomOutButtonProps> = ({
 	onClick,
 	shouldRender,
 }) => {
-
 	const handleClick = useCallback(
 		(event: any) => {
 			event.preventDefault();
@@ -51,8 +51,10 @@ export const ZoomOutButton: FC<IZoomOutButtonProps> = ({
 		return null;
 	}
 
-	return (	
-	<ButtonWrapper src={neighborsButton} onClick={handleClick}>
-	</ButtonWrapper>
+	return (
+		<ButtonWrapper
+			src={neighborsButton}
+			onClick={handleClick}
+		></ButtonWrapper>
 	);
 };
