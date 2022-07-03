@@ -22,7 +22,7 @@ export const GridWrapper = styled.div<{ size: number; isZoomedOut: boolean }>`
 		`}
 `;
 
-export const GridSimilarAlbumsTitle = styled.div<{isZoomedOut: boolean}> `
+export const GridSimilarAlbumsTitle = styled.div<{ isZoomedOut: boolean }>`
 	position: fixed;
 	color: white;
 	top: -120px;
@@ -30,9 +30,15 @@ export const GridSimilarAlbumsTitle = styled.div<{isZoomedOut: boolean}> `
 	font-size: 62px;
 	font-weight: 600;
 	transition: opacity 0.5s 1.25s;
-	opacity: ${({ isZoomedOut }) => isZoomedOut ? .85 : 0};
+	opacity: ${({ isZoomedOut }) => (isZoomedOut ? 0.85 : 0)};
 
 	span {
 		opacity: 0.6;
 	}
+`;
+
+export const GridCloseZoombutton = styled.div`
+	position: fixed;
+	top: 10px;
+	left: 20px;
 `;

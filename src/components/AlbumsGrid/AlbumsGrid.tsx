@@ -20,13 +20,18 @@ import {
 	isFocusedOrSimilar,
 	resolveFocusDetails,
 } from '../../utils/ui/albumFocusHandler';
-import { GridSimilarAlbumsTitle, GridWrapper } from './AlbumsGrid.styles';
+import {
+	GridCloseZoombutton,
+	GridSimilarAlbumsTitle,
+	GridWrapper,
+} from './AlbumsGrid.styles';
 import { GridItemPosition } from '../../common/uiTypes';
 import { SelectedAlbum } from '../SelectedAlbum/SelectedAlbum';
 import { useFocusAlbum } from '../../hooks/useFocusAlbum';
 import { YoutubePlayerContext } from '../YoutubePlayer/YoutubePlayerContext';
 import { IntroductionPage } from '../OpenPage/OpenPage';
 import { GridButton } from '../GridButton/GridButton';
+import { ActionButton } from '../SelectedAlbum/ActionButton/ActionButton';
 
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,
@@ -53,9 +58,6 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 
 	const handleClickGridAlbum = useCallback(
 		(album: AlbumData, position: GridItemPosition) => {
-			// const shouldSelectAlbum = isZoomedOut
-			// 	? isFocusedOrSimilar(album, focusedAlbum)
-			// 	: true;
 			handleFocusAlbum(undefined);
 			setSelectedAlbum(album);
 			setSelectedPosition(position);
@@ -94,6 +96,21 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	const handleZoomOutClick = useCallback(() => {
 		setIsZoomedOut(true);
 		window.scrollTo(0, 300);
+	}, []);
+
+	useEffect(() => {
+		const handleKeyboard = (event: any) => {
+			// Escape button click
+			if (event.key === 'Escape') {
+				setIsZoomedOut(false);
+				event.preventDefault();
+			}
+		};
+
+		document.addEventListener('keydown', handleKeyboard, false);
+		return () => {
+			document.removeEventListener('keydown', handleKeyboard);
+		};
 	}, []);
 
 	const GridMatrix = useMemo(() => {
@@ -147,6 +164,16 @@ export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 				onOpenIntroPage={() => handleOpenIntroPage(true)}
 				onShuffleAlbum={handleShuffleAlbumFocus}
 			/>
+			{isZoomedOut && (
+				<GridCloseZoombutton>
+					<ActionButton
+						icon="close"
+						isSelected={false}
+						isFlat={true}
+						onClick={() => setIsZoomedOut(false)}
+					/>
+				</GridCloseZoombutton>
+			)}
 			<GridWrapper
 				ref={containerDivRef}
 				size={tileSize}
