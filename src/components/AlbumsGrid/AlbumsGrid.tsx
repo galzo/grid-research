@@ -32,6 +32,7 @@ import { YoutubePlayerContext } from '../YoutubePlayer/YoutubePlayerContext';
 import { IntroductionPage } from '../OpenPage/OpenPage';
 import { GridButton } from '../GridButton/GridButton';
 import { ActionButton } from '../SelectedAlbum/ActionButton/ActionButton';
+import {MobilePage} from '../MobilePage/MobilePage';
 
 export const AlbumsGrid: FC<IAlbumsGridProps> = ({
 	albums,

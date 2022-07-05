@@ -2,9 +2,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,15 +18,6 @@ code {
     monospace;
 }
 
-@font-face {
-  font-family: 'Gotham';
-  src: local("GothamBold"), url('./fonts/GothamBold.otf') format('trueType');
-}
-
-@font-face {
-  font-family: 'Gotham-light';
-  src: local("GothamLight"), url('./fonts/GothamLight.otf') format('trueType');
-}
 
 @keyframes fadeIn {
   0% {
