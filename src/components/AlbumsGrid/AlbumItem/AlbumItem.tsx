@@ -34,8 +34,6 @@ export const AlbumItem: FC<IAlbumItemProps> = ({
 	itemSize,
 	isGridZoomedOut,
 }) => {
-	console.log('rendering album', album.id);
-
 	const ref = useRef<any>(null);
 	const [albumImage, setAlbumImage] = useState(album.image);
 	const { shouldRender } = useDelayedRender(100);
