@@ -1,6 +1,4 @@
-import React, { FC, useState } from 'react';
-import styled from 'styled-components';
-import { FadeInDiv } from '../Base/FadeInDiv';
+import { FC } from 'react';
 import { OverlayWrapper, BoldTitle, ButtonWrapper, MobilePageContainer } from './MobilePage.styles';
 
 export const MobilePage: FC = () => {
