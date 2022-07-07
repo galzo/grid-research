@@ -5,6 +5,7 @@ export const AlbumImg = styled.img`
 	width: 100%;
 	height: 100%;
 	transition: all 1000ms ease-in-out;
+	user-select: none;
 `;
 
 const resolveImageSize = (size: 'small' | 'large', isLargeWindow: boolean) => {

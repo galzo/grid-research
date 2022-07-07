@@ -16,6 +16,7 @@ export const TextureTitle = styled.div`
 	color: white;
 	font-weight: 700;
 	margin-right: 16px;
+	user-select: none;
 `;
 
 export const TextureImage = styled.img`
@@ -35,4 +36,5 @@ export const TextureImage = styled.img`
 	-moz-animation: fadeIn 3s;
 	-o-animation: fadeIn 3s;
 	-ms-animation: fadeIn 3s;
+	user-select: none;
 `;

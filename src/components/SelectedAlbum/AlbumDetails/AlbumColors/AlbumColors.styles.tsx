@@ -6,6 +6,7 @@ export const AlbumColorsContainer = styled(FadeInDiv)`
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-start;
+	user-select: none;
 `;
 
 export const AlbumColorWrapper = styled.div<{ color: string }>`
@@ -17,6 +18,7 @@ export const AlbumColorWrapper = styled.div<{ color: string }>`
 	height: 28px;
 	flex-grow: 0;
 	flex-shrink: 0;
+	user-select: none;
 
 	@media (max-width: 1799px) {
 		width: 24px;

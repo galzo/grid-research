@@ -8,7 +8,7 @@ export const MusicPlayerContainer = styled(FadeInDiv)`
 	align-items: center;
 	z-index: 6;
 	margin-top: 27px;
-	@media (min-height: 2000px) {
+	@media only screen and (min-height: 2000px) {
 		margin-top: 15px;
 	}
 `;
@@ -18,6 +18,7 @@ export const PlayButton = styled.img`
 	margin-right: 14px;
 	width: 18px;
 	opacity: 0.8;
+	user-select: none;
 `;
 
 export const SongName = styled.span`
@@ -32,12 +33,14 @@ export const SongName = styled.span`
 	user-select: none;
 	opacity: 0.95;
 	margin-right: 12px;
+	user-select: none;
 `;
 
 export const PlayerAnimation = styled.img`
 	width: 270px;
 	height: 70px;
 	opacity: 0.8;
+	user-select: none;
 `;
 
 export const LeftSideContainer = styled.div`
