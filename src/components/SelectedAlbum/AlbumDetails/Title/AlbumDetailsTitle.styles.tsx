@@ -15,6 +15,7 @@ export const Title = styled.span`
 	font-weight: 700;
 	margin-bottom: 24px;
 	text-align: left;
+	user-select: none;
 
 	@media (max-width: 1799px) {
 		font-size: 28px;
@@ -26,6 +27,7 @@ export const Subtitle = styled.span`
 	font-size: 18px;
 	color: rgba(255, 255, 255, 0.8);
 	font-weight: 400;
+	user-select: none;
 
 	@media (max-width: 1799px) {
 		font-size: 16px;
