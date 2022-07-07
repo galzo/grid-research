@@ -8,7 +8,7 @@ export const MusicPlayerContainer = styled(FadeInDiv)`
 	align-items: center;
 	z-index: 6;
 	margin-top: 27px;
-	@media (min-height: 2000px) {
+	@media only screen and (min-height: 2000px) {
 		margin-top: 15px;
 	}
 `;
